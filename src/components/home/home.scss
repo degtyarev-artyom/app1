@@ -1,0 +1,45 @@
+@import 'src/styling/scss/mixins.scss';
+
+.Home {
+  &__title {
+    border-color: #b3ddb8;
+    margin: 0 0 15px 0;
+
+    @include max-width(768) {
+      @include flex-prop('margin-bottom', 768, 15, 425, 10);
+    }
+
+    @include max-width(425) {
+      margin: 0 0 15px 0;
+    }
+  }
+
+  &__navbar {
+    margin: 0 0 15px 0;
+
+    @include max-width(768) {
+      @include flex-prop('margin-bottom', 768, 15, 425, 10);
+    }
+
+    @include max-width(425) {
+      margin: 0 0 15px 0;
+    }
+  }
+
+  &__content {
+    flex: 1 0 auto;
+    padding: 15px 15px 15px 15px;
+    border: 4px solid #b3ddb8;
+
+    @include max-width(768) {
+      @include flex-prop('padding', 768, 15, 425, 10);
+    }
+
+    @include max-width(425) {
+      padding: 15px 0 0 0;
+      border-right: none; 
+      border-bottom: none; 
+      border-left: none;
+    }
+  }
+}

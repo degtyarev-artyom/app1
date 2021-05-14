@@ -1,0 +1,66 @@
+@import 'src/styling/scss/mixins.scss';
+
+.Navbar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+
+  @include max-width(768) {
+    grid-template-columns: repeat(2, 1fr);
+    @include flex-prop('grid-row-gap', 768, 15, 425, 10);
+    @include flex-prop('grid-column-gap', 768, 15, 425, 10);
+  }
+
+  @include max-width(425) {
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    user-select: none;
+    background: #e2e2e2;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+    text-decoration: none;
+    color: #000000;
+    text-align: center;
+
+    &:hover {
+      background: darken(#e2e2e2, 8%);
+      transition: none;
+    }
+
+    &--home {
+      &:hover {
+        background: #b3ddb8;
+      }
+  
+      &--active {
+        background: #b3ddb8;
+      }
+    }
+  
+    &--components {
+      &:hover {
+        background: #cdb6df;
+      }
+  
+      &--active {
+        background: #cdb6df;
+      }
+    }
+  
+    &--not-found {
+      &:hover {
+        background: #ffc3c3;
+      }
+  
+      &--active {
+        background: #ffc3c3;
+      }
+    }
+  }
+
+
+}

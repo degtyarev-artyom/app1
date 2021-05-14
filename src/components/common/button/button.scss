@@ -1,0 +1,33 @@
+.Button {
+  border: none;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  background: rgb(218, 218, 218);
+  color: #000000;
+
+  &--theme-green {
+    background: #b3ddb8;
+  }
+
+  &--theme-blue {
+    background: #b6d1fb;
+  }
+  
+  &--theme-red {
+    background: #ffc3c3;;
+  }
+  
+  &--theme-purple {
+    background: #cdb6df;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: default;
+  }
+  
+  &--pending {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
