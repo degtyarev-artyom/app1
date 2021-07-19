@@ -28,4 +28,9 @@
       @include flex-prop('margin-top', 768, 15, 425, 10);
     }
   }
+
+  &__button-clear {
+    margin: 15px 0 0 0;
+    width: 100%;
+  }
 }

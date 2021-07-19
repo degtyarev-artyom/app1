@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
+import { themes } from 'styling/themes'
 import './button.scss'
 
 export const Button = ({
@@ -26,12 +27,7 @@ export const Button = ({
 }
 
 export const ButtonProps = {
-  theme: {
-    green: 'green',
-    purple: 'purple',
-    blue: 'blue',
-    red: 'red',
-  },
+  theme: themes,
   size: {
     s: 's',
     m: 'm',

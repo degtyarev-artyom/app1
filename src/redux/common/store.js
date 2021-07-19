@@ -2,10 +2,12 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from './root-saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { reducerCounter } from './components/counter/reducer-counter'
+import { componentsReducer } from 'redux/pages/components/components-reducer'
+import { commonReducer } from './common-reducer'
 
 const reducers = combineReducers({
-  counter: reducerCounter,
+  common: commonReducer,
+  components: componentsReducer,
 })
 
 const sagaMiddleware = createSagaMiddleware()

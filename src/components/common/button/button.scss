@@ -9,6 +9,10 @@
     background: #b3ddb8;
   }
 
+  &--theme-purple {
+    background: #cdb6df;
+  }
+
   &--theme-blue {
     background: #b6d1fb;
   }
@@ -17,10 +21,6 @@
     background: #ffc3c3;;
   }
   
-  &--theme-purple {
-    background: #cdb6df;
-  }
-
   &[disabled] {
     opacity: 0.5;
     cursor: default;

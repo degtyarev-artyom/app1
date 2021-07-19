@@ -1,8 +1,8 @@
-import classNames from "classnames"
-import { Navbar } from "components/common/navbar/navbar"
-import { Title } from "components/common/title/title"
+import classNames from 'classnames'
+import { Navbar } from 'components/common/navbar/navbar'
+import { Title } from 'components/common/title/title'
 import './components.scss'
-import { Counter } from "./counter/counter"
+import { Counter } from './counter/counter'
 
 export const Components = ({
   externalClass,
