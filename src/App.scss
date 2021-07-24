@@ -35,4 +35,10 @@ body {
   @include max-width(425) {
     padding: 15px 10px 10px 10px;
   }
+
+  &__home,
+  &__components,
+  &__not-found {
+    flex: 1 0 auto;
+  }
 }

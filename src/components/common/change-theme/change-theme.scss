@@ -7,90 +7,30 @@
   margin: 0 0 3px 0;
 
   &__item {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     margin: 0 2px 0 0;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 2px solid #ffffff;
+    transition: border-color 0.3s ease;
   
-    &:last-childe {
+    &:last-child {
       margin: 0 0 0 0;
+    }
+
+    &--active {
+      border-color: #a1a1a1;
     }
   
     &--default {
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      border: none;
   
       & > * {
         width: 100%;
         height: 20%;
-      }
-
-      &--active {
-        border: 2px solid #85a789;
-      }
-  
-      &--green {
-        background: #b3ddb8;
-      }
-      
-      &--purple {
-        background: #cdb6df;
-      }
-  
-      &--blue {
-        background: #b6d1fb;
-      }
-  
-      &--red {
-        background: #ffc3c3;
-      }
-  
-      &--orange {
-        background: #ffca84;
-      }
-    }
-  
-    &--green {
-      background: #b3ddb8;
-  
-      &--active {
-        border-color: #85a789;
-      }
-    }
-  
-    &--purple {
-      background: #cdb6df;
-  
-      &--active {
-        border-color: #9b88aa;
-      }
-    }
-  
-    &--blue {
-      background: #b6d1fb;
-  
-      &--active {
-        border-color: #8194b3;
-      }
-    }
-  
-    &--red {
-      background: #ffc3c3;
-  
-      &--active {
-        border-color: #b47878;
-      }
-    }
-  
-    &--orange {
-      background: #ffca84;
-  
-      &--active {
-        border-color: #a7722c;
       }
     }
   }

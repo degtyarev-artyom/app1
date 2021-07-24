@@ -25,19 +25,5 @@
     }
   }
 
-  &__content {
-    flex: 1 0 auto;
-    padding: 15px 15px 15px 15px;
-
-    @include max-width(768) {
-      @include flex-prop('padding', 768, 15, 425, 10);
-    }
-
-    @include max-width(425) {
-      padding: 15px 0 0 0;
-      border-right: none; 
-      border-bottom: none; 
-      border-left: none;
-    }
-  }
+  &__content {}
 }
