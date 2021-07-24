@@ -25,6 +25,7 @@ export const ChangeTheme = ({
         <div className="ChangeTheme__item--default--purple"/>
         <div className="ChangeTheme__item--default--blue"/>
         <div className="ChangeTheme__item--default--red"/>
+        <div className="ChangeTheme__item--default--orange"/>
       </div>
       <div
         className={classNames('ChangeTheme__item ChangeTheme__item--green', {
@@ -49,6 +50,12 @@ export const ChangeTheme = ({
           'ChangeTheme__item--red--active': currentTheme === 'red', 
         })}
         onClick={() => dispatch(commonActions.setTheme(themes.red))}
+      />
+      <div
+        className={classNames('ChangeTheme__item ChangeTheme__item--orange', {
+          'ChangeTheme__item--orange--active': currentTheme === 'orange', 
+        })}
+        onClick={() => dispatch(commonActions.setTheme(themes.orange))}
       />
     </div>
   )

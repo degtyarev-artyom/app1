@@ -5,9 +5,7 @@
   font-size: 25px;
   border: 4px solid #e2e2e2;
   padding: 3px 15px 5px 15px;
-
-  
-
+  transition: border-color 0.3s ease;
 
   @include max-width(1024) {
     @include flex-prop('font-size', 1024, 25, 768, 20);

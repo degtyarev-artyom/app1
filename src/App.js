@@ -12,7 +12,7 @@ import { ChangeTheme } from 'components/common/change-theme/change-theme';
 const App = () => {
   const dispatch = useDispatch();
 
-  const themeIsInstalled = useMemo(() => {
+  useMemo(() => {
     const themeStorage = localStorage.getItem('theme')
     if (!themeStorage) {
       localStorage.setItem('theme', themes.default)
@@ -24,9 +24,7 @@ const App = () => {
 
   return (
     <div className="App">
-      
       <ChangeTheme />
-
       <Router>
         <Switch>
           <Route exact path="/">

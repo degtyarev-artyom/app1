@@ -1,10 +1,20 @@
 import classNames from 'classnames'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { commonSelectors } from 'redux/common/common-selectors'
+import { getTheme, colors, themes } from 'styling/themes'
 import './navbar.scss'
+import { getDynamicStyles } from './navbar-styles'
 
 export const Navbar = ({
   externalClass,
 }) => {
+  const dynamicStyles = getDynamicStyles(colors)
+  const currentTheme = useSelector(commonSelectors.currentTheme)
+  const themeHome = getTheme(currentTheme, themes.green)
+  const themeComponents = getTheme(currentTheme, themes.purple)
+  const themeNotFound = getTheme(currentTheme, themes.red)
+  
   return (
     <div className={classNames('Navbar', {
       [externalClass]: externalClass,
@@ -12,8 +22,8 @@ export const Navbar = ({
 
       {/* home */}
       <NavLink
-        className="Navbar__item Navbar__item--home"
-        activeClassName="Navbar__item--home--active"
+        className={`Navbar__item Navbar__item--${themeHome}`}
+        activeClassName={`Navbar__item--active Navbar__item--${themeHome}--active`}
         exact
         to="/"
       >
@@ -22,8 +32,8 @@ export const Navbar = ({
 
       {/* components */}
       <NavLink
-        className="Navbar__item Navbar__item--components"
-        activeClassName="Navbar__item--components--active"
+        className={`Navbar__item Navbar__item--${themeComponents}`}
+        activeClassName={`Navbar__item--active Navbar__item--${themeComponents}--active`}
         to="/components"
       >
         Components
@@ -31,12 +41,13 @@ export const Navbar = ({
 
       {/* not-found */}
       <NavLink
-        className="Navbar__item Navbar__item--not-found"
-        activeClassName="Navbar__item--not-found--active"
+        className={`Navbar__item Navbar__item--${themeNotFound}`}
+        activeClassName={`Navbar__item--active Navbar__item--${themeNotFound}--active`}
         to="/not-found"
       >
         Not found
       </NavLink>
+      <style jsx>{ dynamicStyles }</style>
     </div>
   )
 }

@@ -1,9 +1,9 @@
 import classNames from 'classnames'
-import './title.scss'
-import { getDynamicStyles } from './title-styles'
+import './content.scss'
+import { getDynamicStyles } from './content-styles'
 import { colors, themes } from 'styling/themes'
 
-export const Title = ({
+export const Content = ({
   externalClass,
   theme,
   children,
@@ -13,9 +13,9 @@ export const Title = ({
 
   return (
     <div
-      className={classNames('Title', {
+      className={classNames('Content', {
         [externalClass]: externalClass,
-        [`Title--theme-${theme}`]: theme,
+        [`Content--theme-${theme}`]: theme,
       })}
       {...rest}
     >
@@ -25,6 +25,6 @@ export const Title = ({
   )
 }
 
-export const TitleProps = {
+export const ContentProps = {
   theme: themes,
 }

@@ -2,7 +2,6 @@
 
 .NotFound {
   &__title {
-    border-color: #ffc3c3;
     margin: 0 0 15px 0;
 
     @include max-width(768) {
@@ -28,7 +27,6 @@
 
   &__content {
     padding: 15px 15px 15px 15px;
-    border: 4px solid #ffc3c3;
     flex: 1 0 auto;
     display: flex;
     justify-content: center;

@@ -21,46 +21,13 @@
     background: #e2e2e2;
     padding: 10px 15px 10px 15px;
     cursor: pointer;
-    transition: background 0.5s ease;
+    transition: background 0.3s ease;
     text-decoration: none;
     color: #000000;
     text-align: center;
 
-    &:hover {
-      background: darken(#e2e2e2, 8%);
-      transition: none;
-    }
-
-    &--home {
-      &:hover {
-        background: #b3ddb8;
-      }
-  
-      &--active {
-        background: #b3ddb8;
-      }
-    }
-  
-    &--components {
-      &:hover {
-        background: #cdb6df;
-      }
-  
-      &--active {
-        background: #cdb6df;
-      }
-    }
-  
-    &--not-found {
-      &:hover {
-        background: #ffc3c3;
-      }
-  
-      &--active {
-        background: #ffc3c3;
-      }
+    &--active {
+      background: #b1b1b1;
     }
   }
-
-
 }

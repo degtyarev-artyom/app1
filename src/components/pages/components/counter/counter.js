@@ -5,6 +5,7 @@ import { componentsSelectors } from 'redux/pages/components/components-selectors
 import { componentsActions } from 'redux/pages/components/components-actions'
 import './counter.scss'
 import { commonSelectors } from 'redux/common/common-selectors'
+import { getTheme } from 'styling/themes'
 
 export const Counter = ({
   externalClass,
@@ -22,7 +23,7 @@ export const Counter = ({
         <Button
           externalClass="Counter__button"
           onClick={() => dispatch(componentsActions.counterIncrementAsync())}
-          theme={currentTheme === 'default' ? ButtonProps.theme.green : currentTheme}
+          theme={getTheme(currentTheme, ButtonProps.theme.green)}
         >
           Increment after second
         </Button>
@@ -31,7 +32,7 @@ export const Counter = ({
         <Button
           externalClass="Counter__button"
           onClick={() => dispatch(componentsActions.counterIncrement())}
-          theme={currentTheme === 'default' ? ButtonProps.theme.blue : currentTheme}
+          theme={getTheme(currentTheme, ButtonProps.theme.blue)}
         >
           Increment
         </Button>
@@ -40,7 +41,7 @@ export const Counter = ({
         <Button
           externalClass="Counter__button"
           onClick={() => dispatch(componentsActions.counterDecrement())}
-          theme={currentTheme === 'default' ? ButtonProps.theme.red : currentTheme}
+          theme={getTheme(currentTheme, ButtonProps.theme.red)}
         >
           Decrement
         </Button>
