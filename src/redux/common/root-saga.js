@@ -40,7 +40,7 @@ function* watchActions() {
 }
 
 function* setTheme({ theme }) {
-  localStorage.setItem('theme', theme)
+  yield call(() => localStorage.setItem('theme', theme))
 }
 
 function* watchSetTheme() {

@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { Content, ContentProps } from 'components/common/content/content'
+import { Content } from 'components/common/content/content'
 import { Navbar } from 'components/common/navbar/navbar'
 import { Title } from 'components/common/title/title'
 import { useSelector } from 'react-redux'

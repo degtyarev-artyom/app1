@@ -20,7 +20,7 @@ const App = () => {
       dispatch(commonActions.setTheme(themeStorage))
     }
     return true
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="App">
