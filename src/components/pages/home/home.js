@@ -27,7 +27,7 @@ export const Home = ({
         externalClass="Home__content"
         theme={getTheme(currentTheme, ContentProps.theme.green)}
       >
-        {'Content => Home'}
+        <div className="Home__content-home">🏠</div>
       </Content>
     </div>
   )

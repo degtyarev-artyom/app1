@@ -1,4 +1,7 @@
 import css from 'styled-jsx/css'
+import { themes } from 'styling/themes'
+
+const colorsCount = Object.entries(themes).length - 1
 
 export const getDynamicStyles = (colors) => {
   return css`
@@ -7,6 +10,11 @@ export const getDynamicStyles = (colors) => {
     .ChangeTheme {
       &__item {
         &--default {
+
+          & > * {
+            height: calc(100% / ${colorsCount});
+          }
+
           &--green {
             background: ${colors.green};
           }
@@ -25,6 +33,10 @@ export const getDynamicStyles = (colors) => {
       
           &--orange {
             background: ${colors.orange};
+          }
+      
+          &--grey {
+            background: ${colors.grey};
           }
         }
 
@@ -46,6 +58,10 @@ export const getDynamicStyles = (colors) => {
       
         &--orange {
           background: ${colors.orange};
+        }
+      
+        &--grey {
+          background: ${colors.grey};
         }
       }
     }

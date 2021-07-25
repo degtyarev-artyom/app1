@@ -56,7 +56,7 @@ export const Counter = ({
       <Button
         externalClass="Counter__button-clear"
         onClick={() => dispatch(componentsActions.counterClear())}
-        theme={currentTheme === 'default' ? ButtonProps.theme.purple : currentTheme}
+        theme={getTheme(currentTheme, ButtonProps.theme.orange)}
       >
         Set zero
       </Button>

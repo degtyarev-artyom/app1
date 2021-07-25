@@ -24,6 +24,10 @@ export const getDynamicStyles = (colors) => {
       &--theme-orange {
         border-color: ${colors.orange};
       }
+      
+      &--theme-grey {
+        border-color: ${colors.grey};
+      }
     }
   `
 }

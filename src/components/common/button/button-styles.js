@@ -24,6 +24,10 @@ export const getDynamicStyles = (colors) => {
       &--theme-orange {
         background: ${colors.orange};
       }
+      
+      &--theme-grey {
+        background: ${colors.grey};
+      }
     }
   `
 }
