@@ -6,6 +6,10 @@ export const getDynamicStyles = (colors) => {
     
     .Navbar {
       &__item {
+        :global(&--active) {
+          background: ${colors.darkgrey};
+        }
+
         &--green {
           :global(&--active) {
             background: ${colors.green};

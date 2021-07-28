@@ -35,5 +35,11 @@
     font-size: 120px;
     filter: grayscale(100%);
     opacity: 0.5;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+
+    &--default {
+      filter: none;
+      opacity: 1;
+    }
   }
 }

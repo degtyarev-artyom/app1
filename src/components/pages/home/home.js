@@ -1,16 +1,17 @@
 import classNames from 'classnames'
-import { Content, ContentProps } from 'components/common/content/content'
+import { Content } from 'components/common/content/content'
 import { Navbar } from 'components/common/navbar/navbar'
-import { Title, TitleProps } from 'components/common/title/title'
+import { Title } from 'components/common/title/title'
 import { useSelector } from 'react-redux'
 import { commonSelectors } from 'redux/common/common-selectors'
-import { getTheme } from 'styling/themes'
+import { getTheme, themes } from 'styling/themes'
 import './home.scss'
 
 export const Home = ({
   externalClass,
 }) => {
   const currentTheme = useSelector(commonSelectors.currentTheme)
+  const theme = getTheme(currentTheme, themes.green)
 
   return (
     <div className={classNames('Home', {
@@ -18,16 +19,20 @@ export const Home = ({
     })}>
       <Title
         externalClass="Home__title"
-        theme={getTheme(currentTheme, TitleProps.theme.green)}
+        theme={theme}
       >
         Home
       </Title>
       <Navbar externalClass="Home__navbar" />
       <Content
         externalClass="Home__content"
-        theme={getTheme(currentTheme, ContentProps.theme.green)}
+        theme={theme}
       >
-        <div className="Home__content-home">🏠</div>
+        <div className={classNames('Home__content-home', {
+          'Home__content-home--default': currentTheme === 'default',
+        })}>
+          🏠
+        </div>
       </Content>
     </div>
   )

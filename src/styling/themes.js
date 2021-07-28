@@ -15,6 +15,7 @@ export const colors = {
   red: '#ffc3c3',
   orange: '#ffca84',
   grey: '#e2e2e2',
+  darkgrey: '#bbbbbb',
 }
 
 export const getTheme = (currentTheme, defaultTheme) => {
