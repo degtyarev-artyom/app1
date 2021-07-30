@@ -4,8 +4,7 @@ const checkRange = (count, start, end) => {
   return count
 }
 
-const checkRGB = rgb => {
-  let {r, g, b} = rgb
+const checkRGB = (r, g, b) => {
   r = checkRange(r, 0, 255)
   g = checkRange(g, 0, 255)
   b = checkRange(b, 0, 255)
@@ -33,14 +32,14 @@ const RGBToHSL = (r, g, b) => {
   if (delta === 0) {
     h = 0
   } else if (max === r) {
-    h = ((g - b) / delta) % 6;
+    h = ((g - b) / delta) % 6
   } else if (max === g) {
-    h = (b - r) / delta + 2;
-  } else {
-    h = (r - g) / delta + 4;
+    h = (b - r) / delta + 2
+  } else if (max === b) {
+    h = (r - g) / delta + 4
   }
 
-  h = Math.round(h * 60);
+  h = Math.round(h * 60)
   h = h < 0 ? h + 360 : h
 
   l = (max + min) / 2
@@ -94,12 +93,11 @@ const HSLToRGB = (h, s, l) => {
   g = Math.round((g + m) * 255)
   b = Math.round((b + m) * 255)
 
-  return {r, g, b}
+  return checkRGB(r, g, b)
 }
 
 export const lightness = (hex, percent = 0) => {
-  percent = percent < -100 ? -100 : percent
-  percent = percent > 100 ? 100 : percent
+  percent = checkRange(percent, -100, 100)
 
   const {r, g, b} = HEXToRGB(hex)
   let {h, s, l} = RGBToHSL(r, g, b)
@@ -112,14 +110,13 @@ export const lightness = (hex, percent = 0) => {
     l -= Math.round(range * 0.01 * percent * -1)
   }
 
-  const {r:R, g:G, b:B} = checkRGB(HSLToRGB(h, s, l))
+  const {r:R, g:G, b:B} = HSLToRGB(h, s, l)
   
   return RGBToHEX(R, G, B)
 }
 
 export const saturation = (hex, percent = 0) => {
-  percent = percent < -100 ? -100 : percent
-  percent = percent > 100 ? 100 : percent
+  percent = checkRange(percent, -100, 100)
 
   const {r, g, b} = HEXToRGB(hex)
   let {h, s, l} = RGBToHSL(r, g, b)
@@ -132,7 +129,7 @@ export const saturation = (hex, percent = 0) => {
     s -= Math.round(range * 0.01 * percent * -1)
   }
 
-  const {r:R, g:G, b:B} = checkRGB(HSLToRGB(h, s, l))
+  const {r:R, g:G, b:B} = HSLToRGB(h, s, l)
   
   return RGBToHEX(R, G, B)
 }

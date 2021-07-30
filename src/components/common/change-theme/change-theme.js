@@ -13,8 +13,6 @@ export const ChangeTheme = ({
   const currentTheme = useSelector(commonSelectors.currentTheme)
   const dispatch = useDispatch()
   const dynamicStyles = getDynamicStyles(colors)
-  
-  
 
   return (
     <div className={classNames('ChangeTheme', {
