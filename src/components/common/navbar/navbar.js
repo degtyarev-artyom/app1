@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { commonSelectors } from 'redux/common/common-selectors'
-import { getTheme, colors, themes } from 'styling/themes'
+import { getTheme, colors, themes } from 'styling/js/styling-themes'
 import './navbar.scss'
 import { getDynamicStyles } from './navbar-styles'
 

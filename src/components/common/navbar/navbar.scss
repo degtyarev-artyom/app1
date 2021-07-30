@@ -1,4 +1,4 @@
-@import 'src/styling/scss/mixins.scss';
+@import 'src/styling/scss/styling-mixins.scss';
 
 .Navbar {
   display: grid;
@@ -21,9 +21,17 @@
     background: #e2e2e2;
     padding: 10px 15px 10px 15px;
     cursor: pointer;
-    transition: background 0.3s ease;
     text-decoration: none;
     color: #000000;
     text-align: center;
+    transition: background 0.3s ease;
+
+    &--active {
+      cursor: default;
+    }
+
+    &:hover {
+      transition: none;
+    }
   }
 }

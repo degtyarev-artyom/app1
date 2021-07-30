@@ -4,7 +4,7 @@ import { Navbar } from 'components/common/navbar/navbar'
 import { Title } from 'components/common/title/title'
 import { useSelector } from 'react-redux'
 import { commonSelectors } from 'redux/common/common-selectors'
-import { getTheme, themes } from 'styling/themes'
+import { getTheme, themes } from 'styling/js/styling-themes'
 import './home.scss'
 
 export const Home = ({

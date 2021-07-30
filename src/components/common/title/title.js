@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import './title.scss'
 import { getDynamicStyles } from './title-styles'
-import { colors, themes } from 'styling/themes'
+import { colors, themes } from 'styling/js/styling-themes'
 
 export const Title = ({
   externalClass,

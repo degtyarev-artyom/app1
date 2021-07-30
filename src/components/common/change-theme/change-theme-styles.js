@@ -1,11 +1,11 @@
 import css from 'styled-jsx/css'
-import { themes } from 'styling/themes'
+import { themes } from 'styling/js/styling-themes'
 
 const colorsCount = Object.entries(themes).length - 1
 
 export const getDynamicStyles = (colors) => {
   return css`
-    @import 'src/styling/scss/mixins.scss';
+    @import 'src/styling/scss/styling-mixins.scss';
     
     .ChangeTheme {
       &__item {

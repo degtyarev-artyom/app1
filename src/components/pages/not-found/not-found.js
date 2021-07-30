@@ -4,7 +4,7 @@ import { Navbar } from 'components/common/navbar/navbar'
 import { Title } from 'components/common/title/title'
 import { useSelector } from 'react-redux'
 import { commonSelectors } from 'redux/common/common-selectors'
-import { getTheme, themes, colors } from 'styling/themes'
+import { getTheme, themes, colors } from 'styling/js/styling-themes'
 import './not-found.scss'
 import { getDynamicStyles } from './not-found-styles'
 

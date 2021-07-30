@@ -3,9 +3,9 @@ import { commonActions } from 'redux/common/common-actions';
 import { commonSelectors } from 'redux/common/common-selectors';
 import './change-theme.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { themes } from 'styling/themes';
+import { themes } from 'styling/js/styling-themes';
 import { getDynamicStyles } from './change-theme-styles'
-import { colors } from 'styling/themes'
+import { colors } from 'styling/js/styling-themes'
 
 export const ChangeTheme = ({
   externalClass,

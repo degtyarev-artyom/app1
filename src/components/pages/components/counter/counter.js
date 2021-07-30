@@ -5,7 +5,7 @@ import { componentsSelectors } from 'redux/pages/components/components-selectors
 import { componentsActions } from 'redux/pages/components/components-actions'
 import './counter.scss'
 import { commonSelectors } from 'redux/common/common-selectors'
-import { getTheme } from 'styling/themes'
+import { getTheme } from 'styling/js/styling-themes'
 
 export const Counter = ({
   externalClass,

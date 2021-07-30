@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { commonActions } from 'redux/common/common-actions';
 import './App.scss'
 import { useDispatch } from 'react-redux';
-import { themes } from 'styling/themes';
+import { themes } from 'styling/js/styling-themes';
 import { ChangeTheme } from 'components/common/change-theme/change-theme';
 
 const App = () => {

@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import { colors, themes } from 'styling/themes'
+import { colors, themes } from 'styling/js/styling-themes'
 import './button.scss'
 import { getDynamicStyles } from './button-styles'
 

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import './content.scss'
 import { getDynamicStyles } from './content-styles'
-import { colors, themes } from 'styling/themes'
+import { colors, themes } from 'styling/js/styling-themes'
 
 export const Content = ({
   externalClass,

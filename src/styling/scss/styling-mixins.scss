@@ -3,14 +3,14 @@
   @media all and (max-width: #{$bp}px) {
     @content
   }
-}
+};
 
 /* min-width */
 @mixin min-width($bp) {
   @media all and (min-width: #{$bp}px) {
     @content
   }
-}
+};
 
 /* flex-prop */
 @mixin flex-prop($prop, $bp1, $val1, $bp2, $val2) {
@@ -21,4 +21,4 @@
   @media all and (max-width: #{$bp2}px) {
     #{$prop}: #{$val2}px;
   }
-}
+};

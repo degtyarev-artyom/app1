@@ -2,7 +2,7 @@ import css from 'styled-jsx/css'
 
 export const getDynamicStyles = (colors) => {
   return css`
-    @import 'src/styling/scss/mixins.scss';
+    @import 'src/styling/scss/styling-mixins.scss';
     
     .Title {
       &--theme-green {
