@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { Button, ButtonProps } from 'components/common/button/button'
+import { Button, ButtonProps } from 'components/common/button-staff/button-staff'
 import { useDispatch, useSelector } from 'react-redux'
 import { componentsSelectors } from 'redux/pages/components/components-selectors'
 import { componentsActions } from 'redux/pages/components/components-actions'

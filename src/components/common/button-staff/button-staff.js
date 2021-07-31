@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import React from 'react'
 import { colors, themes } from 'styling/js/styling-themes'
-import './button.scss'
-import { getDynamicStyles } from './button-styles'
+import './button-staff.scss'
+import { getDynamicStyles } from './button-staff-styles'
 
 export const Button = ({
   externalClass,
@@ -16,11 +16,11 @@ export const Button = ({
 
   return (
     <button
-      className={classNames('Button', {
+      className={classNames('ButtonStaff', {
         [externalClass]: externalClass,
-        [`Button--theme-${theme}`]: theme,
-        [`Button--size-${size}`]: size,
-        'Button--pending': pending,
+        [`ButtonStaff--theme-${theme}`]: theme,
+        [`ButtonStaff--size-${size}`]: size,
+        'ButtonStaff--pending': pending,
       })}
       {...rest}
     >
