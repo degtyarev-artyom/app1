@@ -30,12 +30,63 @@ export const Components = ({
         theme={theme}
       >
         <div className="Components__item Components__item-button">
+
           <Button
             externalClass="Components__button"
-            size={ButtonProps.size.s}
+            theme={ButtonProps.themes.greenBlue}
+            size={ButtonProps.size.m}
           >
-            Hello, I am button
+            Green / Blue
           </Button>
+
+          <Button
+            externalClass="Components__button"
+            theme={ButtonProps.themes.blueGreen}
+            size={ButtonProps.size.m}
+          >
+            Blue / Green
+          </Button>
+
+          <Button
+            externalClass="Components__button"
+            theme={ButtonProps.themes.green}
+            size={ButtonProps.size.m}
+          >
+            Green
+          </Button>
+
+          <Button
+            externalClass="Components__button"
+            theme={ButtonProps.themes.blue}
+            size={ButtonProps.size.m}
+          >
+            Blue
+          </Button>
+
+          <Button
+            externalClass="Components__button"
+            theme={ButtonProps.themes.red}
+            size={ButtonProps.size.m}
+          >
+            Red
+          </Button>
+
+          <Button
+            externalClass="Components__button"
+            theme={ButtonProps.themes.orange}
+            size={ButtonProps.size.m}
+          >
+            Orange
+          </Button>
+
+          <Button
+            externalClass="Components__button"
+            theme={ButtonProps.themes.purple}
+            size={ButtonProps.size.m}
+          >
+            Purple
+          </Button>
+
         </div>
       </StaffContent>
     </div>

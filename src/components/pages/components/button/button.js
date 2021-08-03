@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import './button.scss'
 import { getDynamicStyles } from './button-styles'
+import { colors, themes } from 'styling/js/styling-themes'
 
 export const Button = ({
   externalClass,
@@ -12,7 +13,7 @@ export const Button = ({
   children,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles()
+  const dynamicStyles = getDynamicStyles(colors)
 
   return (
     <button
@@ -32,6 +33,7 @@ export const Button = ({
 }
 
 export const ButtonProps = {
+  themes: themes,
   size: {
     s: 's',
     m: 'm',

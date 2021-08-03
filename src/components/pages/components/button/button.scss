@@ -1,15 +1,21 @@
 .Button {
-  background: #ffffff;
-  border: 2px solid #ffa500;
   cursor: pointer;
-  
+  background: #ffffff;
+  transition: border-color 0.3s ease;
+  padding: 5px 12px 5px 12px;
+  font-size: 14px;
 
   // &--theme-greenPurple {}
   // &--theme-orangeRed {}
   // &--theme-custom {}
 
+  &--size-m {
+    padding: 5px 12px 5px 12px;
+    font-size: 14px;
+  }
+
   &--size-s {
-    padding: 3px 7px 3px 7px;
+    padding: 4px 8px 4px 8px;
     font-size: 12px;
   }
 
