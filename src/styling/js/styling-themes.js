@@ -9,7 +9,6 @@ export const themes = {
 }
 
 export const colors = {
-  orange: '#ffa500',
   green: '#54e602',
   blue: '#02e6e6',
   purple: '#af78ff',
