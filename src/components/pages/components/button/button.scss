@@ -2,24 +2,20 @@
   cursor: pointer;
   background: #ffffff;
   transition: border-color 0.3s ease;
-  padding: 5px 12px 5px 12px;
-  font-size: 14px;
+  padding: 6px 16px 6px 16px;
+  font-size: 17px;
 
-  // &--theme-greenPurple {}
-  // &--theme-orangeRed {}
-  // &--theme-custom {}
-
-  &--size-l {
+  &--size-m {
     padding: 6px 16px 6px 16px;
     font-size: 17px;
   }
 
-  &--size-m {
+  &--size-s {
     padding: 5px 12px 5px 12px;
     font-size: 14px;
   }
 
-  &--size-s {
+  &--size-xs {
     padding: 4px 8px 4px 8px;
     font-size: 12px;
   }

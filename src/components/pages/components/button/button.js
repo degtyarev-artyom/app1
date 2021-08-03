@@ -35,6 +35,7 @@ export const Button = ({
 export const ButtonProps = {
   themes: themes,
   size: {
+    xs: 'xs',
     s: 's',
     m: 'm',
     l: 'l'

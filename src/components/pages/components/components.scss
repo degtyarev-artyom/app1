@@ -39,11 +39,21 @@
   &__button-size {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0 0 20px 0;
+  }
+
+  &__button-size-title {
+    margin: 0 5px 0 0;
   }
 
   &__button-size-button {
     margin: 0 5px 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 15px 3px 15px !important;
+    border-radius: 100px;
   }
 
   &__button {

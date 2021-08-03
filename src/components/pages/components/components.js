@@ -35,26 +35,29 @@ export const Components = ({
       >
 
         <div className="Components__button-size">
+          <div className="Components__button-size-title">
+            ButtonProps.size:
+          </div>
           <StaffButton
             externalClass="Components__button-size-button"
-            theme={StaffButtonProps.theme.red}
+            theme={theme}
+            onClick={() => setSize('xs')}
+          >
+            'xs'
+          </StaffButton>
+          <StaffButton
+            externalClass="Components__button-size-button"
+            theme={theme}
             onClick={() => setSize('s')}
           >
-            S
+            's'
           </StaffButton>
           <StaffButton
             externalClass="Components__button-size-button"
-            theme={StaffButtonProps.theme.blue}
+            theme={theme}
             onClick={() => setSize('m')}
           >
-            M
-          </StaffButton>
-          <StaffButton
-            externalClass="Components__button-size-button"
-            theme={StaffButtonProps.theme.green}
-            onClick={() => setSize('l')}
-          >
-            L
+            'm'
           </StaffButton>
         </div>
 
