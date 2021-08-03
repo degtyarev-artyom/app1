@@ -1,39 +1,39 @@
 import classNames from 'classnames'
-import { Content } from 'components/common/content/content'
-import { Navbar } from 'components/common/navbar/navbar'
-import { Title } from 'components/common/title/title'
+import { StaffContent } from 'components/staff/staff-content/staff-content'
+import { StaffNavbar } from 'components/staff/staff-navbar/staff-navbar'
+import { StaffTitle } from 'components/staff/staff-title/staff-title'
 import { useSelector } from 'react-redux'
-import { commonSelectors } from 'redux/common/common-selectors'
-import { getTheme, themes, colors } from 'styling/js/styling-themes'
+import { staffSelectors } from 'redux/staff/staff-selectors'
+import { staffGetTheme, staffThemes, staffColors } from 'styling/js/staff/staff-styling-themes'
 import './not-found.scss'
 import { getDynamicStyles } from './not-found-styles'
 
 export const NotFound = ({
   externalClass,
 }) => {
-  const dynamicStyles = getDynamicStyles(colors)
-  const currentTheme = useSelector(commonSelectors.currentTheme)
-  const theme = getTheme(currentTheme, themes.red)
+  const dynamicStyles = getDynamicStyles(staffColors)
+  const currentTheme = useSelector(staffSelectors.currentTheme)
+  const theme = staffGetTheme(currentTheme, staffThemes.red)
   
   return (
     <div className={classNames('NotFound', {
       [externalClass]: externalClass,
     })}>
-      <Title
+      <StaffTitle
         externalClass="NotFound__title"
         theme={theme}
       >
         Page not found
-      </Title>
-      <Navbar externalClass="NotFound__navbar" />
-      <Content
+      </StaffTitle>
+      <StaffNavbar externalClass="NotFound__navbar" />
+      <StaffContent
         externalClass="NotFound__content"
         theme={theme}
       >
         <div className={`NotFound__content-404 NotFound__content-404--theme-${theme}`}>
           404
         </div>
-      </Content>
+      </StaffContent>
       <style jsx>{ dynamicStyles }</style>
     </div>
   )

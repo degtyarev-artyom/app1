@@ -1,36 +1,43 @@
 import classNames from 'classnames'
-import { Content } from 'components/common/content/content'
-import { Navbar } from 'components/common/navbar/navbar'
-import { Title } from 'components/common/title/title'
+import { StaffContent } from 'components/staff/staff-content/staff-content'
+import { StaffNavbar } from 'components/staff/staff-navbar/staff-navbar'
+import { StaffTitle } from 'components/staff/staff-title/staff-title'
 import { useSelector } from 'react-redux'
-import { commonSelectors } from 'redux/common/common-selectors'
-import { getTheme, themes } from 'styling/js/styling-themes'
+import { staffSelectors } from 'redux/staff/staff-selectors'
+import { staffGetTheme, staffThemes } from 'styling/js/staff/staff-styling-themes'
+import { Button, ButtonProps } from 'components/pages/components/button/button'
 import './components.scss'
-import { Counter } from './counter/counter'
 
 export const Components = ({
   externalClass,
 }) => {
-  const currentTheme = useSelector(commonSelectors.currentTheme)
-  const theme = getTheme(currentTheme, themes.purple)
+  const currentTheme = useSelector(staffSelectors.currentTheme)
+  const theme = staffGetTheme(currentTheme, staffThemes.purple)
 
   return (
     <div className={classNames('Components', {
       [externalClass]: externalClass,
     })}>
-      <Title
+      <StaffTitle
         externalClass="Components__title"
         theme={theme}
       >
         Components
-      </Title>
-      <Navbar externalClass="Components__navbar" />
-      <Content
+      </StaffTitle>
+      <StaffNavbar externalClass="Components__navbar" />
+      <StaffContent
         externalClass="Components__content"
         theme={theme}
       >
-        <Counter externalClass="Components__counter" />
-      </Content>
+        <div className="Components__item Components__item-button">
+          <Button
+            externalClass="Components__button"
+            size={ButtonProps.size.s}
+          >
+            Hello, I am button
+          </Button>
+        </div>
+      </StaffContent>
     </div>
   )
 }

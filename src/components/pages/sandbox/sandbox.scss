@@ -1,6 +1,6 @@
 @import 'src/styling/scss/styling-mixins.scss';
 
-.Components {
+.Sandbox {
   &__title {
     margin: 0 0 15px 0;
 
@@ -27,14 +27,4 @@
   }
 
   // &__content {}
-  
-  // &__item {}
-
-  &__item-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  // &__button {}
 }

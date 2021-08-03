@@ -3,36 +3,33 @@ import { StaffContent } from 'components/staff/staff-content/staff-content'
 import { StaffNavbar } from 'components/staff/staff-navbar/staff-navbar'
 import { StaffTitle } from 'components/staff/staff-title/staff-title'
 import { useSelector } from 'react-redux'
-import { staffSelectors } from 'redux/staff/staff-selectors'
 import { staffGetTheme, staffThemes } from 'styling/js/staff/staff-styling-themes'
-import './home.scss'
+import './sandbox.scss'
+import { Counter } from 'components/pages/sandbox/counter/counter'
+import { staffSelectors } from 'redux/staff/staff-selectors'
 
-export const Home = ({
+export const Sandbox = ({
   externalClass,
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
-  const theme = staffGetTheme(currentTheme, staffThemes.green)
+  const theme = staffGetTheme(currentTheme, staffThemes.orange)
 
   return (
-    <div className={classNames('Home', {
+    <div className={classNames('Sandbox', {
       [externalClass]: externalClass,
     })}>
       <StaffTitle
-        externalClass="Home__title"
+        externalClass="Sandbox__title"
         theme={theme}
       >
-        Home
+        Sandbox
       </StaffTitle>
-      <StaffNavbar externalClass="Home__navbar" />
+      <StaffNavbar externalClass="Sandbox__navbar" />
       <StaffContent
-        externalClass="Home__content"
+        externalClass="Sandbox__content"
         theme={theme}
       >
-        <div className={classNames('Home__content-home', {
-          'Home__content-home--default': currentTheme === 'default',
-        })}>
-          🏠
-        </div>
+        <Counter externalClass="Sandbox__counter" />
       </StaffContent>
     </div>
   )

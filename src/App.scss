@@ -36,8 +36,11 @@ body {
     padding: 15px 10px 10px 10px;
   }
 
+  // &__staff-change-theme {}
+
   &__home,
   &__components,
+  &__sandbox,
   &__not-found {
     flex: 1 0 auto;
   }

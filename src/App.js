@@ -3,28 +3,30 @@ import { Home } from 'components/pages/home/home';
 import { NotFound } from 'components/pages/not-found/not-found';
 import { useMemo} from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { commonActions } from 'redux/common/common-actions';
+import { staffActions } from 'redux/staff/staff-actions';
 import './App.scss'
 import { useDispatch } from 'react-redux';
-import { themes } from 'styling/js/styling-themes';
-import { ChangeTheme } from 'components/common/change-theme/change-theme';
+import { staffThemes } from 'styling/js/staff/staff-styling-themes';
+import { StaffChangeTheme } from 'components/staff/staff-change-theme/staff-change-theme';
+import { Sandbox } from 'components/pages/sandbox/sandbox';
+import { staffGetThemeLocalStorage, staffSetThemeLocalStorage } from 'redux/staff/staff-functions';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useMemo(() => {
-    const themeStorage = localStorage.getItem('theme')
-    if (!themeStorage) {
-      localStorage.setItem('theme', themes.default)
+    const themeLocalStorage = staffGetThemeLocalStorage()
+    if (!themeLocalStorage) {
+      staffSetThemeLocalStorage(staffThemes.default)
     } else {
-      dispatch(commonActions.setTheme(themeStorage))
+      dispatch(staffActions.setTheme(themeLocalStorage))
     }
     return true
   }, [dispatch])
 
   return (
     <div className="App">
-      <ChangeTheme />
+      <StaffChangeTheme externalClass="App__staff-change-theme" />
       <Router>
         <Switch>
           <Route exact path="/">
@@ -32,6 +34,9 @@ const App = () => {
           </Route>
           <Route path="/components">
             <Components externalClass="App__components" />
+          </Route>
+          <Route path="/sandbox">
+            <Sandbox externalClass="App__sandbox" />
           </Route>
           <Route>
             <NotFound externalClass="App__not-found" />
