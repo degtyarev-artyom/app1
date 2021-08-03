@@ -36,6 +36,16 @@
     align-items: center;
   }
 
+  &__button-size {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 20px 0;
+  }
+
+  &__button-size-button {
+    margin: 0 5px 0 5px;
+  }
+
   &__button {
     margin: 0 5px 0 5px;
   }

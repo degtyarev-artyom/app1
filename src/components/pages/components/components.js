@@ -7,12 +7,16 @@ import { staffSelectors } from 'redux/staff/staff-selectors'
 import { staffGetTheme, staffThemes } from 'styling/js/staff/staff-styling-themes'
 import { Button, ButtonProps } from 'components/pages/components/button/button'
 import './components.scss'
+import { StaffButton, StaffButtonProps } from 'components/staff/staff-button/staff-button'
+import { useState } from 'react'
 
 export const Components = ({
   externalClass,
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = staffGetTheme(currentTheme, staffThemes.purple)
+
+  const [size, setSize] = useState('m');
 
   return (
     <div className={classNames('Components', {
@@ -29,12 +33,37 @@ export const Components = ({
         externalClass="Components__content"
         theme={theme}
       >
+
+        <div className="Components__button-size">
+          <StaffButton
+            externalClass="Components__button-size-button"
+            theme={StaffButtonProps.theme.red}
+            onClick={() => setSize('s')}
+          >
+            S
+          </StaffButton>
+          <StaffButton
+            externalClass="Components__button-size-button"
+            theme={StaffButtonProps.theme.blue}
+            onClick={() => setSize('m')}
+          >
+            M
+          </StaffButton>
+          <StaffButton
+            externalClass="Components__button-size-button"
+            theme={StaffButtonProps.theme.green}
+            onClick={() => setSize('l')}
+          >
+            L
+          </StaffButton>
+        </div>
+
         <div className="Components__item Components__item-button">
 
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.greenBlue}
-            size={ButtonProps.size.m}
+            size={ButtonProps.size[size]}
           >
             Green / Blue
           </Button>
@@ -42,7 +71,7 @@ export const Components = ({
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.blueGreen}
-            size={ButtonProps.size.m}
+            size={ButtonProps.size[size]}
           >
             Blue / Green
           </Button>
@@ -50,7 +79,7 @@ export const Components = ({
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.green}
-            size={ButtonProps.size.m}
+            size={ButtonProps.size[size]}
           >
             Green
           </Button>
@@ -58,7 +87,7 @@ export const Components = ({
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.blue}
-            size={ButtonProps.size.m}
+            size={ButtonProps.size[size]}
           >
             Blue
           </Button>
@@ -66,7 +95,7 @@ export const Components = ({
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.red}
-            size={ButtonProps.size.m}
+            size={ButtonProps.size[size]}
           >
             Red
           </Button>
@@ -74,7 +103,7 @@ export const Components = ({
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.orange}
-            size={ButtonProps.size.m}
+            size={ButtonProps.size[size]}
           >
             Orange
           </Button>
@@ -82,7 +111,7 @@ export const Components = ({
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.purple}
-            size={ButtonProps.size.m}
+            size={ButtonProps.size[size]}
           >
             Purple
           </Button>

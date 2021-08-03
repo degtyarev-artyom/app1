@@ -38,8 +38,5 @@ export const ButtonProps = {
     s: 's',
     m: 'm',
     l: 'l'
-  },
-  type: {
-    add: 'add'
   }
 }
