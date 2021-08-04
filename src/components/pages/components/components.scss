@@ -27,33 +27,29 @@
   }
 
   // &__content {}
+
+  &__button-props-size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 20px 0;
+  }
   
+  &__bps-title {
+    font-size: 17px;
+    margin: 0 5px 0 0;
+  }
+
+  &__bps-button {
+    margin: 0 5px 0 5px;
+  }
+
   // &__item {}
 
   &__item-button {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  &__button-size {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0 20px 0;
-  }
-
-  &__button-size-title {
-    margin: 0 5px 0 0;
-  }
-
-  &__button-size-button {
-    margin: 0 5px 0 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3px 15px 3px 15px !important;
-    border-radius: 100px;
   }
 
   &__button {

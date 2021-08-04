@@ -1,6 +1,4 @@
 export const themes = {
-  greenBlue: 'greenBlue',
-  blueGreen: 'blueGreen',
   green: 'green',
   blue: 'blue',
   purple: 'purple',

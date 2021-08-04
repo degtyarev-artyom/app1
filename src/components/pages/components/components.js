@@ -7,15 +7,14 @@ import { staffSelectors } from 'redux/staff/staff-selectors'
 import { staffGetTheme, staffThemes } from 'styling/js/staff/staff-styling-themes'
 import { Button, ButtonProps } from 'components/pages/components/button/button'
 import './components.scss'
-import { StaffButton, StaffButtonProps } from 'components/staff/staff-button/staff-button'
 import { useState } from 'react'
+import { StaffValueProp } from 'components/staff/staff-value-prop/staff-value-prop'
 
 export const Components = ({
   externalClass,
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = staffGetTheme(currentTheme, staffThemes.purple)
-
   const [size, setSize] = useState('m');
 
   return (
@@ -33,52 +32,48 @@ export const Components = ({
         externalClass="Components__content"
         theme={theme}
       >
-
-        <div className="Components__button-size">
-          <div className="Components__button-size-title">
-            ButtonProps.size:
+        <div className="Components__button-props-size">
+          <div className="Components__bps-title">
+            size:
           </div>
-          <StaffButton
-            externalClass="Components__button-size-button"
+          <StaffValueProp
+            externalClass="Components__bps-button"
             theme={theme}
+            propName="xs"
+            propActive={size}
             onClick={() => setSize('xs')}
-          >
-            'xs'
-          </StaffButton>
-          <StaffButton
-            externalClass="Components__button-size-button"
+          />
+          <StaffValueProp
+            externalClass="Components__bps-button"
             theme={theme}
+            propName="s"
+            propActive={size}
             onClick={() => setSize('s')}
-          >
-            's'
-          </StaffButton>
-          <StaffButton
-            externalClass="Components__button-size-button"
+          />
+          <StaffValueProp
+            externalClass="Components__bps-button"
             theme={theme}
+            propName="m"
+            propActive={size}
             onClick={() => setSize('m')}
-          >
-            'm'
-          </StaffButton>
+          />
+          <StaffValueProp
+            externalClass="Components__bps-button"
+            theme={theme}
+            propName="l"
+            propActive={size}
+            onClick={() => setSize('l')}
+          />
+          <StaffValueProp
+            externalClass="Components__bps-button"
+            theme={theme}
+            propName="xl"
+            propActive={size}
+            onClick={() => setSize('xl')}
+          />
         </div>
 
         <div className="Components__item Components__item-button">
-
-          <Button
-            externalClass="Components__button"
-            theme={ButtonProps.themes.greenBlue}
-            size={ButtonProps.size[size]}
-          >
-            Green / Blue
-          </Button>
-
-          <Button
-            externalClass="Components__button"
-            theme={ButtonProps.themes.blueGreen}
-            size={ButtonProps.size[size]}
-          >
-            Blue / Green
-          </Button>
-
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.green}
@@ -86,7 +81,6 @@ export const Components = ({
           >
             Green
           </Button>
-
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.blue}
@@ -94,7 +88,6 @@ export const Components = ({
           >
             Blue
           </Button>
-
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.red}
@@ -102,7 +95,6 @@ export const Components = ({
           >
             Red
           </Button>
-
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.orange}
@@ -110,7 +102,6 @@ export const Components = ({
           >
             Orange
           </Button>
-
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.purple}
@@ -118,8 +109,8 @@ export const Components = ({
           >
             Purple
           </Button>
-
         </div>
+      
       </StaffContent>
     </div>
   )

@@ -1,0 +1,19 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.StaffValueProp {
+  background: #ffffff;
+  padding: 3px 15px 3px 15px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    transition: none;
+  }
+
+  &--active {
+    cursor: default;
+  }
+}
