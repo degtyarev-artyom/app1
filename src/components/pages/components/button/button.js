@@ -36,11 +36,11 @@ export const Button = ({
 
 export const ButtonProps = {
   themes: themes,
-  size: {
-    xl: 'xl',
-    l: 'l',
-    m: 'm',
+  sizes: {
+    xs: 'xs',
     s: 's',
-    xs: 'xs'
+    m: 'm',
+    l: 'l',
+    xl: 'xl',
   }
 }

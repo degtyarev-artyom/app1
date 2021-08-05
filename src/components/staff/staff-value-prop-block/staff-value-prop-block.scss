@@ -1,0 +1,18 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.StaffValuePropBlock {
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 17px;
+    margin: 0 5px 0 0;
+  }
+
+  &__item {
+    margin: 0 5px 0 5px;
+  }
+}

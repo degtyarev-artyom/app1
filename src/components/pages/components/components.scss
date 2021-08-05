@@ -15,7 +15,6 @@
 
   &__navbar {
     margin: 0 0 15px 0;
-    // color: #da9b48;
 
     @include max-width(768) {
       @include flex-prop('margin-bottom', 768, 15, 425, 10);
@@ -28,20 +27,30 @@
 
   // &__content {}
 
-  &__button-props-size {
+  &__button-children {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 0 20px 0;
-  }
-  
-  &__bps-title {
-    font-size: 17px;
-    margin: 0 5px 0 0;
+
+    span {
+      font-size: 17px;
+
+      &:nth-of-type(1) {
+        margin: 0 10px 0 0;
+      }
+    }
+
+    input {
+      outline: none;
+      background: #ffffff;
+      border: 1px solid #000000;
+      padding: 3px 5px 3px 5px;
+    }
   }
 
-  &__bps-button {
-    margin: 0 5px 0 5px;
+  &__button-size {
+    margin: 0 0 20px 0;
   }
 
   // &__item {}
@@ -50,9 +59,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   &__button {
-    margin: 0 5px 0 5px;
+    margin: 0 5px 10px 5px;
   }
 }

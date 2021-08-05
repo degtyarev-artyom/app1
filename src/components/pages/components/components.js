@@ -2,20 +2,23 @@ import classNames from 'classnames'
 import { StaffContent } from 'components/staff/staff-content/staff-content'
 import { StaffNavbar } from 'components/staff/staff-navbar/staff-navbar'
 import { StaffTitle } from 'components/staff/staff-title/staff-title'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { staffGetTheme, staffThemes } from 'styling/js/staff/staff-styling-themes'
 import { Button, ButtonProps } from 'components/pages/components/button/button'
 import './components.scss'
-import { useState } from 'react'
-import { StaffValueProp } from 'components/staff/staff-value-prop/staff-value-prop'
+import { componentsSelectors } from 'redux/pages/components/components-selectors'
+import { componentsActions } from 'redux/pages/components/components-actions'
+import { StaffValuePropBlock } from 'components/staff/staff-value-prop-block/staff-value-prop-block'
 
 export const Components = ({
   externalClass,
 }) => {
+  const dispatch = useDispatch()
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = staffGetTheme(currentTheme, staffThemes.purple)
-  const [size, setSize] = useState('m');
+  const buttonChildren = useSelector(componentsSelectors.buttonChildren)
+  const buttonSize = useSelector(componentsSelectors.buttonSize)
 
   return (
     <div className={classNames('Components', {
@@ -32,82 +35,58 @@ export const Components = ({
         externalClass="Components__content"
         theme={theme}
       >
-        <div className="Components__button-props-size">
-          <div className="Components__bps-title">
-            size:
-          </div>
-          <StaffValueProp
-            externalClass="Components__bps-button"
-            theme={theme}
-            propName="xs"
-            propActive={size}
-            onClick={() => setSize('xs')}
-          />
-          <StaffValueProp
-            externalClass="Components__bps-button"
-            theme={theme}
-            propName="s"
-            propActive={size}
-            onClick={() => setSize('s')}
-          />
-          <StaffValueProp
-            externalClass="Components__bps-button"
-            theme={theme}
-            propName="m"
-            propActive={size}
-            onClick={() => setSize('m')}
-          />
-          <StaffValueProp
-            externalClass="Components__bps-button"
-            theme={theme}
-            propName="l"
-            propActive={size}
-            onClick={() => setSize('l')}
-          />
-          <StaffValueProp
-            externalClass="Components__bps-button"
-            theme={theme}
-            propName="xl"
-            propActive={size}
-            onClick={() => setSize('xl')}
+        <div className="Components__button-children">
+          <span>children:</span>
+          <input
+            type="text"
+            value={buttonChildren}
+            onChange={e => dispatch(componentsActions.buttonChangeChildren(e.target.value))}
           />
         </div>
+
+        <StaffValuePropBlock
+          externalClass="Components__button-size"
+          title="size:"
+          properties={Object.values(ButtonProps.sizes)}
+          propActive={buttonSize}
+          dispatchFunc={prop => dispatch(componentsActions.buttonChangeSize(prop))}
+        />
 
         <div className="Components__item Components__item-button">
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.green}
-            size={ButtonProps.size[size]}
+            size={ButtonProps.sizes[buttonSize]}
           >
-            Green
+            { buttonChildren }
           </Button>
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.blue}
-            size={ButtonProps.size[size]}
+            size={ButtonProps.sizes[buttonSize]}
           >
-            Blue
+            { buttonChildren }
           </Button>
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.red}
-            size={ButtonProps.size[size]}
+            size={ButtonProps.sizes[buttonSize]}
           >
-            Red
+            { buttonChildren }
           </Button>
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.orange}
-            size={ButtonProps.size[size]}
+            size={ButtonProps.sizes[buttonSize]}
           >
-            Orange
+            { buttonChildren }
           </Button>
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.purple}
-            size={ButtonProps.size[size]}
+            size={ButtonProps.sizes[buttonSize]}
           >
-            Purple
+            { buttonChildren }
           </Button>
         </div>
       
