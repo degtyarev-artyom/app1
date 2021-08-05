@@ -19,6 +19,7 @@ export const Components = ({
   const theme = staffGetTheme(currentTheme, staffThemes.purple)
   const buttonChildren = useSelector(componentsSelectors.buttonChildren)
   const buttonSize = useSelector(componentsSelectors.buttonSize)
+  const buttonTheme = useSelector(componentsSelectors.buttonTheme)
 
   return (
     <div className={classNames('Components', {
@@ -52,8 +53,23 @@ export const Components = ({
           dispatchFunc={prop => dispatch(componentsActions.buttonChangeSize(prop))}
         />
 
+        <StaffValuePropBlock
+          externalClass="Components__button-theme"
+          title="theme:"
+          properties={Object.values(ButtonProps.themes)}
+          propActive={buttonTheme}
+          dispatchFunc={prop => dispatch(componentsActions.buttonChangeTheme(prop))}
+        />
+
         <div className="Components__item Components__item-button">
           <Button
+            externalClass="Components__button"
+            theme={ButtonProps.themes[buttonTheme]}
+            size={ButtonProps.sizes[buttonSize]}
+          >
+            { buttonChildren }
+          </Button>
+          {/* <Button
             externalClass="Components__button"
             theme={ButtonProps.themes.green}
             size={ButtonProps.sizes[buttonSize]}
@@ -87,7 +103,7 @@ export const Components = ({
             size={ButtonProps.sizes[buttonSize]}
           >
             { buttonChildren }
-          </Button>
+          </Button> */}
         </div>
       
       </StaffContent>

@@ -26,7 +26,7 @@ export const StaffValuePropBlock = ({
     >
       <div className="StaffValuePropBlock__list">
         <div className="StaffValuePropBlock__title">
-          size:
+          { title }
         </div>
         {properties.map(prop => (
           <StaffValueProp
