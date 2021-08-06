@@ -19,6 +19,7 @@ export const Components = ({
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = staffGetTheme(currentTheme, staffThemes.purple)
   const buttonChildren = useSelector(componentsSelectors.buttonChildren)
+  const buttonExternalClass = useSelector(componentsSelectors.buttonExternalClass)
   const buttonSize = useSelector(componentsSelectors.buttonSize)
   const buttonTheme = useSelector(componentsSelectors.buttonTheme)
   const buttonNoFocus = useSelector(componentsSelectors.buttonNoFocus)
@@ -47,6 +48,16 @@ export const Components = ({
             type="text"
             value={buttonChildren}
             onChange={e => dispatch(componentsActions.buttonChangeChildren(e.target.value))}
+          />
+        </div>
+
+        {/* button-external-class-field */}
+        <div className="Components__button-external-class">
+          <span>externalClass:</span>
+          <input
+            type="text"
+            value={buttonExternalClass}
+            onChange={e => dispatch(componentsActions.buttonChangeExternalClass(e.target.value))}
           />
         </div>
 
@@ -110,7 +121,8 @@ export const Components = ({
                 buttonChildren,
                 buttonSize,
                 buttonTheme,
-                buttonNoFocus: buttonNoFocus === 'true'
+                buttonNoFocus: buttonNoFocus === 'true',
+                buttonExternalClass
               })}
             </pre>
           </div>

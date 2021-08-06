@@ -27,7 +27,8 @@
 
   // &__content {}
 
-  &__button-children {
+  &__button-children,
+  &__button-external-class {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,14 +50,8 @@
     }
   }
 
-  &__button-size {
-    margin: 0 0 20px 0;
-  }
-
-  &__button-theme {
-    margin: 0 0 20px 0;
-  }
-
+  &__button-size,
+  &__button-theme,
   &__button-no-focus {
     margin: 0 0 20px 0;
   }

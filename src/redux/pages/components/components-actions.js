@@ -2,6 +2,7 @@ import { action } from 'redux/redux-functions'
 
 export const componentsActionTypes = {
   BUTTON_CHANGE_CHILDREN: 'BUTTON_CHANGE_CHILDREN',
+  BUTTON_CHANGE_EXTERNAL_CLASS: 'BUTTON_CHANGE_EXTERNAL_CLASS',
   BUTTON_CHANGE_SIZE: 'BUTTON_CHANGE_SIZE',
   BUTTON_CHANGE_THEME: 'BUTTON_CHANGE_THEME',
   BUTTON_CHANGE_NO_FOCUS: 'BUTTON_CHANGE_NO_FOCUS',
@@ -10,6 +11,7 @@ export const componentsActionTypes = {
 
 export const componentsActions = {
   buttonChangeChildren: children => action(componentsActionTypes.BUTTON_CHANGE_CHILDREN, { children }),
+  buttonChangeExternalClass: externalClass => action(componentsActionTypes.BUTTON_CHANGE_EXTERNAL_CLASS, { externalClass }),
   buttonChangeSize: size => action(componentsActionTypes.BUTTON_CHANGE_SIZE, { size }),
   buttonChangeTheme: theme => action(componentsActionTypes.BUTTON_CHANGE_THEME, { theme }),
   buttonChangeNoFocus: focus => action(componentsActionTypes.BUTTON_CHANGE_NO_FOCUS, { focus }),

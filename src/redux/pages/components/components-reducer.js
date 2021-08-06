@@ -5,10 +5,11 @@ import { componentsActionTypes } from "./components-actions"
 
 const initialState = {
   buttonChildren: 'Button',
+  buttonExternalClass: 'external-class-name',
   buttonSize: ButtonProps.sizes.m,
   buttonTheme: ButtonProps.themes.green,
   buttonNoFocus: 'false',
-  buttonShowHideCode: 'hide',
+  buttonShowHideCode: 'show'
 }
 
 export const componentsReducer = (state = initialState, action) => {
@@ -17,6 +18,11 @@ export const componentsReducer = (state = initialState, action) => {
       return {
         ...state,
         buttonChildren: action.children
+      }
+    case componentsActionTypes.BUTTON_CHANGE_EXTERNAL_CLASS:
+      return {
+        ...state,
+        buttonExternalClass: action.externalClass
       }
     case componentsActionTypes.BUTTON_CHANGE_SIZE:
       return {
