@@ -27,10 +27,34 @@
 
   // &__content {}
 
+  &__button-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-left {
+    margin: 0 20px 0 0;
+    width: 30%;
+  }
+
+  &__item-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  // &__button {}
+
+  &__button-right {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__button-children,
   &__button-external-class {
     display: flex;
-    justify-content: center;
     align-items: center;
     margin: 0 0 20px 0;
 
@@ -38,6 +62,7 @@
       font-size: 17px;
       font-weight: bold;
       text-decoration: underline;
+      transform: translateY(-2px);
 
       &:nth-of-type(1) {
         margin: 0 10px 0 0;
@@ -58,26 +83,17 @@
     margin: 0 0 20px 0;
   }
 
-  &__item-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
   &__button-code-props {
     margin: 0 0 20px 0;
   }
 
-  // &__button {}
-
   &__button-code {
     display: flex;
     justify-content: center;
-    margin: 20px 0 0 0;
   }
 
   &__button-code-pre {
+    width: 100%;
     margin: 0 0 0 0;
     padding: 10px 10px 10px 10px;
     background: #eeeeee;
