@@ -9,6 +9,7 @@ import { staffSelectors } from 'redux/staff/staff-selectors'
 export const StaffValuePropBlock = ({
   externalClass,
   title,
+  type,
   properties,
   propActive,
   dispatchFunc,
@@ -26,14 +27,17 @@ export const StaffValuePropBlock = ({
     >
       <div className="StaffValuePropBlock__list">
         <div className="StaffValuePropBlock__title">
-          { title }
+          <span>{ title }</span>
+          {type !== 'Code' ? ` (${type})` : ''}:
         </div>
-        {properties.map(prop => (
+        {properties.map((prop, i) => (
           <StaffValueProp
+            key={i}
             externalClass="StaffValuePropBlock__item"
             theme={theme}
             propName={prop}
             propActive={propActive}
+            type={type}
             onClick={() => dispatchFunc(prop)}
           />
         ))}

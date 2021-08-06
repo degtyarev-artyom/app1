@@ -1,9 +1,13 @@
 .Button {
   cursor: pointer;
   background: #ffffff;
-  transition: border-color 0.3s ease;
   padding: 6px 16px 6px 16px;
   font-size: 15px;
+  transition: color 0.3s ease, border 0.3s ease;
+
+  &:hover {
+    transition: none;
+  }
 
   &--size-xl {
     padding: 7px 21px 7px 21px;

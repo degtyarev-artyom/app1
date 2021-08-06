@@ -10,6 +10,7 @@ import './components.scss'
 import { componentsSelectors } from 'redux/pages/components/components-selectors'
 import { componentsActions } from 'redux/pages/components/components-actions'
 import { StaffValuePropBlock } from 'components/staff/staff-value-prop-block/staff-value-prop-block'
+import { getButtonCode } from './components-code'
 
 export const Components = ({
   externalClass,
@@ -20,6 +21,8 @@ export const Components = ({
   const buttonChildren = useSelector(componentsSelectors.buttonChildren)
   const buttonSize = useSelector(componentsSelectors.buttonSize)
   const buttonTheme = useSelector(componentsSelectors.buttonTheme)
+  const buttonNoFocus = useSelector(componentsSelectors.buttonNoFocus)
+  const buttonShowHideCode = useSelector(componentsSelectors.buttonShowHideCode)
 
   return (
     <div className={classNames('Components', {
@@ -36,6 +39,8 @@ export const Components = ({
         externalClass="Components__content"
         theme={theme}
       >
+
+        {/* button-children-field */}
         <div className="Components__button-children">
           <span>children:</span>
           <input
@@ -45,67 +50,71 @@ export const Components = ({
           />
         </div>
 
+        {/* button-size-props */}
         <StaffValuePropBlock
           externalClass="Components__button-size"
-          title="size:"
+          title="size"
+          type="String"
           properties={Object.values(ButtonProps.sizes)}
           propActive={buttonSize}
           dispatchFunc={prop => dispatch(componentsActions.buttonChangeSize(prop))}
         />
 
+        {/* button-theme-props */}
         <StaffValuePropBlock
           externalClass="Components__button-theme"
-          title="theme:"
+          title="theme"
+          type="String"
           properties={Object.values(ButtonProps.themes)}
           propActive={buttonTheme}
           dispatchFunc={prop => dispatch(componentsActions.buttonChangeTheme(prop))}
         />
 
-        <div className="Components__item Components__item-button">
+        {/* button-no-focus-props */}
+        <StaffValuePropBlock
+          externalClass="Components__button-no-focus"
+          title="noFocus"
+          type="Boolean"
+          properties={['true', 'false']}
+          propActive={buttonNoFocus}
+          dispatchFunc={prop => dispatch(componentsActions.buttonChangeNoFocus(prop))}
+        />
+
+        {/* button-code-props */}
+        <StaffValuePropBlock
+          externalClass="Components__button-code-props"
+          title="code"
+          type="Code"
+          properties={['show', 'hide']}
+          propActive={buttonShowHideCode}
+          dispatchFunc={prop => dispatch(componentsActions.buttonShowHideCode(prop))}
+        />
+
+        {/* button-component */}
+        <div className="Components__item-button">
           <Button
             externalClass="Components__button"
             theme={ButtonProps.themes[buttonTheme]}
             size={ButtonProps.sizes[buttonSize]}
+            noFocus={buttonNoFocus === 'true'}
           >
             { buttonChildren }
           </Button>
-          {/* <Button
-            externalClass="Components__button"
-            theme={ButtonProps.themes.green}
-            size={ButtonProps.sizes[buttonSize]}
-          >
-            { buttonChildren }
-          </Button>
-          <Button
-            externalClass="Components__button"
-            theme={ButtonProps.themes.blue}
-            size={ButtonProps.sizes[buttonSize]}
-          >
-            { buttonChildren }
-          </Button>
-          <Button
-            externalClass="Components__button"
-            theme={ButtonProps.themes.red}
-            size={ButtonProps.sizes[buttonSize]}
-          >
-            { buttonChildren }
-          </Button>
-          <Button
-            externalClass="Components__button"
-            theme={ButtonProps.themes.orange}
-            size={ButtonProps.sizes[buttonSize]}
-          >
-            { buttonChildren }
-          </Button>
-          <Button
-            externalClass="Components__button"
-            theme={ButtonProps.themes.purple}
-            size={ButtonProps.sizes[buttonSize]}
-          >
-            { buttonChildren }
-          </Button> */}
         </div>
-      
+
+        {/* button-code */}
+        {buttonShowHideCode === 'show' && (
+          <div className="Components__button-code">
+            <pre className="Components__button-code-pre">
+              {getButtonCode({
+                buttonChildren,
+                buttonSize,
+                buttonTheme,
+                buttonNoFocus: buttonNoFocus === 'true'
+              })}
+            </pre>
+          </div>
+        )}
       </StaffContent>
     </div>
   )

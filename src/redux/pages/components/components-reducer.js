@@ -7,6 +7,8 @@ const initialState = {
   buttonChildren: 'Button',
   buttonSize: ButtonProps.sizes.m,
   buttonTheme: ButtonProps.themes.green,
+  buttonNoFocus: 'false',
+  buttonShowHideCode: 'hide',
 }
 
 export const componentsReducer = (state = initialState, action) => {
@@ -25,6 +27,16 @@ export const componentsReducer = (state = initialState, action) => {
       return {
         ...state,
         buttonTheme: action.theme
+      }
+    case componentsActionTypes.BUTTON_CHANGE_NO_FOCUS:
+      return {
+        ...state,
+        buttonNoFocus: action.focus
+      }
+    case componentsActionTypes.BUTTON_SHOW_HIDE_CODE:
+      return {
+        ...state,
+        buttonShowHideCode: action.code
       }
     default:
       return state

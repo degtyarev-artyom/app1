@@ -9,6 +9,7 @@ export const StaffValueProp = ({
   theme,
   propName,
   propActive,
+  type,
   ...rest
 }) => {
   const dynamicStyles = getDynamicStyles(staffColors)
@@ -22,7 +23,10 @@ export const StaffValueProp = ({
       })}
       {...rest}
     >
-      '{ propName }'
+      {type === 'String' && `'${propName}'`}
+      {type === 'Boolean' && propName}  
+      {type === 'Code' && propName}  
+
       <style jsx>{ dynamicStyles }</style>
     </button>
   )

@@ -57,7 +57,9 @@
     margin: 0 0 20px 0;
   }
 
-  // &__item {}
+  &__button-no-focus {
+    margin: 0 0 20px 0;
+  }
 
   &__item-button {
     display: flex;
@@ -66,7 +68,23 @@
     flex-wrap: wrap;
   }
 
-  &__button {
-    margin: 0 5px 10px 5px;
+  &__button-code-props {
+    margin: 0 0 20px 0;
+  }
+
+  // &__button {}
+
+  &__button-code {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0 0;
+  }
+
+  &__button-code-pre {
+    margin: 0 0 0 0;
+    padding: 10px 10px 10px 10px;
+    background: #eeeeee;
+    border-radius: 3px;
+    border: 1px solid #000000;
   }
 }
