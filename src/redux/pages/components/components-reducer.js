@@ -1,5 +1,3 @@
-// import { componentsActionTypes } from './components-actions'
-
 import { ButtonProps } from "components/pages/components/button/button"
 import { componentsActionTypes } from "./components-actions"
 
