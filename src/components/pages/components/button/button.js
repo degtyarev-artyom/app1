@@ -11,7 +11,8 @@ export const Button = ({
   size,
   type,
   children,
-  noFocus,
+  focus,
+  active,
   ...rest
 }) => {
   const dynamicStyles = getDynamicStyles(colors)
@@ -24,7 +25,8 @@ export const Button = ({
         [`Button--size-${size}`]: size,
         [`Button--type-${type}`]: type,
         'Button--pending': pending,
-        'Button--focus': !noFocus,
+        'Button--focus': focus,
+        'Button--active': active,
       })}
       {...rest}
     >

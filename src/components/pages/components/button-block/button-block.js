@@ -20,7 +20,8 @@ export const ButtonBlock = ({
   const buttonExternalClass = useSelector(componentsSelectors.buttonExternalClass)
   const buttonSize = useSelector(componentsSelectors.buttonSize)
   const buttonTheme = useSelector(componentsSelectors.buttonTheme)
-  const buttonNoFocus = useSelector(componentsSelectors.buttonNoFocus)
+  const buttonFocus = useSelector(componentsSelectors.buttonFocus)
+  const buttonActive = useSelector(componentsSelectors.buttonActive)
   const buttonShowHideCode = useSelector(componentsSelectors.buttonShowHideCode)
 
   return (
@@ -35,7 +36,8 @@ export const ButtonBlock = ({
           externalClass="ButtonBlock__left-button"
           theme={buttonTheme}
           size={buttonSize}
-          noFocus={buttonNoFocus === 'true'}
+          focus={buttonFocus === 'true'}
+          active={buttonActive === 'true'}
         >
           { buttonChildren }
         </Button>
@@ -72,12 +74,20 @@ export const ButtonBlock = ({
           action={componentsActions.buttonChangeTheme}
         />
         <StaffValuePropBlock
-          externalClass="ButtonBlock__right-prop-no-focus"
-          title="noFocus"
+          externalClass="ButtonBlock__right-prop-focus"
+          title="focus"
           type="Boolean"
           properties={['true', 'false']}
-          propActive={buttonNoFocus}
-          action={componentsActions.buttonChangeNoFocus}
+          propActive={buttonFocus}
+          action={componentsActions.buttonChangeFocus}
+        />
+        <StaffValuePropBlock
+          externalClass="ButtonBlock__right-prop-active"
+          title="active"
+          type="Boolean"
+          properties={['true', 'false']}
+          propActive={buttonActive}
+          action={componentsActions.buttonChangeActive}
         />
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-code-show-hide"
@@ -92,11 +102,12 @@ export const ButtonBlock = ({
             <pre className="ButtonBlock__right-code-pre">
               {
                 getButtonCode({
+                  buttonExternalClass,
                   buttonChildren,
                   buttonSize,
                   buttonTheme,
-                  buttonNoFocus: buttonNoFocus === 'true',
-                  buttonExternalClass
+                  buttonFocus: buttonFocus === 'true',
+                  buttonActive: buttonActive === 'true'
                 })
               }
             </pre>

@@ -6,7 +6,8 @@ const initialState = {
   buttonExternalClass: 'external-class-name',
   buttonSize: ButtonProps.sizes.m,
   buttonTheme: ButtonProps.themes.purple,
-  buttonNoFocus: 'false',
+  buttonFocus: 'false',
+  buttonActive: 'true',
   buttonShowHideCode: 'show'
 }
 
@@ -32,10 +33,15 @@ export const componentsReducer = (state = initialState, action) => {
         ...state,
         buttonTheme: action.theme
       }
-    case componentsActionTypes.BUTTON_CHANGE_NO_FOCUS:
+    case componentsActionTypes.BUTTON_CHANGE_FOCUS:
       return {
         ...state,
-        buttonNoFocus: action.focus
+        buttonFocus: action.focus
+      }
+    case componentsActionTypes.BUTTON_CHANGE_ACTIVE:
+      return {
+        ...state,
+        buttonActive: action.active
       }
     case componentsActionTypes.BUTTON_SHOW_HIDE_CODE:
       return {
