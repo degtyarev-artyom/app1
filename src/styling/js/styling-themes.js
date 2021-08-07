@@ -11,7 +11,7 @@ export const colors = {
   blue: '#5ed0fd',
   purple: '#af78ff',
   red: '#ff7878',
-  orange: '#ff9a68',
+  orange: '#fd9866',
 }
 
 export const getTheme = (currentTheme, defaultTheme) => {

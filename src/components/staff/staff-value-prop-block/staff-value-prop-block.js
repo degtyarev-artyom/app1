@@ -39,7 +39,7 @@ export const StaffValuePropBlock = ({
             propName={prop}
             propActive={propActive}
             type={type}
-            onClick={() => dispatch(action(prop))}
+            onClick={() => propActive !== prop && dispatch(action(prop))}
           />
         ))}
       </div>
