@@ -4,8 +4,8 @@ import { componentsActionTypes } from "./components-actions"
 const initialState = {
   buttonChildren: 'Button',
   buttonExternalClass: 'external-class-name',
-  buttonSize: ButtonProps.sizes.m,
-  buttonTheme: ButtonProps.themes.purple,
+  buttonSize: ButtonProps.sizes.xl,
+  buttonTheme: ButtonProps.themes.green,
   buttonFocus: 'false',
   buttonActive: 'true',
   buttonShowHideCode: 'show'
