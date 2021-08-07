@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 export const StaffTextPropBlock = ({
   externalClass,
   title,
+  type,
   action,
   text,
   ...rest
@@ -20,7 +21,8 @@ export const StaffTextPropBlock = ({
       {...rest}
     >
       <div className="StaffTextPropBlock__title">
-        { title }
+        <span>{ title }</span>
+        { type ? ` (${type}):` : ':' }
       </div>
       <input
         className="StaffTextPropBlock__input"

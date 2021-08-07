@@ -43,13 +43,15 @@ export const ButtonBlock = ({
       <div className="ButtonBlock__right">
         <StaffTextPropBlock
           externalClass="ButtonBlock__right-children"
-          title="children:"
+          title="children"
+          type="JSX"
           action={componentsActions.buttonChangeChildren}
           text={buttonChildren}
         />
         <StaffTextPropBlock
           externalClass="ButtonBlock__right-prop-external-class"
-          title="externalClass (String):"
+          title="externalClass"
+          type="String"
           action={componentsActions.buttonChangeExternalClass}
           text={buttonExternalClass}
         />
