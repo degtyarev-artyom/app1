@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { lightness, saturation } from 'styling/js/styling-functions'
+import { lightness } from 'styling/js/styling-functions'
 
 export const getDynamicStyles = (colors) => {
   return css`
