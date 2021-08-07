@@ -6,23 +6,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { staffActions } from 'redux/staff/staff-actions';
 import './App.scss'
 import { useDispatch } from 'react-redux';
-import { staffThemes } from 'styling/staff/staff-styling-themes';
 import { StaffChangeTheme } from 'components/staff/staff-change-theme/staff-change-theme';
 import { Sandbox } from 'components/pages/sandbox/sandbox';
-import { staffGetThemeLocalStorage, staffSetThemeLocalStorage } from 'redux/staff/staff-functions';
+import { staffGetThemeLocalStorage } from 'redux/staff/staff-functions';
 
 const App = () => {
   const dispatch = useDispatch();
-
-  useMemo(() => {
-    const themeLocalStorage = staffGetThemeLocalStorage()
-    if (!themeLocalStorage) {
-      staffSetThemeLocalStorage(staffThemes.default)
-    } else {
-      dispatch(staffActions.setTheme(themeLocalStorage))
-    }
-    return true
-  }, [dispatch])
+  useMemo(() => dispatch(staffActions.setTheme(staffGetThemeLocalStorage())), [dispatch])
 
   return (
     <div className="App">
