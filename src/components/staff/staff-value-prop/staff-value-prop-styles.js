@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import { lightness } from 'styling/js/styling-functions';
 
 export const getDynamicStyles = (staffColors) => {
   return css`
@@ -12,6 +13,10 @@ export const getDynamicStyles = (staffColors) => {
 
         &.StaffValueProp--active {
           background: ${staffColors.green};
+
+          &:hover {
+            background: ${lightness(staffColors.green, -20)};
+          }
         }
       }
       
@@ -22,6 +27,10 @@ export const getDynamicStyles = (staffColors) => {
 
         &.StaffValueProp--active {
           background: ${staffColors.purple};
+
+          &:hover {
+            background: ${lightness(staffColors.purple, -20)};
+          }
         }
       }
 
@@ -32,6 +41,10 @@ export const getDynamicStyles = (staffColors) => {
 
         &.StaffValueProp--active {
           background: ${staffColors.blue};
+
+          &:hover {
+            background: ${lightness(staffColors.blue, -20)};
+          }
         }
       }
 
@@ -42,6 +55,10 @@ export const getDynamicStyles = (staffColors) => {
 
         &.StaffValueProp--active {
           background: ${staffColors.red};
+
+          &:hover {
+            background: ${lightness(staffColors.red, -15)};
+          }
         }
       }
 
@@ -52,6 +69,10 @@ export const getDynamicStyles = (staffColors) => {
 
         &.StaffValueProp--active {
           background: ${staffColors.orange};
+
+          &:hover {
+            background: ${lightness(staffColors.orange, -20)};
+          }
         }
       }
 
@@ -62,6 +83,10 @@ export const getDynamicStyles = (staffColors) => {
 
         &.StaffValueProp--active {
           background: ${staffColors.grey};
+
+          &:hover {
+            background: ${lightness(staffColors.grey, -20)};
+          }
         }
       }
     }

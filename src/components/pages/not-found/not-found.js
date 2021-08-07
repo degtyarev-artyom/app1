@@ -4,7 +4,7 @@ import { StaffNavbar } from 'components/staff/staff-navbar/staff-navbar'
 import { StaffTitle } from 'components/staff/staff-title/staff-title'
 import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { staffGetTheme, staffThemes, staffColors } from 'styling/js/staff/staff-styling-themes'
+import { staffGetTheme, staffThemes, staffColors } from 'styling/staff/staff-styling-themes'
 import './not-found.scss'
 import { getDynamicStyles } from './not-found-styles'
 

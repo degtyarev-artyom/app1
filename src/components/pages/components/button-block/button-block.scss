@@ -1,0 +1,49 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.ButtonBlock {
+  display: flex;
+  align-items: center;
+
+  &__left {
+    margin: 0 20px 0 0;
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+  }
+
+  &__left-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__right {
+    width: calc(100% * 2 / 3);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__right-children,
+  &__right-prop-external-class,
+  &__right-prop-size,
+  &__right-prop-theme,
+  &__right-prop-no-focus,
+  &__right-code-show-hide {
+    margin: 0 0 20px 0;
+  }
+
+  &__right-code {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__right-code-pre {
+    width: 100%;
+    margin: 0 0 0 0;
+    padding: 10px 10px 10px 10px;
+    border-radius: 3px;
+    border: 1px solid #000000;
+    overflow: auto;
+  }
+}

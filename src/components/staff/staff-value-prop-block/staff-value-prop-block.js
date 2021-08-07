@@ -2,8 +2,8 @@ import classNames from 'classnames'
 import React from 'react'
 import './staff-value-prop-block.scss'
 import { StaffValueProp } from 'components/staff/staff-value-prop/staff-value-prop'
-import { useSelector } from 'react-redux'
-import { staffGetTheme, staffThemes } from 'styling/js/staff/staff-styling-themes'
+import { useDispatch, useSelector } from 'react-redux'
+import { staffGetTheme, staffThemes } from 'styling/staff/staff-styling-themes'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 
 export const StaffValuePropBlock = ({
@@ -12,11 +12,12 @@ export const StaffValuePropBlock = ({
   type,
   properties,
   propActive,
-  dispatchFunc,
+  action,
   ...rest
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = staffGetTheme(currentTheme, staffThemes.purple)
+  const dispatch = useDispatch();
 
   return (
     <div
@@ -38,7 +39,7 @@ export const StaffValuePropBlock = ({
             propName={prop}
             propActive={propActive}
             type={type}
-            onClick={() => dispatchFunc(prop)}
+            onClick={() => dispatch(action(prop))}
           />
         ))}
       </div>

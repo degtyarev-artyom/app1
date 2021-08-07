@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { staffActions } from 'redux/staff/staff-actions';
 import './App.scss'
 import { useDispatch } from 'react-redux';
-import { staffThemes } from 'styling/js/staff/staff-styling-themes';
+import { staffThemes } from 'styling/staff/staff-styling-themes';
 import { StaffChangeTheme } from 'components/staff/staff-change-theme/staff-change-theme';
 import { Sandbox } from 'components/pages/sandbox/sandbox';
 import { staffGetThemeLocalStorage, staffSetThemeLocalStorage } from 'redux/staff/staff-functions';

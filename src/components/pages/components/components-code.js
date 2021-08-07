@@ -10,7 +10,6 @@ export const getButtonCode = ({
   size="${buttonSize}"
   theme="${buttonTheme}"${
   buttonNoFocus ? '\r\n  noFocus' : ''}
-  {...props}
 >
   ${buttonChildren}
 </Button>`

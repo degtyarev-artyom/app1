@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { staffGetTheme, staffColors, staffThemes } from 'styling/js/staff/staff-styling-themes'
+import { staffGetTheme, staffColors, staffThemes } from 'styling/staff/staff-styling-themes'
 import './staff-navbar.scss'
 import { getDynamicStyles } from './staff-navbar-styles'
 

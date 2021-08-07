@@ -1,0 +1,22 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.StaffTextPropBlock {
+  display: flex;
+  align-items: center;
+  margin: 0 0 20px 0;
+
+  &__title {
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: underline;
+    transform: translateY(-2px);
+    margin: 0 10px 0 0;
+  }
+
+  &__input {
+    outline: none;
+    background: #ffffff;
+    border: 1px solid #000000;
+    padding: 3px 5px 3px 5px;
+  }
+}

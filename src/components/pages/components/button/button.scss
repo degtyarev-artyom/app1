@@ -1,3 +1,5 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
 .Button {
   cursor: pointer;
   background: #ffffff;
@@ -30,7 +32,7 @@
   }
 
   &--size-xs {
-    padding: 4px 8px 4px 8px;
-    font-size: 12px;
+    padding: 5px 10px 5px 10px;
+    font-size: 11px;
   }
 }

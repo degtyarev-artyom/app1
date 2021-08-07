@@ -5,7 +5,7 @@ const initialState = {
   buttonChildren: 'Button',
   buttonExternalClass: 'external-class-name',
   buttonSize: ButtonProps.sizes.m,
-  buttonTheme: ButtonProps.themes.green,
+  buttonTheme: ButtonProps.themes.purple,
   buttonNoFocus: 'false',
   buttonShowHideCode: 'show'
 }

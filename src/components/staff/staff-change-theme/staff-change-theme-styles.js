@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { staffThemes } from 'styling/js/staff/staff-styling-themes'
+import { staffThemes } from 'styling/staff/staff-styling-themes'
 
 const themesCount = Object.entries(staffThemes).length - 1
 
