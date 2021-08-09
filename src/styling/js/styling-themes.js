@@ -1,9 +1,12 @@
+import { colorNames } from "./color-names"
+
 export const themes = {
   green: 'green',
   blue: 'blue',
   purple: 'purple',
   red: 'red',
   orange: 'orange',
+  steelblue: 'steelblue',
 }
 
 export const colors = {
@@ -12,6 +15,7 @@ export const colors = {
   purple: '#af78ff',
   red: '#ff7878',
   orange: '#fd9866',
+  steelblue: `${colorNames.steelblue}`,
 }
 
 export const getTheme = (currentTheme, defaultTheme) => {

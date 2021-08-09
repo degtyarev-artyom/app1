@@ -6,13 +6,13 @@ import { colors, themes } from 'styling/js/styling-themes'
 
 export const Button = ({
   externalClass,
-  pending,
   theme,
   size,
-  type,
-  children,
+  bold,
+  pending,
   focus,
   active,
+  children,
   ...rest
 }) => {
   const dynamicStyles = getDynamicStyles(colors)
@@ -23,10 +23,10 @@ export const Button = ({
         [externalClass]: externalClass,
         [`Button--theme-${theme}`]: theme,
         [`Button--size-${size}`]: size,
-        [`Button--type-${type}`]: type,
-        'Button--pending': pending,
+        'Button--bold': bold,
         'Button--focus': focus,
         'Button--active': active,
+        'Button--pending': pending
       })}
       {...rest}
     >

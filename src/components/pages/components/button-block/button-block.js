@@ -8,18 +8,17 @@ import { Button, ButtonProps } from '../button/button'
 import { componentsActions } from 'redux/pages/components/components-actions'
 import { StaffValuePropBlock } from 'components/staff/staff-value-prop-block/staff-value-prop-block'
 import { getButtonCode } from '../components-code'
-import { getDynamicStyles } from './button-block-styles'
-import { staffColors } from 'styling/staff/staff-styling-themes'
+import { StaffShowHideCode } from 'components/staff/staff-show-hide-code/staff-show-hide-code'
 
 export const ButtonBlock = ({
   externalClass,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColors)
   const buttonChildren = useSelector(componentsSelectors.buttonChildren)
   const buttonExternalClass = useSelector(componentsSelectors.buttonExternalClass)
   const buttonSize = useSelector(componentsSelectors.buttonSize)
   const buttonTheme = useSelector(componentsSelectors.buttonTheme)
+  const buttonBold = useSelector(componentsSelectors.buttonBold)
   const buttonFocus = useSelector(componentsSelectors.buttonFocus)
   const buttonActive = useSelector(componentsSelectors.buttonActive)
   const buttonShowHideCode = useSelector(componentsSelectors.buttonShowHideCode)
@@ -35,6 +34,7 @@ export const ButtonBlock = ({
         <Button
           externalClass="ButtonBlock__left-button"
           theme={buttonTheme}
+          bold={buttonBold === 'true'}
           size={buttonSize}
           focus={buttonFocus === 'true'}
           active={buttonActive === 'true'}
@@ -58,6 +58,14 @@ export const ButtonBlock = ({
           text={buttonExternalClass}
         />
         <StaffValuePropBlock
+          externalClass="ButtonBlock__right-prop-theme"
+          title="theme"
+          type="String"
+          properties={Object.values(ButtonProps.themes)}
+          propActive={buttonTheme}
+          action={componentsActions.buttonChangeTheme}
+        />
+        <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-size"
           title="size"
           type="String"
@@ -66,12 +74,12 @@ export const ButtonBlock = ({
           action={componentsActions.buttonChangeSize}
         />
         <StaffValuePropBlock
-          externalClass="ButtonBlock__right-prop-theme"
-          title="theme"
-          type="String"
-          properties={Object.values(ButtonProps.themes)}
-          propActive={buttonTheme}
-          action={componentsActions.buttonChangeTheme}
+          externalClass="ButtonBlock__right-prop-bold"
+          title="bold"
+          type="Boolean"
+          properties={['true', 'false']}
+          propActive={buttonBold}
+          action={componentsActions.buttonChangeBold}
         />
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-focus"
@@ -97,24 +105,24 @@ export const ButtonBlock = ({
           propActive={buttonShowHideCode}
           action={componentsActions.buttonShowHideCode}
         />
-        {buttonShowHideCode === 'show' && (
-          <div className="ButtonBlock__right-code">
-            <pre className="ButtonBlock__right-code-pre">
-              {
-                getButtonCode({
-                  buttonExternalClass,
-                  buttonChildren,
-                  buttonSize,
-                  buttonTheme,
-                  buttonFocus: buttonFocus === 'true',
-                  buttonActive: buttonActive === 'true'
-                })
-              }
-            </pre>
-          </div>
-        )}
+
+        <StaffShowHideCode
+          externalClass="ButtonBlock__right-code"
+          showHideCode={buttonShowHideCode}
+          code={
+            getButtonCode({
+              buttonExternalClass,
+              buttonChildren,
+              buttonSize,
+              buttonTheme,
+              buttonBold: buttonBold === 'true',
+              buttonFocus: buttonFocus === 'true',
+              buttonActive: buttonActive === 'true'
+            })
+          }
+        />
+
       </div>
-      <style jsx>{ dynamicStyles }</style>
     </div>
   )
 }

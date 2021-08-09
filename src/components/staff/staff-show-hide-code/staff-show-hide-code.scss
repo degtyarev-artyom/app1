@@ -1,0 +1,15 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.StaffShowHideCode {
+  display: flex;
+  justify-content: center;
+
+  &__pre {
+    width: 100%;
+    margin: 0 0 0 0;
+    padding: 10px 10px 10px 10px;
+    border-radius: 3px;
+    border: 1px solid #000000;
+    overflow: auto;
+  }
+}

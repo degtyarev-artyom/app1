@@ -5,8 +5,8 @@ export const getDynamicStyles = (staffColors) => {
   return css`
     @import 'src/styling/scss/styling-mixins.scss';
     
-    .ButtonBlock {
-      &__right-code-pre {
+    .StaffShowHideCode {
+      &__pre {
         background: ${lightness(staffColors.grey, 70)};
       }
     }

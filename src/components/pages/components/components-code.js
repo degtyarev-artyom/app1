@@ -1,15 +1,17 @@
 /* button */
 export const getButtonCode = ({
   buttonExternalClass,
-  buttonSize,
   buttonTheme,
-  buttonChildren,
+  buttonSize,
+  buttonBold,
   buttonFocus,
-  buttonActive
+  buttonActive,
+  buttonChildren
 }) => `<Button
   externalClass="${buttonExternalClass}"
-  size="${buttonSize}"
-  theme="${buttonTheme}"${
+  theme="${buttonTheme}"
+  size="${buttonSize}"${
+  buttonBold ? '\r\n  bold' : ''}${
   buttonFocus ? '\r\n  focus' : ''}${
   buttonActive ? '\r\n  active' : ''}
 >

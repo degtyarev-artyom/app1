@@ -7,97 +7,134 @@ export const getDynamicStyles = (colors) => {
 
     .Button {
       &--theme-green {
-        border: 1px solid ${colors.green};
+        border-color: ${colors.green};
         color: ${lightness(colors.green, -25)};
 
         &:hover {
-          box-shadow: inset 0 0 0 1px ${colors.green};
           color: ${lightness(colors.purple, -25)};
         }
 
-        &.Button--focus:focus {
-          box-shadow: inset 0 0 0 1px ${colors.green};
-          color: ${lightness(colors.purple, -25)};
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.green};
+            color: ${lightness(colors.purple, -25)};
+          }
         }
 
-        &.Button--active:active {
-          color: ${colors.purple};
+        &.Button--active{
+          &:active {
+            color: ${colors.purple};
+          }
         }
       }
       
       &--theme-blue {
-        border: 1px solid ${colors.blue};
+        border-color: ${colors.blue};
         color: ${lightness(colors.blue, -25)};
 
         &:hover {
-          box-shadow: inset 0 0 0 1px ${colors.blue};
           color: ${lightness(colors.orange, -25)};
         }
 
-        &.Button--focus:focus {
-          box-shadow: inset 0 0 0 1px ${colors.blue};
-          color: ${lightness(colors.orange, -25)};
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.blue};
+            color: ${lightness(colors.orange, -25)};
+          }
         }
 
-        &.Button--active:active {
-          color: ${colors.orange};
+        &.Button--active{
+          &:active {
+            color: ${colors.orange};
+          }
         }
       }
 
       &--theme-purple {
-        border: 1px solid ${colors.purple};
+        border-color: ${colors.purple};
         color: ${lightness(colors.purple, -25)};
 
         &:hover {
-          box-shadow: inset 0 0 0 1px ${colors.purple};
           color: ${lightness(colors.orange, -25)};
         }
 
-        &.Button--focus:focus {
-          box-shadow: inset 0 0 0 1px ${colors.purple};
-          color: ${lightness(colors.orange, -25)};
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.purple};
+            color: ${lightness(colors.orange, -25)};
+          }
         }
 
-        &.Button--active:active {
-          color: ${colors.orange};
+        &.Button--active{
+          &:active {
+            color: ${colors.orange};
+          }
         }
       }
 
       &--theme-red {
-        border: 1px solid ${colors.red};
+        border-color: ${colors.red};
         color: ${lightness(colors.red, -25)};
 
         &:hover {
-          box-shadow: inset 0 0 0 1px ${colors.red};
           color: ${lightness(colors.blue, -25)};
         }
 
-        &.Button--focus:focus {
-          box-shadow: inset 0 0 0 1px ${colors.red};
-          color: ${lightness(colors.blue, -25)};
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.red};
+            color: ${lightness(colors.blue, -25)};
+          }
         }
 
-        &.Button--active:active {
-          color: ${lightness(colors.blue, 15)};
+        &.Button--active{
+          &:active {
+            color: ${lightness(colors.blue, 15)};
+          }
         }
       }
 
       &--theme-orange {
-        border: 1px solid ${colors.orange};
+        border-color: ${colors.orange};
         color: ${lightness(colors.orange, -25)};
 
         &:hover {
-          box-shadow: inset 0 0 0 1px ${colors.orange};
           color: ${lightness(colors.blue, -25)};
         }
 
-        &.Button--focus:focus {
-          box-shadow: inset 0 0 0 1px ${colors.orange};
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.orange};
+            color: ${lightness(colors.blue, -25)};
+          }
+        }
+
+        &.Button--active {
+          &:active {
+            color: ${lightness(colors.blue, 15)};
+          }
+        }
+      }
+
+      &--theme-steelblue {
+        border-color: ${colors.steelblue};
+        color: ${lightness(colors.steelblue, -25)};
+
+        &:hover {
           color: ${lightness(colors.blue, -25)};
         }
 
-        &.Button--active:active {
-          color: ${lightness(colors.blue, 15)};
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.steelblue};
+            color: ${lightness(colors.blue, -25)};
+          }
+        }
+
+        &.Button--active{
+          &:active {
+            color: ${lightness(colors.blue, 15)};
+          }
         }
       }
     }
