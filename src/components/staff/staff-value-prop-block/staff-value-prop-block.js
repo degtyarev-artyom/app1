@@ -46,3 +46,9 @@ export const StaffValuePropBlock = ({
     </div>
   )
 }
+
+export const StaffValuePropBlockTypes = {
+  string: 'String',
+  boolean: 'Boolean',
+  code: 'Code',
+}

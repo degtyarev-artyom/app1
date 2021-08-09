@@ -33,3 +33,8 @@ export const StaffTextPropBlock = ({
     </div>
   )
 }
+
+export const StaffTextPropBlockType = {
+  jsx: 'JSX',
+  string: 'String'
+}

@@ -8,7 +8,7 @@ export const Button = ({
   externalClass,
   theme,
   size,
-  bold,
+  type,
   pending,
   focus,
   active,
@@ -23,7 +23,7 @@ export const Button = ({
         [externalClass]: externalClass,
         [`Button--theme-${theme}`]: theme,
         [`Button--size-${size}`]: size,
-        'Button--bold': bold,
+        [`Button--type-${type}`]: type,
         'Button--focus': focus,
         'Button--active': active,
         'Button--pending': pending
@@ -44,5 +44,10 @@ export const ButtonProps = {
     m: 'm',
     l: 'l',
     xl: 'xl',
+  },
+  types: {
+    light: 'light',
+    normal: 'normal',
+    bold: 'bold'
   }
 }

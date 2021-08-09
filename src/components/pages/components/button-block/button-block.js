@@ -3,10 +3,10 @@ import classNames from 'classnames'
 import './button-block.scss'
 import { componentsSelectors } from 'redux/pages/components/components-selectors'
 import { useSelector } from 'react-redux'
-import { StaffTextPropBlock } from 'components/staff/staff-text-prop-block/staff-text-prop-block'
+import { StaffTextPropBlock, StaffTextPropBlockType } from 'components/staff/staff-text-prop-block/staff-text-prop-block'
 import { Button, ButtonProps } from '../button/button'
 import { componentsActions } from 'redux/pages/components/components-actions'
-import { StaffValuePropBlock } from 'components/staff/staff-value-prop-block/staff-value-prop-block'
+import { StaffValuePropBlock, StaffValuePropBlockTypes } from 'components/staff/staff-value-prop-block/staff-value-prop-block'
 import { getButtonCode } from '../components-code'
 import { StaffShowHideCode } from 'components/staff/staff-show-hide-code/staff-show-hide-code'
 
@@ -16,9 +16,9 @@ export const ButtonBlock = ({
 }) => {
   const buttonChildren = useSelector(componentsSelectors.buttonChildren)
   const buttonExternalClass = useSelector(componentsSelectors.buttonExternalClass)
-  const buttonSize = useSelector(componentsSelectors.buttonSize)
   const buttonTheme = useSelector(componentsSelectors.buttonTheme)
-  const buttonBold = useSelector(componentsSelectors.buttonBold)
+  const buttonSize = useSelector(componentsSelectors.buttonSize)
+  const buttonType = useSelector(componentsSelectors.buttonType)
   const buttonFocus = useSelector(componentsSelectors.buttonFocus)
   const buttonActive = useSelector(componentsSelectors.buttonActive)
   const buttonShowHideCode = useSelector(componentsSelectors.buttonShowHideCode)
@@ -34,8 +34,8 @@ export const ButtonBlock = ({
         <Button
           externalClass="ButtonBlock__left-button"
           theme={buttonTheme}
-          bold={buttonBold === 'true'}
           size={buttonSize}
+          type={buttonType}
           focus={buttonFocus === 'true'}
           active={buttonActive === 'true'}
         >
@@ -46,21 +46,21 @@ export const ButtonBlock = ({
         <StaffTextPropBlock
           externalClass="ButtonBlock__right-children"
           title="children"
-          type="JSX"
+          type={StaffTextPropBlockType.jsx}
           action={componentsActions.buttonChangeChildren}
           text={buttonChildren}
         />
         <StaffTextPropBlock
           externalClass="ButtonBlock__right-prop-external-class"
           title="externalClass"
-          type="String"
+          type={StaffTextPropBlockType.string}
           action={componentsActions.buttonChangeExternalClass}
           text={buttonExternalClass}
         />
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-theme"
           title="theme"
-          type="String"
+          type={StaffValuePropBlockTypes.string}
           properties={Object.values(ButtonProps.themes)}
           propActive={buttonTheme}
           action={componentsActions.buttonChangeTheme}
@@ -68,23 +68,23 @@ export const ButtonBlock = ({
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-size"
           title="size"
-          type="String"
+          type={StaffValuePropBlockTypes.string}
           properties={Object.values(ButtonProps.sizes)}
           propActive={buttonSize}
           action={componentsActions.buttonChangeSize}
         />
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-bold"
-          title="bold"
-          type="Boolean"
-          properties={['true', 'false']}
-          propActive={buttonBold}
-          action={componentsActions.buttonChangeBold}
+          title="type"
+          type={StaffValuePropBlockTypes.string}
+          properties={Object.values(ButtonProps.types)}
+          propActive={buttonType}
+          action={componentsActions.buttonChangeType}
         />
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-focus"
           title="focus"
-          type="Boolean"
+          type={StaffValuePropBlockTypes.boolean}
           properties={['true', 'false']}
           propActive={buttonFocus}
           action={componentsActions.buttonChangeFocus}
@@ -92,7 +92,7 @@ export const ButtonBlock = ({
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-active"
           title="active"
-          type="Boolean"
+          type={StaffValuePropBlockTypes.boolean}
           properties={['true', 'false']}
           propActive={buttonActive}
           action={componentsActions.buttonChangeActive}
@@ -100,12 +100,11 @@ export const ButtonBlock = ({
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-code-show-hide"
           title="code"
-          type="Code"
+          type={StaffValuePropBlockTypes.code}
           properties={['show', 'hide']}
           propActive={buttonShowHideCode}
           action={componentsActions.buttonShowHideCode}
         />
-
         <StaffShowHideCode
           externalClass="ButtonBlock__right-code"
           showHideCode={buttonShowHideCode}
@@ -115,13 +114,12 @@ export const ButtonBlock = ({
               buttonChildren,
               buttonSize,
               buttonTheme,
-              buttonBold: buttonBold === 'true',
+              buttonType,
               buttonFocus: buttonFocus === 'true',
               buttonActive: buttonActive === 'true'
             })
           }
         />
-
       </div>
     </div>
   )

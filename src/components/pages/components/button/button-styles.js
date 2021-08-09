@@ -6,6 +6,27 @@ export const getDynamicStyles = (colors) => {
     @import 'src/styling/scss/styling-mixins.scss';
 
     .Button {
+      /* default theme="green" */
+      border-color: ${colors.green};
+      color: ${lightness(colors.green, -25)};
+
+      &:hover {
+        color: ${lightness(colors.purple, -25)};
+      }
+
+      &.Button--focus {
+        &:focus {
+          box-shadow: 0 0 0 1px ${colors.green};
+          color: ${lightness(colors.purple, -25)};
+        }
+      }
+
+      &.Button--active{
+        &:active {
+          color: ${colors.purple};
+        }
+      }
+
       &--theme-green {
         border-color: ${colors.green};
         color: ${lightness(colors.green, -25)};
@@ -134,6 +155,116 @@ export const getDynamicStyles = (colors) => {
         &.Button--active{
           &:active {
             color: ${lightness(colors.blue, 15)};
+          }
+        }
+      }
+
+      &--theme-greyOlive {
+        border-color: ${colors.grey};
+        color: ${lightness(colors.grey, -55)};
+
+        &:hover {
+          color: ${colors.olive};
+        }
+
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.grey};
+            color: ${colors.olive};
+          }
+        }
+
+        &.Button--active{
+          &:active {
+            color: ${lightness(colors.olive, 35)};
+          }
+        }
+      }
+
+      &--theme-greyBlue {
+        border-color: ${colors.grey};
+        color: ${lightness(colors.grey, -55)};
+
+        &:hover {
+          color: ${lightness(colors.blue, -15)};
+        }
+
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.grey};
+            color: ${lightness(colors.blue, -15)};
+          }
+        }
+
+        &.Button--active{
+          &:active {
+            color: ${lightness(colors.blue, 15)};
+          }
+        }
+      }
+
+      &--theme-greyPurple {
+        border-color: ${colors.grey};
+        color: ${lightness(colors.grey, -55)};
+
+        &:hover {
+          color: ${lightness(colors.purple, -25)};
+        }
+
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.grey};
+            color: ${lightness(colors.purple, -25)};
+          }
+        }
+
+        &.Button--active{
+          &:active {
+            color: ${colors.purple};
+          }
+        }
+      }
+
+      &--theme-greyRed {
+        border-color: ${colors.grey};
+        color: ${lightness(colors.grey, -55)};
+
+        &:hover {
+          color: ${lightness(colors.red, -10)};
+        }
+
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.grey};
+            color: ${lightness(colors.red, -10)};
+          }
+        }
+
+        &.Button--active{
+          &:active {
+            color: ${lightness(colors.red, 20)};
+          }
+        }
+      }
+
+      &--theme-greyOrange {
+        border-color: ${colors.grey};
+        color: ${lightness(colors.grey, -55)};
+
+        &:hover {
+          color: ${lightness(colors.orange, -20)};
+        }
+
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.grey};
+            color: ${lightness(colors.orange, -20)};
+          }
+        }
+
+        &.Button--active{
+          &:active {
+            color: ${lightness(colors.orange, 10)};
           }
         }
       }

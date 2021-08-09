@@ -1,3 +1,5 @@
+import { colorNames } from "styling/js/color-names"
+
 export const staffThemes = {
   default: 'default',
   green: 'green',
@@ -5,18 +7,18 @@ export const staffThemes = {
   blue: 'blue',
   red: 'red',
   orange: 'orange',
-  grey: 'grey',
+  grey: 'grey'
 }
 
 export const staffColors = {
-  white: '#ffffff',
-  black: '#000000',
+  white: `${colorNames.white}`,
+  black: `${colorNames.black}`,
   green: '#b3ddb8',
   purple: '#cdb6df',
   blue: '#b6d1fb',
   red: '#ffc3c3',
   orange: '#ffca84',
-  grey: '#e2e2e2',
+  grey: '#e2e2e2'
 }
 
 export const staffGetTheme = (currentTheme, defaultTheme) => {
