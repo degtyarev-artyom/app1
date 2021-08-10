@@ -55,4 +55,8 @@
     border-width: 2px;
     font-weight: 400;
   }
+
+  &--disabled {
+    cursor: default;
+  }
 }

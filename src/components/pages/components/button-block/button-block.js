@@ -21,6 +21,7 @@ export const ButtonBlock = ({
   const buttonType = useSelector(componentsSelectors.buttonType)
   const buttonFocus = useSelector(componentsSelectors.buttonFocus)
   const buttonActive = useSelector(componentsSelectors.buttonActive)
+  const buttonDisabled = useSelector(componentsSelectors.buttonDisabled)
   const buttonShowHideCode = useSelector(componentsSelectors.buttonShowHideCode)
 
   return (
@@ -38,6 +39,7 @@ export const ButtonBlock = ({
           type={buttonType}
           focus={buttonFocus === 'true'}
           active={buttonActive === 'true'}
+          disabled={buttonDisabled === 'true'}
         >
           { buttonChildren }
         </Button>
@@ -96,6 +98,14 @@ export const ButtonBlock = ({
           properties={['true', 'false']}
           propActive={buttonActive}
           action={componentsActions.buttonChangeActive}
+        />
+        <StaffValuePropBlock
+          externalClass="ButtonBlock__right-prop-disabled"
+          title="disabled"
+          type={StaffValuePropBlockTypes.boolean}
+          properties={['true', 'false']}
+          propActive={buttonDisabled}
+          action={componentsActions.buttonChangeDisabled}
         />
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-code-show-hide"

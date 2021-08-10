@@ -268,6 +268,28 @@ export const getDynamicStyles = (colors) => {
           }
         }
       }
+
+      &--disabled {
+        border-color: ${lightness(colors.grey, 50)};
+        color: ${colors.grey};
+
+        &:hover {
+          color: ${colors.grey};
+        }
+
+        &.Button--focus {
+          &:focus {
+            box-shadow: 0 0 0 1px ${colors.grey};
+            color: ${colors.grey};
+          }
+        }
+
+        &.Button--active{
+          &:active {
+            color: ${colors.grey};
+          }
+        }
+      }
     }
   `
 }

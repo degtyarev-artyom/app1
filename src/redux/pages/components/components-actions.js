@@ -8,6 +8,7 @@ export const componentsActionTypes = {
   BUTTON_CHANGE_TYPE: 'BUTTON_CHANGE_TYPE',
   BUTTON_CHANGE_FOCUS: 'BUTTON_CHANGE_FOCUS',
   BUTTON_CHANGE_ACTIVE: 'BUTTON_CHANGE_ACTIVE',
+  BUTTON_CHANGE_DISABLED: 'BUTTON_CHANGE_DISABLED',
   BUTTON_SHOW_HIDE_CODE: 'BUTTON_SHOW_HIDE_CODE'
 }
 
@@ -19,5 +20,6 @@ export const componentsActions = {
   buttonChangeType: buttonType => action(componentsActionTypes.BUTTON_CHANGE_TYPE, { buttonType }),
   buttonChangeFocus: focus => action(componentsActionTypes.BUTTON_CHANGE_FOCUS, { focus }),
   buttonChangeActive: active => action(componentsActionTypes.BUTTON_CHANGE_ACTIVE, { active }),
+  buttonChangeDisabled: disabled => action(componentsActionTypes.BUTTON_CHANGE_DISABLED, { disabled }),
   buttonShowHideCode: code => action(componentsActionTypes.BUTTON_SHOW_HIDE_CODE, { code }),
 }

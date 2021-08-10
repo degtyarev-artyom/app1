@@ -9,6 +9,7 @@ const initialState = {
   buttonType: ButtonProps.types.normal,
   buttonFocus: 'true',
   buttonActive: 'true',
+  buttonDisabled: 'false',
   buttonShowHideCode: 'show'
 }
 
@@ -48,6 +49,11 @@ export const componentsReducer = (state = initialState, action) => {
       return {
         ...state,
         buttonActive: action.active
+      }
+    case componentsActionTypes.BUTTON_CHANGE_DISABLED:
+      return {
+        ...state,
+        buttonDisabled: action.disabled
       }
     case componentsActionTypes.BUTTON_SHOW_HIDE_CODE:
       return {

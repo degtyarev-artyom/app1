@@ -9,9 +9,10 @@ export const Button = ({
   theme,
   size,
   type,
-  pending,
   focus,
   active,
+  disabled,
+  pending,
   children,
   ...rest
 }) => {
@@ -26,8 +27,10 @@ export const Button = ({
         [`Button--type-${type}`]: type,
         'Button--focus': focus,
         'Button--active': active,
+        'Button--disabled': disabled,
         'Button--pending': pending
       })}
+      disabled={disabled}
       {...rest}
     >
       { children }
