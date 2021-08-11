@@ -1,17 +1,17 @@
-import { Components } from 'components/pages/components/components';
-import { Home } from 'components/pages/home/home';
-import { NotFound } from 'components/pages/not-found/not-found';
-import { useMemo} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { staffActions } from 'redux/staff/staff-actions';
+import { Components } from 'components/pages/components/components'
+import { Home } from 'components/pages/home/home'
+import { NotFound } from 'components/pages/not-found/not-found'
+import { useMemo} from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { staffActions } from 'redux/staff/staff-actions'
 import './App.scss'
-import { useDispatch } from 'react-redux';
-import { StaffChangeTheme } from 'components/staff/staff-change-theme/staff-change-theme';
-import { Sandbox } from 'components/pages/sandbox/sandbox';
-import { staffGetThemeLocalStorage } from 'redux/staff/staff-functions';
+import { useDispatch } from 'react-redux'
+import { StaffChangeTheme } from 'components/staff/staff-change-theme/staff-change-theme'
+import { Sandbox } from 'components/pages/sandbox/sandbox'
+import { staffGetThemeLocalStorage } from 'redux/staff/staff-functions'
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   useMemo(() => dispatch(staffActions.setTheme(staffGetThemeLocalStorage())), [dispatch])
 
   return (
@@ -34,7 +34,7 @@ const App = () => {
         </Switch>
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

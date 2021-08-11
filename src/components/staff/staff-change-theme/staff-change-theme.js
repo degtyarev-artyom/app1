@@ -1,9 +1,9 @@
-import classNames from 'classnames';
-import { staffActions } from 'redux/staff/staff-actions';
-import { staffSelectors } from 'redux/staff/staff-selectors';
+import classNames from 'classnames'
+import { staffActions } from 'redux/staff/staff-actions'
+import { staffSelectors } from 'redux/staff/staff-selectors'
 import './staff-change-theme.scss'
-import { useDispatch, useSelector } from 'react-redux';
-import { staffThemes, staffColors } from 'styling/staff/staff-styling-themes';
+import { useDispatch, useSelector } from 'react-redux'
+import { staffThemes, staffColors } from 'styling/staff/staff-styling-themes'
 import { getDynamicStyles } from './staff-change-theme-styles'
 
 export const StaffChangeTheme = ({

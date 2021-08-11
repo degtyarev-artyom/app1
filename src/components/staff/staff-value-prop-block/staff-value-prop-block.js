@@ -17,7 +17,7 @@ export const StaffValuePropBlock = ({
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = staffGetTheme(currentTheme, staffThemes.purple)
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <div
