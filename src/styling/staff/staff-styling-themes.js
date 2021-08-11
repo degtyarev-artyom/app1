@@ -18,7 +18,11 @@ export const staffColors = {
   blue: '#b6d1fb',
   red: '#ffc3c3',
   orange: '#ffca84',
-  grey: '#e2e2e2'
+  grey: '#e2e2e2',
+  codeGreen: '#7d9b63',
+  codeGrey: '#cccccc',
+  codeDark: '#242424',
+  codeYellow: '#f8bb51'
 }
 
 export const staffGetTheme = (currentTheme, defaultTheme) => {

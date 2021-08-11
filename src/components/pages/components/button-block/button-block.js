@@ -7,8 +7,7 @@ import { StaffTextPropBlock, StaffTextPropBlockType } from 'components/staff/sta
 import { Button, ButtonProps } from '../button/button'
 import { componentsActions } from 'redux/pages/components/components-actions'
 import { StaffValuePropBlock, StaffValuePropBlockTypes } from 'components/staff/staff-value-prop-block/staff-value-prop-block'
-import { getButtonCode } from '../components-code'
-import { StaffShowHideCode } from 'components/staff/staff-show-hide-code/staff-show-hide-code'
+import { ButtonCode } from '../button-code/button-code'
 
 export const ButtonBlock = ({
   externalClass,
@@ -45,6 +44,8 @@ export const ButtonBlock = ({
         </Button>
       </div>
       <div className="ButtonBlock__right">
+        
+        {/* children */}
         <StaffTextPropBlock
           externalClass="ButtonBlock__right-children"
           title="children"
@@ -52,6 +53,8 @@ export const ButtonBlock = ({
           action={componentsActions.buttonChangeChildren}
           text={buttonChildren}
         />
+        
+        {/* externalClass */}
         <StaffTextPropBlock
           externalClass="ButtonBlock__right-prop-external-class"
           title="externalClass"
@@ -59,6 +62,8 @@ export const ButtonBlock = ({
           action={componentsActions.buttonChangeExternalClass}
           text={buttonExternalClass}
         />
+        
+        {/* theme */}
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-theme"
           title="theme"
@@ -67,6 +72,8 @@ export const ButtonBlock = ({
           propActive={buttonTheme}
           action={componentsActions.buttonChangeTheme}
         />
+        
+        {/* size */}
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-size"
           title="size"
@@ -75,6 +82,8 @@ export const ButtonBlock = ({
           propActive={buttonSize}
           action={componentsActions.buttonChangeSize}
         />
+        
+        {/* bold */}
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-bold"
           title="type"
@@ -83,6 +92,8 @@ export const ButtonBlock = ({
           propActive={buttonType}
           action={componentsActions.buttonChangeType}
         />
+        
+        {/* focus */}
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-focus"
           title="focus"
@@ -91,6 +102,8 @@ export const ButtonBlock = ({
           propActive={buttonFocus}
           action={componentsActions.buttonChangeFocus}
         />
+
+        {/* active */}
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-active"
           title="active"
@@ -99,6 +112,8 @@ export const ButtonBlock = ({
           propActive={buttonActive}
           action={componentsActions.buttonChangeActive}
         />
+
+        {/* disabled */}
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-prop-disabled"
           title="disabled"
@@ -107,6 +122,8 @@ export const ButtonBlock = ({
           propActive={buttonDisabled}
           action={componentsActions.buttonChangeDisabled}
         />
+
+        {/* code */}
         <StaffValuePropBlock
           externalClass="ButtonBlock__right-code-show-hide"
           title="code"
@@ -115,20 +132,17 @@ export const ButtonBlock = ({
           propActive={buttonShowHideCode}
           action={componentsActions.buttonShowHideCode}
         />
-        <StaffShowHideCode
+        <ButtonCode
           externalClass="ButtonBlock__right-code"
           showHideCode={buttonShowHideCode}
-          code={
-            getButtonCode({
-              buttonExternalClass,
-              buttonChildren,
-              buttonSize,
-              buttonTheme,
-              buttonType,
-              buttonFocus: buttonFocus === 'true',
-              buttonActive: buttonActive === 'true'
-            })
-          }
+          buttonChildren={buttonChildren}
+          buttonExternalClass={buttonExternalClass}
+          buttonSize={buttonSize}
+          buttonTheme={buttonTheme}
+          buttonType={buttonType}
+          buttonFocus={buttonFocus === 'true'}
+          buttonActive={buttonActive === 'true'}
+          buttonDisabled={buttonDisabled === 'true'}
         />
       </div>
     </div>

@@ -40,7 +40,7 @@ export const Button = ({
 }
 
 export const ButtonProps = {
-  themes: themes,
+  themes,
   sizes: {
     xs: 'xs',
     s: 's',
