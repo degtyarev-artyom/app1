@@ -9,7 +9,7 @@ export const StaffColorText = styled.span(({ color, currentTheme }) => ({
       ? lightness(staffColors.codeDark, 20)
       : opacity(saturation(staffColors[currentTheme], -30), 70),
     color: currentTheme === staffThemes.default
-      ? lightness(color, 0)
+      ? lightness(color, 25)
       : staffColors.codeDark
   }
 }))
