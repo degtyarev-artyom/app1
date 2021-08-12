@@ -1,11 +1,15 @@
 import styled from 'styled-components'
-import { lightness } from 'styling/js/styling-ligthness-saturation'
-import { staffColors } from 'styling/staff/staff-styling-themes'
+import { lightness, opacity, saturation } from 'styling/js/styling-ligthness-saturation'
+import { staffColors, staffThemes } from 'styling/staff/staff-styling-themes'
 
-export const StaffColorText = styled.span(({ color, theme }) => ({
+export const StaffColorText = styled.span(({ color, currentTheme }) => ({
   color,
   "::selection": {
-    background: lightness(staffColors[theme], -20),
-    color: staffColors.codeDark
+    background: currentTheme === staffThemes.default
+      ? lightness(staffColors.codeDark, 20)
+      : opacity(saturation(staffColors[currentTheme], -30), 70),
+    color: currentTheme === staffThemes.default
+      ? lightness(color, 0)
+      : staffColors.codeDark
   }
 }))
