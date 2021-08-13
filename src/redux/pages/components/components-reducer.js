@@ -12,7 +12,7 @@ const initialState = {
   buttonDisabled: 'false',
   buttonBlock: 'false',
   buttonPending: 'false',
-  buttonShowHideCode: 'hide'
+  buttonShowHideCode: 'show'
 }
 
 export const componentsReducer = (state = initialState, action) => {
