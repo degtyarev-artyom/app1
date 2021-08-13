@@ -18,6 +18,8 @@ export const ButtonCode = ({
   buttonFocus,
   buttonActive,
   buttonDisabled,
+  buttonBlock,
+  buttonPending,
   ...rest
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
@@ -85,6 +87,20 @@ export const ButtonCode = ({
           {buttonDisabled && (<>
             <StaffColorText color={staffColors.codeGrey} currentTheme={currentTheme}>
               {`  disabled`}
+            </StaffColorText><br />
+          </>)}
+
+          {/* block */}
+          {buttonBlock && (<>
+            <StaffColorText color={staffColors.codeGrey} currentTheme={currentTheme}>
+              {`  block`}
+            </StaffColorText><br />
+          </>)}
+
+          {/* pending */}
+          {buttonPending && (<>
+            <StaffColorText color={staffColors.codeGrey} currentTheme={currentTheme}>
+              {`  pending`}
             </StaffColorText><br />
           </>)}
 

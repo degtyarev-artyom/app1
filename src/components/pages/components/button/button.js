@@ -12,6 +12,7 @@ export const Button = ({
   focus,
   active,
   disabled,
+  block,
   pending,
   children,
   ...rest
@@ -28,9 +29,10 @@ export const Button = ({
         'Button--focus': focus,
         'Button--active': active,
         'Button--disabled': disabled,
+        'Button--block': block,
         'Button--pending': pending
       })}
-      disabled={disabled}
+      disabled={disabled || block}
       {...rest}
     >
       { children }

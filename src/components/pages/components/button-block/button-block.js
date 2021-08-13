@@ -21,6 +21,8 @@ export const ButtonBlock = ({
   const buttonFocus = useSelector(componentsSelectors.buttonFocus)
   const buttonActive = useSelector(componentsSelectors.buttonActive)
   const buttonDisabled = useSelector(componentsSelectors.buttonDisabled)
+  const buttonBlock = useSelector(componentsSelectors.buttonBlock)
+  const buttonPending = useSelector(componentsSelectors.buttonPending)
   const buttonShowHideCode = useSelector(componentsSelectors.buttonShowHideCode)
 
   return (
@@ -39,6 +41,8 @@ export const ButtonBlock = ({
           focus={buttonFocus === 'true'}
           active={buttonActive === 'true'}
           disabled={buttonDisabled === 'true'}
+          block={buttonBlock === 'true'}
+          pending={buttonPending === 'true'}
         >
           { buttonChildren }
         </Button>
@@ -50,7 +54,7 @@ export const ButtonBlock = ({
           externalClass="ButtonBlock__right-children"
           title="children"
           type={StaffTextPropBlockType.jsx}
-          action={componentsActions.buttonChangeChildren}
+          action={componentsActions.buttonChildren}
           text={buttonChildren}
         />
         
@@ -59,7 +63,7 @@ export const ButtonBlock = ({
           externalClass="ButtonBlock__right-prop-external-class"
           title="externalClass"
           type={StaffTextPropBlockType.string}
-          action={componentsActions.buttonChangeExternalClass}
+          action={componentsActions.buttonExternalClass}
           text={buttonExternalClass}
         />
         
@@ -70,7 +74,7 @@ export const ButtonBlock = ({
           type={StaffValuePropBlockTypes.string}
           properties={Object.values(ButtonProps.themes)}
           propActive={buttonTheme}
-          action={componentsActions.buttonChangeTheme}
+          action={componentsActions.buttonTheme}
         />
         
         {/* size */}
@@ -80,7 +84,7 @@ export const ButtonBlock = ({
           type={StaffValuePropBlockTypes.string}
           properties={Object.values(ButtonProps.sizes)}
           propActive={buttonSize}
-          action={componentsActions.buttonChangeSize}
+          action={componentsActions.buttonSize}
         />
         
         {/* bold */}
@@ -90,7 +94,7 @@ export const ButtonBlock = ({
           type={StaffValuePropBlockTypes.string}
           properties={Object.values(ButtonProps.types)}
           propActive={buttonType}
-          action={componentsActions.buttonChangeType}
+          action={componentsActions.buttonType}
         />
         
         {/* focus */}
@@ -100,7 +104,7 @@ export const ButtonBlock = ({
           type={StaffValuePropBlockTypes.boolean}
           properties={['true', 'false']}
           propActive={buttonFocus}
-          action={componentsActions.buttonChangeFocus}
+          action={componentsActions.buttonFocus}
         />
 
         {/* active */}
@@ -110,7 +114,7 @@ export const ButtonBlock = ({
           type={StaffValuePropBlockTypes.boolean}
           properties={['true', 'false']}
           propActive={buttonActive}
-          action={componentsActions.buttonChangeActive}
+          action={componentsActions.buttonActive}
         />
 
         {/* disabled */}
@@ -120,7 +124,27 @@ export const ButtonBlock = ({
           type={StaffValuePropBlockTypes.boolean}
           properties={['true', 'false']}
           propActive={buttonDisabled}
-          action={componentsActions.buttonChangeDisabled}
+          action={componentsActions.buttonDisabled}
+        />
+
+        {/* block */}
+        <StaffValuePropBlock
+          externalClass="ButtonBlock__right-prop-block"
+          title="block"
+          type={StaffValuePropBlockTypes.boolean}
+          properties={['true', 'false']}
+          propActive={buttonBlock}
+          action={componentsActions.buttonBlock}
+        />
+
+        {/* pending */}
+        <StaffValuePropBlock
+          externalClass="ButtonBlock__right-prop-pending"
+          title="pending"
+          type={StaffValuePropBlockTypes.boolean}
+          properties={['true', 'false']}
+          propActive={buttonPending}
+          action={componentsActions.buttonPending}
         />
 
         {/* code */}
@@ -143,6 +167,8 @@ export const ButtonBlock = ({
           buttonFocus={buttonFocus === 'true'}
           buttonActive={buttonActive === 'true'}
           buttonDisabled={buttonDisabled === 'true'}
+          buttonBlock={buttonBlock === 'true'}
+          buttonPending={buttonPending === 'true'}
         />
       </div>
     </div>

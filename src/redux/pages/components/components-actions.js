@@ -1,25 +1,29 @@
 import { action } from 'redux/redux-functions'
 
 export const componentsActionTypes = {
-  BUTTON_CHANGE_CHILDREN: 'BUTTON_CHANGE_CHILDREN',
-  BUTTON_CHANGE_EXTERNAL_CLASS: 'BUTTON_CHANGE_EXTERNAL_CLASS',
-  BUTTON_CHANGE_THEME: 'BUTTON_CHANGE_THEME',
-  BUTTON_CHANGE_SIZE: 'BUTTON_CHANGE_SIZE',
-  BUTTON_CHANGE_TYPE: 'BUTTON_CHANGE_TYPE',
-  BUTTON_CHANGE_FOCUS: 'BUTTON_CHANGE_FOCUS',
-  BUTTON_CHANGE_ACTIVE: 'BUTTON_CHANGE_ACTIVE',
-  BUTTON_CHANGE_DISABLED: 'BUTTON_CHANGE_DISABLED',
+  BUTTON_CHILDREN: 'BUTTON_CHILDREN',
+  BUTTON_EXTERNAL_CLASS: 'BUTTON_EXTERNAL_CLASS',
+  BUTTON_THEME: 'BUTTON_THEME',
+  BUTTON_SIZE: 'BUTTON_SIZE',
+  BUTTON_TYPE: 'BUTTON_TYPE',
+  BUTTON_FOCUS: 'BUTTON_FOCUS',
+  BUTTON_ACTIVE: 'BUTTON_ACTIVE',
+  BUTTON_DISABLED: 'BUTTON_DISABLED',
+  BUTTON_BLOCK: 'BUTTON_BLOCK',
+  BUTTON_PENDING: 'BUTTON_PENDING',
   BUTTON_SHOW_HIDE_CODE: 'BUTTON_SHOW_HIDE_CODE'
 }
 
 export const componentsActions = {
-  buttonChangeChildren: children => action(componentsActionTypes.BUTTON_CHANGE_CHILDREN, { children }),
-  buttonChangeExternalClass: externalClass => action(componentsActionTypes.BUTTON_CHANGE_EXTERNAL_CLASS, { externalClass }),
-  buttonChangeTheme: theme => action(componentsActionTypes.BUTTON_CHANGE_THEME, { theme }),
-  buttonChangeSize: size => action(componentsActionTypes.BUTTON_CHANGE_SIZE, { size }),
-  buttonChangeType: buttonType => action(componentsActionTypes.BUTTON_CHANGE_TYPE, { buttonType }),
-  buttonChangeFocus: focus => action(componentsActionTypes.BUTTON_CHANGE_FOCUS, { focus }),
-  buttonChangeActive: active => action(componentsActionTypes.BUTTON_CHANGE_ACTIVE, { active }),
-  buttonChangeDisabled: disabled => action(componentsActionTypes.BUTTON_CHANGE_DISABLED, { disabled }),
+  buttonChildren: children => action(componentsActionTypes.BUTTON_CHILDREN, { children }),
+  buttonExternalClass: externalClass => action(componentsActionTypes.BUTTON_EXTERNAL_CLASS, { externalClass }),
+  buttonTheme: theme => action(componentsActionTypes.BUTTON_THEME, { theme }),
+  buttonSize: size => action(componentsActionTypes.BUTTON_SIZE, { size }),
+  buttonType: buttonType => action(componentsActionTypes.BUTTON_TYPE, { buttonType }),
+  buttonFocus: focus => action(componentsActionTypes.BUTTON_FOCUS, { focus }),
+  buttonActive: active => action(componentsActionTypes.BUTTON_ACTIVE, { active }),
+  buttonDisabled: disabled => action(componentsActionTypes.BUTTON_DISABLED, { disabled }),
+  buttonBlock: block => action(componentsActionTypes.BUTTON_BLOCK, { block }),
+  buttonPending: pending => action(componentsActionTypes.BUTTON_PENDING, { pending }),
   buttonShowHideCode: code => action(componentsActionTypes.BUTTON_SHOW_HIDE_CODE, { code }),
 }
