@@ -6,9 +6,8 @@ import { getDynamicStyles } from './staff-button-styles'
 
 export const StaffButton = ({
   externalClass,
-  pending,
-  size,
   theme,
+  size,
   children,
   ...rest
 }) => {
@@ -19,8 +18,7 @@ export const StaffButton = ({
       className={classNames('StaffButton', {
         [externalClass]: externalClass,
         [`StaffButton--theme-${theme}`]: theme,
-        [`StaffButton--size-${size}`]: size,
-        'StaffButton--pending': pending,
+        [`StaffButton--size-${size}`]: size
       })}
       {...rest}
     >
@@ -31,10 +29,5 @@ export const StaffButton = ({
 }
 
 export const StaffButtonProps = {
-  theme: staffThemes,
-  size: {
-    s: 's',
-    m: 'm',
-    l: 'l',
-  }
+  theme: staffThemes
 }
