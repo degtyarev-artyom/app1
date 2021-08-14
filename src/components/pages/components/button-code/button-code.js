@@ -1,11 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
 import './button-code.scss'
-import { staffColors } from 'styling/staff/staff-styling-themes'
+import { staffColors, staffGetTheme, staffThemes } from 'styling/staff/staff-styling-themes'
 import { StaffCodeWrap } from 'components/staff/staff-code-wrap/staff-code-wrap'
 import { StaffColorText } from 'components/staff/staff-styled-components/staff-styled-components'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { useSelector } from 'react-redux'
+import { getButtonCode } from './button-code-string'
+import { StaffButtonCopy } from 'components/staff/staff-button-copy/staff-button-copy'
 
 export const ButtonCode = ({
   externalClass,
@@ -23,6 +25,7 @@ export const ButtonCode = ({
   ...rest
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
+  const theme = staffGetTheme(currentTheme, staffThemes.purple)
 
   return (<>
     {showHideCode === 'show' && (
@@ -32,7 +35,7 @@ export const ButtonCode = ({
         })}
         {...rest}
       >
-        <StaffCodeWrap>
+        <StaffCodeWrap externalClass="ButtonCode__code-wrap">
           <StaffColorText color={staffColors.codeYellow} currentTheme={currentTheme}>
             {`<Button`}
           </StaffColorText><br />
@@ -118,7 +121,27 @@ export const ButtonCode = ({
           <StaffColorText color={staffColors.codeYellow} currentTheme={currentTheme}>
             {`</Button>`}
           </StaffColorText><br />
-        </StaffCodeWrap>      
+        </StaffCodeWrap>
+
+        {/* copy */}
+        <div className="ButtonCode__copy">
+          <StaffButtonCopy
+            theme={theme}
+            delay={1000}
+            code={getButtonCode({
+              buttonChildren,
+              buttonExternalClass,
+              buttonTheme,
+              buttonSize,
+              buttonType,
+              buttonFocus,
+              buttonActive,
+              buttonDisabled,
+              buttonBlock,
+              buttonPending
+            })}
+          />
+        </div>
       </div>
     )}
   </>)
