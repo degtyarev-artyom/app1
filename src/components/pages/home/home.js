@@ -15,7 +15,7 @@ export const Home = ({
 
   return (
     <div className={classNames('Home', {
-      [externalClass]: externalClass,
+      [externalClass]: externalClass
     })}>
       <StaffTitle
         externalClass="Home__title"

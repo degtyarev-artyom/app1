@@ -15,7 +15,7 @@ export const StaffButtonCopy = ({
   return (
     <StaffButton
       externalClass={classNames('StaffButtonCopy', {
-        [externalClass]: externalClass,
+        [externalClass]: externalClass
       })}
       theme={theme}
       onClick={() => {

@@ -18,7 +18,7 @@ export const StaffNavbar = ({
   
   return (
     <div className={classNames('StaffNavbar', {
-      [externalClass]: externalClass,
+      [externalClass]: externalClass
     })}>
 
       {/* home */}

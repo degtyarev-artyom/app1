@@ -16,7 +16,7 @@ export const Counter = ({
 
   return (
     <div className={classNames('Counter', {
-      [externalClass]: externalClass,
+      [externalClass]: externalClass
     })}>
       <div className="Counter__button-list">
         {/* Increment after second */}

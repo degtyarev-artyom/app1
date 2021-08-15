@@ -16,7 +16,7 @@ export const Components = ({
 
   return (
     <div className={classNames('Components', {
-      [externalClass]: externalClass,
+      [externalClass]: externalClass
     })}>
       <StaffTitle
         externalClass="Components__title"

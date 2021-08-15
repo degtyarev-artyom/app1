@@ -22,7 +22,7 @@ export const StaffValuePropBlock = ({
   return (
     <div
       className={classNames('StaffValuePropBlock', {
-        [externalClass]: externalClass,
+        [externalClass]: externalClass
       })}
       {...rest}
     >

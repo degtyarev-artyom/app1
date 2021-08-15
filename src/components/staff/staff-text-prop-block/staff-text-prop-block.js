@@ -16,7 +16,7 @@ export const StaffTextPropBlock = ({
   return (
     <div
       className={classNames('StaffTextPropBlock', {
-        [externalClass]: externalClass,
+        [externalClass]: externalClass
       })}
       {...rest}
     >

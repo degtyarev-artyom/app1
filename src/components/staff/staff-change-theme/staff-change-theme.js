@@ -15,7 +15,7 @@ export const StaffChangeTheme = ({
 
   return (
     <div className={classNames('StaffChangeTheme', {
-      [externalClass]: externalClass, 
+      [externalClass]: externalClass
     })}>
       <div
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--default', {

@@ -16,7 +16,7 @@ export const Sandbox = ({
 
   return (
     <div className={classNames('Sandbox', {
-      [externalClass]: externalClass,
+      [externalClass]: externalClass
     })}>
       <StaffTitle
         externalClass="Sandbox__title"

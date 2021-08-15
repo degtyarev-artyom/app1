@@ -17,7 +17,7 @@ export const NotFound = ({
   
   return (
     <div className={classNames('NotFound', {
-      [externalClass]: externalClass,
+      [externalClass]: externalClass
     })}>
       <StaffTitle
         externalClass="NotFound__title"
