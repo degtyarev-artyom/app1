@@ -1,6 +1,17 @@
 .StaffCodeWrap {
-  font-size: 14px;
-  padding: 15px 15px 15px 15px;
-  border-radius: 3px;
-  margin: 0 0 0 0;
+  position: relative;
+
+  &__subwrap {
+    font-size: 14px;
+    padding: 16px 17px 15px 17px;
+    border-radius: 3px;
+    margin: 0 0 0 0;
+    overflow: auto;
+  }
+
+  &__button-copy {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
 }
