@@ -6,23 +6,27 @@ import { StaffCodeWrap } from 'components/staff/staff-code-wrap/staff-code-wrap'
 import { StaffColorText } from 'components/staff/staff-styled-components/staff-styled-components'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { useSelector } from 'react-redux'
+import { getButtonCode } from './button-code-string'
 
 export const ButtonCode = ({
   externalClass,
   showHideCode,
-  buttonChildren,
-  buttonExternalClass,
-  buttonTheme,
-  buttonSize,
-  buttonType,
-  buttonFocus,
-  buttonActive,
-  buttonDisabled,
-  buttonBlock,
-  buttonPending,
+  buttonCodeData,
   ...rest
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
+  const {
+    buttonChildren,
+    buttonExternalClass,
+    buttonTheme,
+    buttonSize,
+    buttonType,
+    buttonFocus,
+    buttonActive,
+    buttonDisabled,
+    buttonBlock,
+    buttonPending
+  } = buttonCodeData
 
   return (<>
     {showHideCode === 'show' && (
@@ -34,18 +38,9 @@ export const ButtonCode = ({
       >
         <StaffCodeWrap
           externalClass="ButtonCode__code-wrap"
-          buttonCopyData={{
-            buttonChildren,
-            buttonExternalClass,
-            buttonTheme,
-            buttonSize,
-            buttonType,
-            buttonFocus,
-            buttonActive,
-            buttonDisabled,
-            buttonBlock,
-            buttonPending
-          }}
+          codeData={buttonCodeData}
+          getCode={getButtonCode}
+          delayCopied={1000}
         >
           <StaffColorText color={staffColors.codeYellow} currentTheme={currentTheme}>
             {`<Button`}

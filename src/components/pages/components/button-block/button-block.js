@@ -159,16 +159,18 @@ export const ButtonBlock = ({
         <ButtonCode
           externalClass="ButtonBlock__right-code"
           showHideCode={buttonShowHideCode}
-          buttonChildren={buttonChildren}
-          buttonExternalClass={buttonExternalClass}
-          buttonSize={buttonSize}
-          buttonTheme={buttonTheme}
-          buttonType={buttonType}
-          buttonFocus={buttonFocus === 'true'}
-          buttonActive={buttonActive === 'true'}
-          buttonDisabled={buttonDisabled === 'true'}
-          buttonBlock={buttonBlock === 'true'}
-          buttonPending={buttonPending === 'true'}
+          buttonCodeData={{
+            buttonChildren,
+            buttonExternalClass,
+            buttonSize,
+            buttonTheme,
+            buttonType,
+            buttonFocus: buttonFocus === 'true',
+            buttonActive: buttonActive === 'true',
+            buttonDisabled: buttonDisabled === 'true',
+            buttonBlock: buttonBlock === 'true',
+            buttonPending: buttonPending === 'true'
+          }}
         />
       </div>
     </div>

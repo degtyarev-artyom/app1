@@ -1,13 +1,13 @@
 import classNames from 'classnames'
 import React, { useState } from 'react'
-import { delay as d } from 'redux/root-saga'
+import { delay } from 'redux/root-saga'
 import { StaffButton } from '../staff-button/staff-button'
 import './staff-button-copy.scss'
 
 export const StaffButtonCopy = ({
   externalClass,
   theme,
-  delay = 500,
+  delayCopied,
   code,
 }) => {
   const [copied, setCopied] = useState(false)
@@ -23,7 +23,7 @@ export const StaffButtonCopy = ({
         navigator.clipboard.writeText(code)
         .then(() => {
           setCopied(true)
-          return d(delay)
+          return delay(delayCopied)
         })
         .then(() => setCopied(false))
         .catch(e => console.log(e))
