@@ -24,6 +24,7 @@ export const staffColorsMain = {
 export const staffThemesCode = {
   darcula: 'darcula',
   vscode: 'vscode',
+  monokai: 'monokai',
 }
 
 export const staffColorsCode = {
@@ -31,6 +32,7 @@ export const staffColorsCode = {
     bracket: '#f8bb51',
     component: '#f8bb51',
     prop: '#cccccc',
+    equal: '#cccccc',
     string: '#7d9b63',
     text: '#cccccc',
     background: '#242424'
@@ -39,9 +41,19 @@ export const staffColorsCode = {
     bracket: '#8c8c8c',
     component: '#4Ec9b0',
     prop: '#9cdcfe',
+    equal: '#d4d4d4',
     string: '#c89178',
     text: '#d4d4d4',
-    background: '#000000'
+    background: '#1e1e1e'
+  },
+  [staffThemesCode.monokai]: {
+    bracket: '#f0f7f1',
+    component: '#65d7Ed',
+    prop: '#a6e22e',
+    equal: '#f92672',
+    string: '#e6d55f',
+    text: '#f8f8f2',
+    background: '#272822'
   }
 }
 

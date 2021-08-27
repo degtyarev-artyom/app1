@@ -53,7 +53,10 @@ export const ButtonCode = ({
 
           {/* externalClass */}
           <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-            {`  externalClass=`}
+            {`  externalClass`}
+          </StaffColorText>
+          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].equal} currentTheme={currentTheme}>
+            {`=`}
           </StaffColorText>
           <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].string} currentTheme={currentTheme}>
             {`"${buttonExternalClass}"`}
@@ -61,7 +64,10 @@ export const ButtonCode = ({
 
           {/* theme */}
           <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-            {`  theme=`}
+            {`  theme`}
+          </StaffColorText>
+          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].equal} currentTheme={currentTheme}>
+            {`=`}
           </StaffColorText>
           <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].string} currentTheme={currentTheme}>
             {`"${buttonTheme}"`}
@@ -69,7 +75,10 @@ export const ButtonCode = ({
 
           {/* size */}
           <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-            {`  size=`}
+            {`  size`}
+          </StaffColorText>
+          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].equal} currentTheme={currentTheme}>
+            {`=`}
           </StaffColorText>
           <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].string} currentTheme={currentTheme}>
             {`"${buttonSize}"`}
@@ -77,7 +86,10 @@ export const ButtonCode = ({
 
           {/* type */}
           <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-            {`  type=`}
+            {`  type`}
+          </StaffColorText>
+          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].equal} currentTheme={currentTheme}>
+            {`=`}
           </StaffColorText>
           <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].string} currentTheme={currentTheme}>
             {`"${buttonType}"`}

@@ -28,22 +28,11 @@
       transition: width 0.1s ease, height 0.1s ease;
     }
   
-    &--darcula {
-      &--active {
-        &:before {
-          width: 8px;
-          height: 8px;
-        }
-      } 
-    }
-  
-    &--vscode {
-      &--active {
-        &:before {
-          width: 8px;
-          height: 8px;
-        }
-      } 
-    }
+    &--active {
+      &:before {
+        width: 8px;
+        height: 8px;
+      }
+    } 
   }
 }

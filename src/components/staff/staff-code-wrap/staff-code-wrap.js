@@ -36,7 +36,8 @@ export const StaffCodeWrap = ({
       />
       <pre className={classNames('StaffCodeWrap__subwrap', {
         'StaffCodeWrap__subwrap--darcula': themeCode === 'darcula',
-        'StaffCodeWrap__subwrap--vscode': themeCode === 'vscode'
+        'StaffCodeWrap__subwrap--vscode': themeCode === 'vscode',
+        'StaffCodeWrap__subwrap--monokai': themeCode === 'monokai'
       })}>
         { children }
       </pre>

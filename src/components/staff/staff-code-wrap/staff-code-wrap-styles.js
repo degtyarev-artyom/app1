@@ -11,6 +11,10 @@ export const getDynamicStyles = (staffColorsCode) => {
         &--vscode {
           background: ${staffColorsCode.vscode.background};
         }
+
+        &--monokai {
+          background: ${staffColorsCode.monokai.background};
+        }
       }
     }
   `

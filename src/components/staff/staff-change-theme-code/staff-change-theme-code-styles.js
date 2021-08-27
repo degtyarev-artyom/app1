@@ -6,19 +6,30 @@ export const getDynamicStyles = (staffColorsCode) => {
     
     .StaffChangeThemeCode {
       &__item {
+        /* darcula */
         &--darcula {
-          background: ${staffColorsCode.darcula.component};
+          background: ${staffColorsCode.darcula.prop};
 
           &:before {
             background: ${staffColorsCode.darcula.background};
           }
         }
 
+        /* vscode */
         &--vscode {
-          background: ${staffColorsCode.vscode.component};
+          background: ${staffColorsCode.vscode.prop};
 
           &:before {
-            background: ${staffColorsCode.darcula.background};
+            background: ${staffColorsCode.vscode.background};
+          }
+        }
+
+        /* monokai */
+        &--monokai {
+          background: ${staffColorsCode.monokai.prop};
+
+          &:before {
+            background: ${staffColorsCode.monokai.background};
           }
         }
       }

@@ -21,7 +21,7 @@ export const StaffChangeThemeCode = ({
       {/* darcula */}
       <div
         className={classNames('StaffChangeThemeCode__item StaffChangeThemeCode__item--darcula', {
-          'StaffChangeThemeCode__item--darcula--active': themeCode === 'darcula', 
+          'StaffChangeThemeCode__item--active': themeCode === 'darcula', 
         })}
         onClick={() => dispatch(staffActions.setThemeCode(staffThemesCode.darcula))}
       />
@@ -29,9 +29,17 @@ export const StaffChangeThemeCode = ({
       {/* vscode */}
       <div
         className={classNames('StaffChangeThemeCode__item StaffChangeThemeCode__item--vscode', {
-          'StaffChangeThemeCode__item--vscode--active': themeCode === 'vscode', 
+          'StaffChangeThemeCode__item--active': themeCode === 'vscode', 
         })}
         onClick={() => dispatch(staffActions.setThemeCode(staffThemesCode.vscode))}
+      />
+
+      {/* monokai */}
+      <div
+        className={classNames('StaffChangeThemeCode__item StaffChangeThemeCode__item--monokai', {
+          'StaffChangeThemeCode__item--active': themeCode === 'monokai', 
+        })}
+        onClick={() => dispatch(staffActions.setThemeCode(staffThemesCode.monokai))}
       />
 
       <style jsx>{ dynamicStyles }</style>
