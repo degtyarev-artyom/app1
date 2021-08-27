@@ -2,17 +2,27 @@ import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import './counter.scss'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { staffGetTheme } from 'styling/staff/staff-styling-themes'
 import { sandboxActions } from 'redux/pages/sandbox/sandbox-actions'
 import { sandboxSelectors } from 'redux/pages/sandbox/sandbox-selectors'
 import { StaffButton, StaffButtonProps } from 'components/staff/staff-button/staff-button'
+import { useRef, useState } from 'react'
+import { getTheme } from 'styling/staff/staff-styling-functions'
 
 export const Counter = ({
   externalClass,
 }) => {
-  const currentTheme = useSelector(staffSelectors.currentTheme)
+  const currentTheme = useSelector(staffSelectors.currentThemeMain)
   const counterValue = useSelector(sandboxSelectors.counterValue)
   const dispatch = useDispatch()
+
+  const [el, setEl] = useState([])
+  const listEl = useRef(null)
+
+  // const handleScroll = e => {
+  //   console.log('scroll')
+  // }
+
+  // listEl.addEventListener('onscroll')
 
   return (
     <div className={classNames('Counter', {
@@ -23,7 +33,7 @@ export const Counter = ({
         <StaffButton
           externalClass="Counter__button"
           onClick={() => dispatch(sandboxActions.counterIncrementAsync())}
-          theme={staffGetTheme(currentTheme, StaffButtonProps.theme.green)}
+          theme={getTheme(currentTheme, StaffButtonProps.theme.green)}
         >
           Increment after second
         </StaffButton>
@@ -32,7 +42,7 @@ export const Counter = ({
         <StaffButton
           externalClass="Counter__button"
           onClick={() => dispatch(sandboxActions.counterIncrement())}
-          theme={staffGetTheme(currentTheme, StaffButtonProps.theme.blue)}
+          theme={getTheme(currentTheme, StaffButtonProps.theme.blue)}
         >
           Increment
         </StaffButton>
@@ -41,7 +51,7 @@ export const Counter = ({
         <StaffButton
           externalClass="Counter__button"
           onClick={() => dispatch(sandboxActions.counterDecrement())}
-          theme={staffGetTheme(currentTheme, StaffButtonProps.theme.red)}
+          theme={getTheme(currentTheme, StaffButtonProps.theme.red)}
         >
           Decrement
         </StaffButton>
@@ -56,10 +66,28 @@ export const Counter = ({
       <StaffButton
         externalClass="Counter__button-clear"
         onClick={() => dispatch(sandboxActions.counterClear())}
-        theme={staffGetTheme(currentTheme, StaffButtonProps.theme.orange)}
+        theme={getTheme(currentTheme, StaffButtonProps.theme.orange)}
       >
         Set zero
       </StaffButton>
+
+      <div className="Counter__use-ref-wrap">
+        <StaffButton
+          externalClass="Counter__use-ref-add-el"
+          theme={getTheme(currentTheme, StaffButtonProps.theme.green)}
+          onClick={() => setEl([el.length + 1, ...el])}
+        >
+          Add element
+        </StaffButton>
+
+        <div className="Counter__use-ref-list" ref={listEl}>
+          {el.map(item => (
+            <div className="Counter__use-ref-item" key={item}>
+              { item }
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

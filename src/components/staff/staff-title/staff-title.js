@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import './staff-title.scss'
 import { getDynamicStyles } from './staff-title-styles'
-import { staffColors, staffThemes } from 'styling/staff/staff-styling-themes'
+import { staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
 
 export const StaffTitle = ({
   externalClass,
@@ -9,7 +9,7 @@ export const StaffTitle = ({
   children,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColors)
+  const dynamicStyles = getDynamicStyles(staffColorsMain)
 
   return (
     <div
@@ -26,5 +26,5 @@ export const StaffTitle = ({
 }
 
 export const StaffTitleProps = {
-  theme: staffThemes,
+  theme: staffThemesMain,
 }

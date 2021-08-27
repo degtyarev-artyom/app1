@@ -33,4 +33,31 @@
     margin: 15px 0 0 0;
     width: 100%;
   }
+
+  &__use-ref-wrap {
+    margin: 20px 0 0 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__use-ref-add-el {
+    margin: 0 0 20px 0;
+  }
+
+  &__use-ref-list {
+    max-height: 210px;
+    width: 100%;
+    overflow: auto;
+  }
+
+  &__use-ref-item {
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    border-bottom: 1px solid black;
+
+    &:nth-of-type(2n + 1) {
+      border-color: red;
+    }
+  }
 }

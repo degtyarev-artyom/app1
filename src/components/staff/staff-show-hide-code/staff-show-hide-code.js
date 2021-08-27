@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import React from 'react'
 import './staff-show-hide-code.scss'
 import { getDynamicStyles } from './staff-show-hide-code-styles'
-import { staffColors } from 'styling/staff/staff-styling-themes'
+import { staffColorsMain } from 'styling/staff/staff-styling-themes'
 
 export const StaffShowHideCode = ({
   externalClass,
@@ -10,7 +10,7 @@ export const StaffShowHideCode = ({
   code,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColors)
+  const dynamicStyles = getDynamicStyles(staffColorsMain)
 
   return (<>
     {showHideCode === 'show' && (

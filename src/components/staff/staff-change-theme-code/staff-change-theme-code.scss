@@ -1,0 +1,49 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.StaffChangeThemeCode {
+  display: flex;
+
+  &__item {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin: 0 2px 0 0;
+    cursor: pointer;
+    position: relative;
+    margin: 0 5px 0 0;
+
+    &:last-child {
+      margin: 0 0 0 0;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transition: width 0.1s ease, height 0.1s ease;
+    }
+  
+    &--darcula {
+      &--active {
+        &:before {
+          width: 8px;
+          height: 8px;
+        }
+      } 
+    }
+  
+    &--vscode {
+      &--active {
+        &:before {
+          width: 8px;
+          height: 8px;
+        }
+      } 
+    }
+  }
+}

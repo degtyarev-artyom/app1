@@ -1,3 +1,4 @@
 export const staffSelectors = {
-  currentTheme: state => state.staff.currentTheme,
+  currentThemeMain: state => state.staff.currentThemeMain,
+  currentThemeCode: state => state.staff.currentThemeCode
 }

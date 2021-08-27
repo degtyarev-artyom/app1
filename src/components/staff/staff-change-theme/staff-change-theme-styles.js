@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
-import { staffThemes } from 'styling/staff/staff-styling-themes'
+import { staffThemesMain } from 'styling/staff/staff-styling-themes'
 
-const themesCount = Object.entries(staffThemes).length - 1
+const themesCount = Object.entries(staffThemesMain).length - 1
 
 export const getDynamicStyles = (staffColors) => {
   return css`

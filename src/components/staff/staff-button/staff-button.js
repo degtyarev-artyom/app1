@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import { staffColors, staffThemes } from 'styling/staff/staff-styling-themes'
+import { staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
 import './staff-button.scss'
 import { getDynamicStyles } from './staff-button-styles'
 
@@ -11,7 +11,7 @@ export const StaffButton = ({
   children,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColors)
+  const dynamicStyles = getDynamicStyles(staffColorsMain)
 
   return (
     <button
@@ -29,5 +29,5 @@ export const StaffButton = ({
 }
 
 export const StaffButtonProps = {
-  theme: staffThemes
+  theme: staffThemesMain
 }

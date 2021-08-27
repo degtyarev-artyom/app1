@@ -1,7 +1,7 @@
 import { all, call, put, takeEvery, /* takeLatest,  */take/* , fork */ } from 'redux-saga/effects'
 import { sandboxActions, sandboxActionTypes } from 'redux/pages/sandbox/sandbox-actions'
+import { setThemeCodeLS, setThemeMainLS } from 'styling/staff/staff-styling-functions'
 import { staffActionTypes } from './staff/staff-actions'
-import { staffSetThemeLocalStorage } from './staff/staff-functions'
 
 /* hello-saga */
 function* helloSaga() {
@@ -40,12 +40,20 @@ function* watchActions() {
   }
 }
 
-function* staffSetTheme({ theme }) {
-  yield call(staffSetThemeLocalStorage, theme)
+function* staffSetThemeMain({ theme }) {
+  yield call(setThemeMainLS, theme)
 }
 
-function* watchStaffSetTheme() {
-  yield takeEvery(staffActionTypes.SET_THEME, staffSetTheme)
+function* watchStaffSetThemeMain() {
+  yield takeEvery(staffActionTypes.SET_THEME_MAIN, staffSetThemeMain)
+}
+
+function* staffSetThemeCode({ theme }) {
+  yield call(setThemeCodeLS, theme)
+}
+
+function* watchStaffSetThemeCode() {
+  yield takeEvery(staffActionTypes.SET_THEME_CODE, staffSetThemeCode)
 }
 
 /* export-root-saga */
@@ -54,6 +62,7 @@ export function* rootSaga() {
     helloSaga(),
     watchSandboxIncrementAsync(),
     watchActions(),
-    watchStaffSetTheme(),
+    watchStaffSetThemeMain(),
+    watchStaffSetThemeCode()
   ])
 }

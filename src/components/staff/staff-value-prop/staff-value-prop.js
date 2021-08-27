@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import { staffColors, staffThemes } from 'styling/staff/staff-styling-themes'
+import { staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
 import './staff-value-prop.scss'
 import { getDynamicStyles } from './staff-value-prop-styles'
 
@@ -12,7 +12,7 @@ export const StaffValueProp = ({
   type,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColors)
+  const dynamicStyles = getDynamicStyles(staffColorsMain)
 
   return (
     <button
@@ -33,5 +33,5 @@ export const StaffValueProp = ({
 }
 
 export const StaffValuePropProps = {
-  theme: staffThemes
+  theme: staffThemesMain
 }

@@ -1,5 +1,6 @@
 .StaffCodeWrap {
   position: relative;
+  transition: background 0.3s ease;
 
   &__subwrap {
     font-size: 14px;
@@ -7,11 +8,18 @@
     border-radius: 3px;
     margin: 0 0 0 0;
     overflow: auto;
+    transition: background 0.3s ease;
   }
 
   &__button-copy {
     position: absolute;
     top: 5px;
+    right: 5px;
+  }
+
+  &__change-theme-code {
+    position: absolute;
+    bottom: 5px;
     right: 5px;
   }
 }

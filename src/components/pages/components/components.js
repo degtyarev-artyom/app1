@@ -4,15 +4,16 @@ import { StaffNavbar } from 'components/staff/staff-navbar/staff-navbar'
 import { StaffTitle } from 'components/staff/staff-title/staff-title'
 import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { staffGetTheme, staffThemes } from 'styling/staff/staff-styling-themes'
+import { staffThemesMain } from 'styling/staff/staff-styling-themes'
 import './components.scss'
 import { ButtonBlock } from './button-block/button-block'
+import { getTheme } from 'styling/staff/staff-styling-functions'
 
 export const Components = ({
   externalClass,
 }) => {
-  const currentTheme = useSelector(staffSelectors.currentTheme)
-  const theme = staffGetTheme(currentTheme, staffThemes.purple)
+  const currentTheme = useSelector(staffSelectors.currentThemeMain)
+  const theme = getTheme(currentTheme, staffThemesMain.purple)
 
   return (
     <div className={classNames('Components', {

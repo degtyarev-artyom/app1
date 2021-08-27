@@ -1,10 +1,16 @@
 import css from 'styled-jsx/css'
 
-export const getDynamicStyles = (staffColors) => {
+export const getDynamicStyles = (staffColorsCode) => {
   return css`
     .StaffCodeWrap {
       &__subwrap {
-        background: ${staffColors.codeDark};
+        &--darcula {
+          background: ${staffColorsCode.darcula.background};
+        }
+
+        &--vscode {
+          background: ${staffColorsCode.vscode.background};
+        }
       }
     }
   `

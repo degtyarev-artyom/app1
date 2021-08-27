@@ -4,16 +4,17 @@ import { StaffNavbar } from 'components/staff/staff-navbar/staff-navbar'
 import { StaffTitle } from 'components/staff/staff-title/staff-title'
 import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { staffGetTheme, staffThemes, staffColors } from 'styling/staff/staff-styling-themes'
+import { staffThemesMain, staffColorsMain } from 'styling/staff/staff-styling-themes'
 import './not-found.scss'
 import { getDynamicStyles } from './not-found-styles'
+import { getTheme } from 'styling/staff/staff-styling-functions'
 
 export const NotFound = ({
   externalClass,
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColors)
-  const currentTheme = useSelector(staffSelectors.currentTheme)
-  const theme = staffGetTheme(currentTheme, staffThemes.red)
+  const dynamicStyles = getDynamicStyles(staffColorsMain)
+  const currentTheme = useSelector(staffSelectors.currentThemeMain)
+  const theme = getTheme(currentTheme, staffThemesMain.red)
   
   return (
     <div className={classNames('NotFound', {
