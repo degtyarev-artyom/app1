@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'classnames'
 import './button.scss'
 import { getDynamicStyles } from './button-styles'

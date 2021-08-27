@@ -5,7 +5,6 @@ import './staff-change-theme-code.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { staffThemesCode, staffColorsCode } from 'styling/staff/staff-styling-themes'
 import { getDynamicStyles } from './staff-change-theme-code-styles'
-import { getTheme } from 'styling/staff/staff-styling-functions'
 
 export const StaffChangeThemeCode = ({
   externalClass,

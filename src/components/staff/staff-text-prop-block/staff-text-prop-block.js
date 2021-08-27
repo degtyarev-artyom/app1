@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import React from 'react'
 import './staff-text-prop-block.scss'
 import { useDispatch } from 'react-redux'
 

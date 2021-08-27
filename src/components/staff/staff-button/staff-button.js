@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import React from 'react'
 import { staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
 import './staff-button.scss'
 import { getDynamicStyles } from './staff-button-styles'

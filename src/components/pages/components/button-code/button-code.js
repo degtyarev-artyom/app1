@@ -1,7 +1,6 @@
-import React from 'react'
 import classNames from 'classnames'
 import './button-code.scss'
-import { staffColorsMain, staffColorsCode, staffThemesCode } from 'styling/staff/staff-styling-themes'
+import { staffColorsCode } from 'styling/staff/staff-styling-themes'
 import { StaffCodeWrap } from 'components/staff/staff-code-wrap/staff-code-wrap'
 import { StaffColorText } from 'components/staff/staff-styled-components/staff-styled-components'
 import { staffSelectors } from 'redux/staff/staff-selectors'

@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'classnames'
 import { getDynamicStyles } from './staff-code-wrap-styles'
 import './staff-code-wrap.scss'

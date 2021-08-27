@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'classnames'
 import './button-block.scss'
 import { componentsSelectors } from 'redux/pages/components/components-selectors'

@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import React from 'react'
 import './staff-show-hide-code.scss'
 import { getDynamicStyles } from './staff-show-hide-code-styles'
 import { staffColorsMain } from 'styling/staff/staff-styling-themes'

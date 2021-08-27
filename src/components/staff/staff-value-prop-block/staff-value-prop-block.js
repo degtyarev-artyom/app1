@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import React from 'react'
 import './staff-value-prop-block.scss'
 import { StaffValueProp } from 'components/staff/staff-value-prop/staff-value-prop'
 import { useDispatch, useSelector } from 'react-redux'

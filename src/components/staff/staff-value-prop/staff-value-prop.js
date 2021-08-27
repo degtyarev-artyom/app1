@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import React from 'react'
 import { staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
 import './staff-value-prop.scss'
 import { getDynamicStyles } from './staff-value-prop-styles'
