@@ -1,12 +1,12 @@
 import classNames from 'classnames'
-import { getDynamicStyles } from './staff-code-wrap-styles'
 import './staff-code-wrap.scss'
-import { staffColorsCode, staffThemesMain } from 'styling/staff/staff-styling-themes'
+import { staffThemes } from 'styling/staff/staff-styling-themes'
 import { StaffButtonCopy } from '../staff-button-copy/staff-button-copy'
 import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { getTheme } from 'styling/staff/staff-styling-functions'
 import { StaffChangeThemeCode } from '../staff-change-theme-code/staff-change-theme-code'
+import { staticStyles } from './staff-code-wrap-styles'
 
 export const StaffCodeWrap = ({
   externalClass,
@@ -16,10 +16,9 @@ export const StaffCodeWrap = ({
   children,
   ...rest
 }) => {
-  const currentTheme = useSelector(staffSelectors.currentThemeMain)
-  const theme = getTheme(currentTheme, staffThemesMain.purple)
+  const currentTheme = useSelector(staffSelectors.currentTheme)
+  const theme = getTheme(currentTheme, staffThemes.purple)
   const themeCode = useSelector(staffSelectors.currentThemeCode)
-  const dynamicStyles = getDynamicStyles(staffColorsCode, themeCode)
 
   return (
     <div
@@ -42,7 +41,7 @@ export const StaffCodeWrap = ({
         { children }
       </pre>
       <StaffChangeThemeCode externalClass="StaffCodeWrap__change-theme-code"/>
-      <style jsx>{ dynamicStyles }</style>
+      <style jsx>{ staticStyles }</style>
     </div>
   )
 }

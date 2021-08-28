@@ -1,14 +1,13 @@
 import css from 'styled-jsx/css'
-import { lightness } from 'styling/js/styling-ligthness-saturation'
+import { lightness } from 'styling/staff/staff-styling-hsla'
+import { staffColors } from 'styling/staff/staff-styling-themes'
 
-export const getDynamicStyles = (staffColors) => {
-  return css`
-    @import 'src/styling/scss/styling-mixins.scss';
-    
-    .StaffShowHideCode {
-      &__pre {
-        background: ${lightness(staffColors.grey, 70)};
-      }
+export const staticStyles = css`
+  @import 'src/styling/scss/styling-mixins.scss';
+
+  .StaffShowHideCode {
+    &__pre {
+      background: ${lightness(staffColors.grey, 70)};
     }
-  `
-}
+  }
+`

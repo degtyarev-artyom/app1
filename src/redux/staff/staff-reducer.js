@@ -1,16 +1,16 @@
 import { staffActionTypes } from "./staff-actions"
 
 const initialState = {
-  currentThemeMain: 'default',
+  currentTheme: 'default',
   currentThemeCode: 'darcula'
 }
 
 export const staffReducer = (state = initialState, action) => {
   switch(action.type) {
-    case staffActionTypes.SET_THEME_MAIN:
+    case staffActionTypes.SET_THEME:
       return {
         ...state,
-        currentThemeMain: action.theme
+        currentTheme: action.theme
       }
     case staffActionTypes.SET_THEME_CODE:
       return {

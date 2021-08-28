@@ -1,6 +1,6 @@
 import { colorNames } from "styling/js/color-names"
 
-export const staffThemesMain = {
+export const staffThemes = {
   default: 'default',
   green: 'green',
   purple: 'purple',
@@ -10,7 +10,7 @@ export const staffThemesMain = {
   grey: 'grey'
 }
 
-export const staffColorsMain = {
+export const staffColors = {
   white: `${colorNames.white}`,
   black: `${colorNames.black}`,
   green: '#b3ddb8',
@@ -28,7 +28,7 @@ export const staffThemesCode = {
 }
 
 export const staffColorsCode = {
-  [staffThemesCode.darcula]: {
+  darcula: {
     bracket: '#f8bb51',
     component: '#f8bb51',
     prop: '#cccccc',
@@ -37,7 +37,7 @@ export const staffColorsCode = {
     text: '#cccccc',
     background: '#242424'
   },
-  [staffThemesCode.vscode]: {
+  vscode: {
     bracket: '#8c8c8c',
     component: '#4Ec9b0',
     prop: '#9cdcfe',
@@ -46,7 +46,7 @@ export const staffColorsCode = {
     text: '#d4d4d4',
     background: '#1e1e1e'
   },
-  [staffThemesCode.monokai]: {
+  monokai: {
     bracket: '#f0f7f1',
     component: '#65d7Ed',
     prop: '#a6e22e',
@@ -58,6 +58,6 @@ export const staffColorsCode = {
 }
 
 export const themeTypeLS = {
-  themeMain: 'themeMain',
+  theme: 'theme',
   themeCode: 'themeCode'
 }

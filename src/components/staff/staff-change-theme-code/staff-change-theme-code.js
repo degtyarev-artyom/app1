@@ -3,15 +3,14 @@ import { staffActions } from 'redux/staff/staff-actions'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import './staff-change-theme-code.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { staffThemesCode, staffColorsCode } from 'styling/staff/staff-styling-themes'
-import { getDynamicStyles } from './staff-change-theme-code-styles'
+import { staffThemesCode } from 'styling/staff/staff-styling-themes'
+import { staticStyles } from './staff-change-theme-code-styles'
 
 export const StaffChangeThemeCode = ({
   externalClass,
 }) => {
   const dispatch = useDispatch()
   const themeCode = useSelector(staffSelectors.currentThemeCode)
-  const dynamicStyles = getDynamicStyles(staffColorsCode)
 
   return (
     <div className={classNames('StaffChangeThemeCode', {
@@ -42,7 +41,7 @@ export const StaffChangeThemeCode = ({
         onClick={() => dispatch(staffActions.setThemeCode(staffThemesCode.monokai))}
       />
 
-      <style jsx>{ dynamicStyles }</style>
+      <style jsx>{ staticStyles }</style>
     </div>
   )
 }

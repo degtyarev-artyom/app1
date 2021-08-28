@@ -1,38 +1,37 @@
 import css from 'styled-jsx/css'
+import { staffColorsCode } from 'styling/staff/staff-styling-themes'
 
-export const getDynamicStyles = (staffColorsCode) => {
-  return css`
-    @import 'src/styling/scss/styling-mixins.scss';
-    
-    .StaffChangeThemeCode {
-      &__item {
-        /* darcula */
-        &--darcula {
-          background: ${staffColorsCode.darcula.prop};
+export const staticStyles = css`
+  @import 'src/styling/scss/styling-mixins.scss';
 
-          &:before {
-            background: ${staffColorsCode.darcula.background};
-          }
+  .StaffChangeThemeCode {
+    &__item {
+      /* darcula */
+      &--darcula {
+        background: ${staffColorsCode.darcula.prop};
+
+        &:before {
+          background: ${staffColorsCode.darcula.background};
         }
+      }
 
-        /* vscode */
-        &--vscode {
-          background: ${staffColorsCode.vscode.prop};
+      /* vscode */
+      &--vscode {
+        background: ${staffColorsCode.vscode.prop};
 
-          &:before {
-            background: ${staffColorsCode.vscode.background};
-          }
+        &:before {
+          background: ${staffColorsCode.vscode.background};
         }
+      }
 
-        /* monokai */
-        &--monokai {
-          background: ${staffColorsCode.monokai.prop};
+      /* monokai */
+      &--monokai {
+        background: ${staffColorsCode.monokai.prop};
 
-          &:before {
-            background: ${staffColorsCode.monokai.background};
-          }
+        &:before {
+          background: ${staffColorsCode.monokai.background};
         }
       }
     }
-  `
-}
+  }
+`

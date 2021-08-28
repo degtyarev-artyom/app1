@@ -11,7 +11,7 @@ import { getTheme } from 'styling/staff/staff-styling-functions'
 export const Counter = ({
   externalClass,
 }) => {
-  const currentTheme = useSelector(staffSelectors.currentThemeMain)
+  const currentTheme = useSelector(staffSelectors.currentTheme)
   const counterValue = useSelector(sandboxSelectors.counterValue)
   const dispatch = useDispatch()
 

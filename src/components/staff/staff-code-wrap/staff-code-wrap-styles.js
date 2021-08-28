@@ -1,21 +1,22 @@
 import css from 'styled-jsx/css'
+import { staffColorsCode } from 'styling/staff/staff-styling-themes'
 
-export const getDynamicStyles = (staffColorsCode) => {
-  return css`
-    .StaffCodeWrap {
-      &__subwrap {
-        &--darcula {
-          background: ${staffColorsCode.darcula.background};
-        }
+export const staticStyles = css`
+  @import 'src/styling/scss/styling-mixins.scss';
 
-        &--vscode {
-          background: ${staffColorsCode.vscode.background};
-        }
+  .StaffCodeWrap {
+    &__subwrap {
+      &--darcula {
+        background: ${staffColorsCode.darcula.background};
+      }
 
-        &--monokai {
-          background: ${staffColorsCode.monokai.background};
-        }
+      &--vscode {
+        background: ${staffColorsCode.vscode.background};
+      }
+
+      &--monokai {
+        background: ${staffColorsCode.monokai.background};
       }
     }
-  `
-}
+  }
+`

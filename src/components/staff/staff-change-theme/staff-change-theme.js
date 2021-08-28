@@ -3,15 +3,14 @@ import { staffActions } from 'redux/staff/staff-actions'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import './staff-change-theme.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { staffThemesMain, staffColorsMain } from 'styling/staff/staff-styling-themes'
-import { getDynamicStyles } from './staff-change-theme-styles'
+import { staffThemes } from 'styling/staff/staff-styling-themes'
+import { staticStyles } from './staff-change-theme-styles'
 
 export const StaffChangeTheme = ({
   externalClass,
 }) => {
-  const currentTheme = useSelector(staffSelectors.currentThemeMain)
+  const currentTheme = useSelector(staffSelectors.currentTheme)
   const dispatch = useDispatch()
-  const dynamicStyles = getDynamicStyles(staffColorsMain)
 
   return (
     <div className={classNames('StaffChangeTheme', {
@@ -21,7 +20,7 @@ export const StaffChangeTheme = ({
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--default', {
           'StaffChangeTheme__item--active': currentTheme === 'default', 
         })}
-        onClick={() => dispatch(staffActions.setThemeMain(staffThemesMain.default))}
+        onClick={() => dispatch(staffActions.setTheme(staffThemes.default))}
       >
         <div className="StaffChangeTheme__item--default--green"/>
         <div className="StaffChangeTheme__item--default--purple"/>
@@ -36,7 +35,7 @@ export const StaffChangeTheme = ({
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--green', {
           'StaffChangeTheme__item--active': currentTheme === 'green', 
         })}
-        onClick={() => dispatch(staffActions.setThemeMain(staffThemesMain.green))}
+        onClick={() => dispatch(staffActions.setTheme(staffThemes.green))}
       />
 
       {/* purple */}
@@ -44,7 +43,7 @@ export const StaffChangeTheme = ({
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--purple', {
           'StaffChangeTheme__item--active': currentTheme === 'purple', 
         })}
-        onClick={() => dispatch(staffActions.setThemeMain(staffThemesMain.purple))}
+        onClick={() => dispatch(staffActions.setTheme(staffThemes.purple))}
       />
 
       {/* blue */}
@@ -52,7 +51,7 @@ export const StaffChangeTheme = ({
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--blue', {
           'StaffChangeTheme__item--active': currentTheme === 'blue', 
         })}
-        onClick={() => dispatch(staffActions.setThemeMain(staffThemesMain.blue))}
+        onClick={() => dispatch(staffActions.setTheme(staffThemes.blue))}
       />
       
       {/* red */}
@@ -60,7 +59,7 @@ export const StaffChangeTheme = ({
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--red', {
           'StaffChangeTheme__item--active': currentTheme === 'red', 
         })}
-        onClick={() => dispatch(staffActions.setThemeMain(staffThemesMain.red))}
+        onClick={() => dispatch(staffActions.setTheme(staffThemes.red))}
       />
       
       {/* orange */}
@@ -68,7 +67,7 @@ export const StaffChangeTheme = ({
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--orange', {
           'StaffChangeTheme__item--active': currentTheme === 'orange', 
         })}
-        onClick={() => dispatch(staffActions.setThemeMain(staffThemesMain.orange))}
+        onClick={() => dispatch(staffActions.setTheme(staffThemes.orange))}
       />
       
       {/* grey */}
@@ -76,10 +75,10 @@ export const StaffChangeTheme = ({
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--grey', {
           'StaffChangeTheme__item--active': currentTheme === 'grey', 
         })}
-        onClick={() => dispatch(staffActions.setThemeMain(staffThemesMain.grey))}
+        onClick={() => dispatch(staffActions.setTheme(staffThemes.grey))}
       />
       
-      <style jsx>{ dynamicStyles }</style>
+      <style jsx>{ staticStyles }</style>
     </div>
   )
 }

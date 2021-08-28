@@ -1,7 +1,7 @@
 import classNames from 'classnames'
-import { staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
+import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './staff-value-prop.scss'
-import { getDynamicStyles } from './staff-value-prop-styles'
+import { staticStyles } from './staff-value-prop-styles'
 
 export const StaffValueProp = ({
   externalClass,
@@ -11,8 +11,6 @@ export const StaffValueProp = ({
   type,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColorsMain)
-
   return (
     <button
       className={classNames('StaffValueProp', {
@@ -26,11 +24,11 @@ export const StaffValueProp = ({
       {type === 'Boolean' && propName}  
       {type === 'Code' && propName}  
 
-      <style jsx>{ dynamicStyles }</style>
+      <style jsx>{ staticStyles }</style>
     </button>
   )
 }
 
 export const StaffValuePropProps = {
-  theme: staffThemesMain
+  theme: staffThemes
 }

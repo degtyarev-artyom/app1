@@ -8,12 +8,12 @@ import './App.scss'
 import { useDispatch } from 'react-redux'
 import { StaffChangeTheme } from 'components/staff/staff-change-theme/staff-change-theme'
 import { Sandbox } from 'components/pages/sandbox/sandbox'
-import { getThemeCodeLS, getThemeMainLS } from 'styling/staff/staff-styling-functions'
+import { getThemeCodeLS, getThemeLS } from 'styling/staff/staff-styling-functions'
 
 const App = () => {
   const dispatch = useDispatch()
   useMemo(() => {
-    dispatch(staffActions.setThemeMain(getThemeMainLS()))
+    dispatch(staffActions.setTheme(getThemeLS()))
     dispatch(staffActions.setThemeCode(getThemeCodeLS()))
   }, [dispatch])
 

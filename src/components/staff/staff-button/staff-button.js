@@ -1,7 +1,7 @@
 import classNames from 'classnames'
-import { staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
+import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './staff-button.scss'
-import { getDynamicStyles } from './staff-button-styles'
+import { staticStyles } from './staff-button-styles'
 
 export const StaffButton = ({
   externalClass,
@@ -10,8 +10,6 @@ export const StaffButton = ({
   children,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColorsMain)
-
   return (
     <button
       className={classNames('StaffButton', {
@@ -22,11 +20,11 @@ export const StaffButton = ({
       {...rest}
     >
       { children }
-      <style jsx>{ dynamicStyles }</style>
+      <style jsx>{ staticStyles }</style>
     </button>
   )
 }
 
 export const StaffButtonProps = {
-  theme: staffThemesMain
+  theme: staffThemes
 }

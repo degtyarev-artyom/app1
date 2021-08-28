@@ -1,4 +1,4 @@
-import { colorNames } from "./color-names"
+import { colorNames } from "../js/color-names"
 
 const checkRange = (count, start, end) => {
   if (count < start) return start

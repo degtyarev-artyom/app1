@@ -5,14 +5,14 @@ import { StaffTitle } from 'components/staff/staff-title/staff-title'
 import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { getTheme } from 'styling/staff/staff-styling-functions'
-import { staffThemesMain } from 'styling/staff/staff-styling-themes'
+import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './home.scss'
 
 export const Home = ({
   externalClass,
 }) => {
-  const currentTheme = useSelector(staffSelectors.currentThemeMain)
-  const theme = getTheme(currentTheme, staffThemesMain.green)
+  const currentTheme = useSelector(staffSelectors.currentTheme)
+  const theme = getTheme(currentTheme, staffThemes.green)
 
   return (
     <div className={classNames('Home', {

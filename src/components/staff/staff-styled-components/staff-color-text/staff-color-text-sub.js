@@ -1,13 +1,13 @@
 import styled from 'styled-components'
-import { hsla, lightness } from 'styling/js/styling-ligthness-saturation'
-import { staffColorsCode, staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
+import { hsla, lightness } from 'styling/staff/staff-styling-hsla'
+import { staffColorsCode, staffColors, staffThemes } from 'styling/staff/staff-styling-themes'
 
-export const StaffColorText = styled.span(({
+export const StaffColorTextSub = styled.span(({
   color,
   themeCode,
   currentTheme
 }) => {
-  const isDefault = currentTheme === staffThemesMain.default
+  const isDefault = currentTheme === staffThemes.default
 
   return {
     color,
@@ -15,7 +15,7 @@ export const StaffColorText = styled.span(({
     "::selection": {
       background: isDefault
         ? lightness(staffColorsCode[themeCode].background, 20)
-        : hsla(staffColorsMain[currentTheme], -30, 0, 70),
+        : hsla(staffColors[currentTheme], -30, 0, 70),
       color: isDefault
         ? lightness(color, 25)
         : staffColorsCode[themeCode].background

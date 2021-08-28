@@ -2,19 +2,19 @@ import classNames from 'classnames'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { staffColorsMain, staffThemesMain } from 'styling/staff/staff-styling-themes'
+import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './staff-navbar.scss'
-import { getDynamicStyles } from './staff-navbar-styles'
 import { getTheme } from 'styling/staff/staff-styling-functions'
+import { staticStyles } from './staff-navbar-styles'
+
 
 export const StaffNavbar = ({
   externalClass,
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColorsMain)
-  const currentTheme = useSelector(staffSelectors.currentThemeMain)
-  const themeHome = getTheme(currentTheme, staffThemesMain.green)
-  const themeComponents = getTheme(currentTheme, staffThemesMain.purple)
-  const themeSandbox = getTheme(currentTheme, staffThemesMain.orange)
+  const currentTheme = useSelector(staffSelectors.currentTheme)
+  const themeHome = getTheme(currentTheme, staffThemes.green)
+  const themeComponents = getTheme(currentTheme, staffThemes.purple)
+  const themeSandbox = getTheme(currentTheme, staffThemes.orange)
   
   return (
     <div className={classNames('StaffNavbar', {
@@ -49,15 +49,7 @@ export const StaffNavbar = ({
         Sandbox
       </NavLink>
 
-      {/* not-found */}
-      {/* <NavLink
-        className={`StaffNavbar__item StaffNavbar__item--${themeNotFound}`}
-        activeClassName={`StaffNavbar__item--active StaffNavbar__item--${themeNotFound}--active`}
-        to="/not-found"
-      >
-        Not found
-      </NavLink> */}
-      <style jsx>{ dynamicStyles }</style>
+      <style jsx>{ staticStyles }</style>
     </div>
   )
 }

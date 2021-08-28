@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import './button.scss'
-import { getDynamicStyles } from './button-styles'
-import { colors, themes } from 'styling/js/styling-themes'
+import { themes } from 'styling/js/styling-themes'
+import { staticStyles } from './button-styles'
 
 export const Button = ({
   externalClass,
@@ -16,8 +16,6 @@ export const Button = ({
   children,
   ...rest
 }) => {
-  const dynamicStyles = getDynamicStyles(colors)
-
   return (
     <button
       className={classNames('Button', {
@@ -35,7 +33,7 @@ export const Button = ({
       {...rest}
     >
       { children }
-      <style jsx>{ dynamicStyles }</style>
+      <style jsx>{ staticStyles }</style>
     </button>
   )
 }

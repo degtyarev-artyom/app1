@@ -1,11 +1,8 @@
 import classNames from 'classnames'
 import './button-code.scss'
-import { staffColorsCode } from 'styling/staff/staff-styling-themes'
 import { StaffCodeWrap } from 'components/staff/staff-code-wrap/staff-code-wrap'
-import { StaffColorText } from 'components/staff/staff-styled-components/staff-styled-components'
-import { staffSelectors } from 'redux/staff/staff-selectors'
-import { useSelector } from 'react-redux'
 import { getButtonCode } from './button-code-string'
+import { StaffColorText, staffColorTextProps } from 'components/staff/staff-styled-components/staff-color-text/staff-color-text'
 
 export const ButtonCode = ({
   externalClass,
@@ -13,7 +10,6 @@ export const ButtonCode = ({
   buttonCodeData,
   ...rest
 }) => {
-  const currentTheme = useSelector(staffSelectors.currentThemeMain)
   const {
     buttonChildren,
     buttonExternalClass,
@@ -26,8 +22,6 @@ export const ButtonCode = ({
     buttonBlock,
     buttonPending
   } = buttonCodeData
-
-  const themeCode = useSelector(staffSelectors.currentThemeCode)
  
   return (<>
     {showHideCode === 'show' && (
@@ -44,112 +38,54 @@ export const ButtonCode = ({
           delayCopied={1000}
         >
           {/* <Button */}
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].bracket} currentTheme={currentTheme}>
-            {`<`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].component} currentTheme={currentTheme}>
-            {`Button`}
-          </StaffColorText><br />
-
+          <StaffColorText code={`<`} typeCode={staffColorTextProps.bracket} />
+          <StaffColorText code={`Button`} typeCode={staffColorTextProps.component} br />
+          
           {/* externalClass */}
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-            {`  externalClass`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].equal} currentTheme={currentTheme}>
-            {`=`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].string} currentTheme={currentTheme}>
-            {`"${buttonExternalClass}"`}
-          </StaffColorText><br />
-
+          <StaffColorText code={`  externalClass`} typeCode={staffColorTextProps.prop} />
+          <StaffColorText code={`=`} typeCode={staffColorTextProps.equal} />
+          <StaffColorText code={`"${buttonExternalClass}"`} typeCode={staffColorTextProps.string} br />
+          
           {/* theme */}
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-            {`  theme`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].equal} currentTheme={currentTheme}>
-            {`=`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].string} currentTheme={currentTheme}>
-            {`"${buttonTheme}"`}
-          </StaffColorText><br />
-
+          <StaffColorText code={`  theme`} typeCode={staffColorTextProps.prop} />
+          <StaffColorText code={`=`} typeCode={staffColorTextProps.equal} />
+          <StaffColorText code={`"${buttonTheme}"`} typeCode={staffColorTextProps.string} br />
+          
           {/* size */}
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-            {`  size`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].equal} currentTheme={currentTheme}>
-            {`=`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].string} currentTheme={currentTheme}>
-            {`"${buttonSize}"`}
-          </StaffColorText><br />
-
+          <StaffColorText code={`  size`} typeCode={staffColorTextProps.prop} />
+          <StaffColorText code={`=`} typeCode={staffColorTextProps.equal} />
+          <StaffColorText code={`"${buttonSize}"`} typeCode={staffColorTextProps.string} br />
+          
           {/* type */}
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-            {`  type`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].equal} currentTheme={currentTheme}>
-            {`=`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].string} currentTheme={currentTheme}>
-            {`"${buttonType}"`}
-          </StaffColorText><br />
+          <StaffColorText code={`  type`} typeCode={staffColorTextProps.prop} />
+          <StaffColorText code={`=`} typeCode={staffColorTextProps.equal} />
+          <StaffColorText code={`"${buttonType}"`} typeCode={staffColorTextProps.string} br />
 
           {/* focus */}
-          {buttonFocus && (<>
-            <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-              {`  focus`}
-            </StaffColorText><br />
-          </>)}
-          
+          <StaffColorText code={`  focus`} typeCode={staffColorTextProps.prop} visible={buttonFocus} br />
+
           {/* active */}
-          {buttonActive && (<>
-            <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-              {`  active`}
-            </StaffColorText><br />
-          </>)}
+          <StaffColorText code={`  active`} typeCode={staffColorTextProps.prop} visible={buttonActive} br />
 
           {/* disabled */}
-          {buttonDisabled && (<>
-            <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-              {`  disabled`}
-            </StaffColorText><br />
-          </>)}
+          <StaffColorText code={`  disabled`} typeCode={staffColorTextProps.prop} visible={buttonDisabled} br />
 
           {/* block */}
-          {buttonBlock && (<>
-            <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-              {`  block`}
-            </StaffColorText><br />
-          </>)}
+          <StaffColorText code={`  block`} typeCode={staffColorTextProps.prop} visible={buttonBlock} br />
 
           {/* pending */}
-          {buttonPending && (<>
-            <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].prop} currentTheme={currentTheme}>
-              {`  pending`}
-            </StaffColorText><br />
-          </>)}
+          <StaffColorText code={`  pending`} typeCode={staffColorTextProps.prop} visible={buttonPending} br />
 
           {/* > */}
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].bracket} currentTheme={currentTheme}>
-            {`>`}
-          </StaffColorText><br />
+          <StaffColorText code={`>`} typeCode={staffColorTextProps.bracket} br />
 
           {/* children */}
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].text} currentTheme={currentTheme}>
-            {`  ${buttonChildren}`}
-          </StaffColorText><br />
+          <StaffColorText code={`  ${buttonChildren}`} typeCode={staffColorTextProps.text} br />
 
           {/* </Button> */}
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].bracket} currentTheme={currentTheme}>
-            {`</`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].component} currentTheme={currentTheme}>
-            {`Button`}
-          </StaffColorText>
-          <StaffColorText themeCode={themeCode} color={staffColorsCode[themeCode].bracket} currentTheme={currentTheme}>
-            {`>`}
-          </StaffColorText><br />
+          <StaffColorText code={`</`} typeCode={staffColorTextProps.bracket} />
+          <StaffColorText code={`Button`} typeCode={staffColorTextProps.component} />
+          <StaffColorText code={`>`} typeCode={staffColorTextProps.bracket} br />
         </StaffCodeWrap>
       </div>
     )}

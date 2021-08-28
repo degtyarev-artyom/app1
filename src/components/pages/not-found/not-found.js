@@ -4,17 +4,16 @@ import { StaffNavbar } from 'components/staff/staff-navbar/staff-navbar'
 import { StaffTitle } from 'components/staff/staff-title/staff-title'
 import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { staffThemesMain, staffColorsMain } from 'styling/staff/staff-styling-themes'
+import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './not-found.scss'
-import { getDynamicStyles } from './not-found-styles'
 import { getTheme } from 'styling/staff/staff-styling-functions'
+import { staticStyles } from './not-found-styles'
 
 export const NotFound = ({
   externalClass,
 }) => {
-  const dynamicStyles = getDynamicStyles(staffColorsMain)
-  const currentTheme = useSelector(staffSelectors.currentThemeMain)
-  const theme = getTheme(currentTheme, staffThemesMain.red)
+  const currentTheme = useSelector(staffSelectors.currentTheme)
+  const theme = getTheme(currentTheme, staffThemes.red)
   
   return (
     <div className={classNames('NotFound', {
@@ -35,7 +34,7 @@ export const NotFound = ({
           404
         </div>
       </StaffContent>
-      <style jsx>{ dynamicStyles }</style>
+      <style jsx>{ staticStyles }</style>
     </div>
   )
 }

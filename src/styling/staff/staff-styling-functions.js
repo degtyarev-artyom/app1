@@ -1,13 +1,13 @@
-import { staffThemesCode, staffThemesMain, themeTypeLS } from "styling/staff/staff-styling-themes"
+import { staffThemesCode, staffThemes, themeTypeLS } from "styling/staff/staff-styling-themes"
 
-export const getThemeMainLS = () => {
-  const theme = localStorage.getItem(themeTypeLS.themeMain)
-  const allowThemes = Object.values(staffThemesMain)
+export const getThemeLS = () => {
+  const theme = localStorage.getItem(themeTypeLS.theme)
+  const allowThemes = Object.values(staffThemes)
   return allowThemes.includes(theme) ? theme : 'default'
 }
 
-export const setThemeMainLS = theme => {
-  localStorage.setItem(themeTypeLS.themeMain, theme)
+export const setThemeLS = theme => {
+  localStorage.setItem(themeTypeLS.theme, theme)
 }
 
 export const getTheme = (currentTheme, defaultTheme) => {
