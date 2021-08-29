@@ -6,7 +6,7 @@ import { sandboxActions } from 'redux/pages/sandbox/sandbox-actions'
 import { sandboxSelectors } from 'redux/pages/sandbox/sandbox-selectors'
 import { StaffButton, StaffButtonProps } from 'components/staff/staff-button/staff-button'
 import { useRef, useState } from 'react'
-import { getTheme } from 'styling/staff/staff-styling-functions'
+import { getTheme } from 'functions/staff-styling-func'
 
 export const Counter = ({
   externalClass,

@@ -1,4 +1,4 @@
-import { colorNames } from "styling/js/color-names"
+import { colorNames } from "functions/staff-styling-color-names"
 
 export const staffThemes = {
   default: 'default',

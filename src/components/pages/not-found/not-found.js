@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './not-found.scss'
-import { getTheme } from 'styling/staff/staff-styling-functions'
+import { getTheme } from 'functions/staff-styling-func'
 import { staticStyles } from './not-found-styles'
 
 export const NotFound = ({

@@ -1,6 +1,6 @@
 import { all, call, put, takeEvery, /* takeLatest,  */take/* , fork */ } from 'redux-saga/effects'
 import { sandboxActions, sandboxActionTypes } from 'redux/pages/sandbox/sandbox-actions'
-import { setThemeCodeLS, setThemeLS } from 'styling/staff/staff-styling-functions'
+import { setThemeCodeLS, setThemeLS } from 'functions/staff-styling-func'
 import { staffActionTypes } from './staff/staff-actions'
 
 /* hello-saga */

@@ -1,5 +1,5 @@
+import { lightness } from 'functions/staff-styling-hsla-func';
 import css from 'styled-jsx/css'
-import { lightness } from 'styling/staff/staff-styling-hsla';
 import { staffColors } from 'styling/staff/staff-styling-themes';
 
 export const staticStyles = css`

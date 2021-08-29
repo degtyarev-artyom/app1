@@ -7,7 +7,7 @@ import { staffSelectors } from 'redux/staff/staff-selectors'
 import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './components.scss'
 import { ButtonBlock } from './button-block/button-block'
-import { getTheme } from 'styling/staff/staff-styling-functions'
+import { getTheme } from 'functions/staff-styling-func'
 
 export const Components = ({
   externalClass,

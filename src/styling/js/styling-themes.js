@@ -1,4 +1,4 @@
-import { colorNames } from "./color-names"
+import { colorNames } from "functions/staff-styling-color-names"
 
 export const themes = {
   green: 'green',

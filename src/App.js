@@ -8,7 +8,7 @@ import './App.scss'
 import { useDispatch } from 'react-redux'
 import { StaffChangeTheme } from 'components/staff/staff-change-theme/staff-change-theme'
 import { Sandbox } from 'components/pages/sandbox/sandbox'
-import { getThemeCodeLS, getThemeLS } from 'styling/staff/staff-styling-functions'
+import { getThemeCodeLS, getThemeLS } from 'functions/staff-styling-func'
 
 const App = () => {
   const dispatch = useDispatch()

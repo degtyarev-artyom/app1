@@ -7,7 +7,7 @@ import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './sandbox.scss'
 import { Counter } from 'components/pages/sandbox/counter/counter'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { getTheme } from 'styling/staff/staff-styling-functions'
+import { getTheme } from 'functions/staff-styling-func'
 
 export const Sandbox = ({
   externalClass,

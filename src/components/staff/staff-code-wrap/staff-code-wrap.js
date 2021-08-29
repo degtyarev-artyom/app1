@@ -4,7 +4,7 @@ import { staffThemes } from 'styling/staff/staff-styling-themes'
 import { StaffButtonCopy } from '../staff-button-copy/staff-button-copy'
 import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { getTheme } from 'styling/staff/staff-styling-functions'
+import { getTheme } from 'functions/staff-styling-func'
 import { StaffChangeThemeCode } from '../staff-change-theme-code/staff-change-theme-code'
 import { staticStyles } from './staff-code-wrap-styles'
 

@@ -4,7 +4,7 @@ import { StaffValueProp } from 'components/staff/staff-value-prop/staff-value-pr
 import { useDispatch, useSelector } from 'react-redux'
 import { staffThemes } from 'styling/staff/staff-styling-themes'
 import { staffSelectors } from 'redux/staff/staff-selectors'
-import { getTheme } from 'styling/staff/staff-styling-functions'
+import { getTheme } from 'functions/staff-styling-func'
 
 export const StaffValuePropBlock = ({
   externalClass,

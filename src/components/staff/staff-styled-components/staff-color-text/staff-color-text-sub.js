@@ -1,5 +1,5 @@
+import { hsla, lightness } from 'functions/staff-styling-hsla-func'
 import styled from 'styled-components'
-import { hsla, lightness } from 'styling/staff/staff-styling-hsla'
 import { staffColorsCode, staffColors, staffThemes } from 'styling/staff/staff-styling-themes'
 
 export const StaffColorTextSub = styled.span(({
