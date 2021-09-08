@@ -1,0 +1,23 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.RxJS {
+  &__buttons-wrap {
+    display: flex;
+    margin: 0 0 20px 0;
+    justify-content: center;
+  }
+
+  &__button-interval {
+    margin: 0 20px 0 0;
+  }
+
+  &__button-rx-js {
+    margin: 0 20px 0 0;
+  }
+
+  // &__button-rx-js {}
+
+  &__results {
+    text-align: center;
+  }
+}

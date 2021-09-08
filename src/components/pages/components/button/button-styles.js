@@ -220,7 +220,7 @@ export const staticStyles = css`
       color: ${lightness(colors.orange, -25)};
 
       &:hover {
-        color: ${lightness(colors.blue, -25)};
+        color: ${lightness(colors.purple, -25)};
       }
 
       &.Button--block {
@@ -232,7 +232,7 @@ export const staticStyles = css`
       &.Button--focus {
         &:focus {
           box-shadow: 0 0 0 1px ${colors.orange};
-          color: ${lightness(colors.blue, -25)};
+          color: ${lightness(colors.purple, -25)};
         }
 
         &.Button--block {
@@ -245,7 +245,7 @@ export const staticStyles = css`
 
       &.Button--active {
         &:active {
-          color: ${lightness(colors.blue, 15)};
+          color: ${colors.purple};
         }
 
         &.Button--block {

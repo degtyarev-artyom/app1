@@ -1,0 +1,53 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.Hooks {
+  &__wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  // &__block {}
+
+  &__button-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 0 0 10px 0;
+  }
+  
+  // &__button {}
+  
+  &__list {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    height: 150px;
+    overflow-y: scroll;
+    margin: 0 0 10px 0;
+  }
+
+  &__item {
+    margin: 0 0 10px 0;
+    padding: 0 0 2px 0;
+    border-bottom: 1px solid #525252;
+    text-align: center;
+    transition: border-color 0.3s ease;
+    color: #08b7fc;
+
+    &:last-of-type {
+      margin: 0 0 0 0;
+    }
+  }
+
+  &__count-scroll {
+    font-size: 30px;
+    text-align: center;
+    color: #fd2e2e;
+    transition: color 0.3s ease;
+
+    &--active {
+      color: #30a830;
+    }
+  }
+}

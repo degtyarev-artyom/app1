@@ -71,7 +71,7 @@ export const ButtonBlock = ({
           externalClass="ButtonBlock__right-prop-theme"
           title="theme"
           type={StaffValuePropBlockTypes.string}
-          properties={Object.values(ButtonProps.themes)}
+          properties={Object.values(ButtonProps.theme)}
           propActive={buttonTheme}
           action={componentsActions.buttonTheme}
         />
@@ -81,7 +81,7 @@ export const ButtonBlock = ({
           externalClass="ButtonBlock__right-prop-size"
           title="size"
           type={StaffValuePropBlockTypes.string}
-          properties={Object.values(ButtonProps.sizes)}
+          properties={Object.values(ButtonProps.size)}
           propActive={buttonSize}
           action={componentsActions.buttonSize}
         />
@@ -91,7 +91,7 @@ export const ButtonBlock = ({
           externalClass="ButtonBlock__right-prop-bold"
           title="type"
           type={StaffValuePropBlockTypes.string}
-          properties={Object.values(ButtonProps.types)}
+          properties={Object.values(ButtonProps.type)}
           propActive={buttonType}
           action={componentsActions.buttonType}
         />

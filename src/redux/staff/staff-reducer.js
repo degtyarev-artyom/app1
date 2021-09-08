@@ -1,8 +1,9 @@
+import { staffThemes, staffThemesCode } from "styling/staff/staff-styling-themes"
 import { staffActionTypes } from "./staff-actions"
 
 const initialState = {
-  currentTheme: 'default',
-  currentThemeCode: 'darcula'
+  currentTheme: staffThemes.default,
+  currentThemeCode: staffThemesCode.darcula
 }
 
 export const staffReducer = (state = initialState, action) => {

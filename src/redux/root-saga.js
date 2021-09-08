@@ -5,7 +5,7 @@ import { staffActionTypes } from './staff/staff-actions'
 
 /* hello-saga */
 function* helloSaga() {
-  yield call(() => console.log('Hello, Saga!'))
+  // yield call(() => console.log('Hello, Saga!'))
 }
 
 /* delay-function */
@@ -35,8 +35,8 @@ function* watchSandboxIncrementAsync() {
 /* all actions */
 function* watchActions() {
   while (true) {
-    const action = yield take('*')
-    yield call(() => console.log(action))
+    /* const action =  */yield take('*')
+    // yield call(() => console.log(action))
   }
 }
 

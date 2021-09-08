@@ -26,5 +26,15 @@
     }
   }
 
-  // &__content {}
+  &__content {
+    position: relative;
+  }
+
+  &__hooks-show-hide-button {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
+  // &__hooks-show-hide-button {}
 }

@@ -5,7 +5,6 @@ import { staffSelectors } from 'redux/staff/staff-selectors'
 import { sandboxActions } from 'redux/pages/sandbox/sandbox-actions'
 import { sandboxSelectors } from 'redux/pages/sandbox/sandbox-selectors'
 import { StaffButton, StaffButtonProps } from 'components/staff/staff-button/staff-button'
-import { useRef, useState } from 'react'
 import { getTheme } from 'functions/staff-styling-func'
 
 export const Counter = ({
@@ -14,15 +13,6 @@ export const Counter = ({
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const counterValue = useSelector(sandboxSelectors.counterValue)
   const dispatch = useDispatch()
-
-  const [el, setEl] = useState([])
-  const listEl = useRef(null)
-
-  // const handleScroll = e => {
-  //   console.log('scroll')
-  // }
-
-  // listEl.addEventListener('onscroll')
 
   return (
     <div className={classNames('Counter', {
@@ -70,24 +60,6 @@ export const Counter = ({
       >
         Set zero
       </StaffButton>
-
-      <div className="Counter__use-ref-wrap">
-        <StaffButton
-          externalClass="Counter__use-ref-add-el"
-          theme={getTheme(currentTheme, StaffButtonProps.theme.green)}
-          onClick={() => setEl([el.length + 1, ...el])}
-        >
-          Add element
-        </StaffButton>
-
-        <div className="Counter__use-ref-list" ref={listEl}>
-          {el.map(item => (
-            <div className="Counter__use-ref-item" key={item}>
-              { item }
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   )
 }
