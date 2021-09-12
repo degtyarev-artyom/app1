@@ -1,0 +1,23 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.Tabs {
+  &__list {
+    display: flex;
+    margin: 0 0 20px 0;
+  }
+
+  &__item {
+    margin: 0 10px 0 0;
+    cursor: pointer;
+
+    &:last-child {
+      margin: 0 0 0 0;
+    }
+
+    &--active {
+      color: red;
+    }
+  }
+
+  // &__content {}
+}

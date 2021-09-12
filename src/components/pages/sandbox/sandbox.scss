@@ -30,11 +30,15 @@
     position: relative;
   }
 
-  &__hooks-show-hide-button {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-  }
+  // &__hooks-show-hide-button {
+  //   position: absolute;
+  //   right: 15px;
+  //   top: 15px;
+  // }
 
   // &__hooks-show-hide-button {}
+
+  &__tabs {
+    margin: 10px 0 0 0;
+  }
 }
