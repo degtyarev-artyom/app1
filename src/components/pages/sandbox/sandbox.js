@@ -39,9 +39,9 @@ export const Sandbox = ({
           <Tab tabSlug="1" tabName="Таб 1">content 1</Tab>
           <Tab tabSlug="2" tabName="Таб 2">
             <Tabs externalClass="Sandbox__tabs" tabsId="2">
-              <Tab tabSlug="1" tabName="Таб 2-1">content 1</Tab>
-              <Tab tabSlug="2" tabName="Таб 2-2" tabDefault>content 2</Tab>
-              <Tab tabSlug="3" tabName="Таб 2-3">cpntent 3</Tab>
+              <Tab tabSlug="1" tabName="Таб 2-1">content 2-1</Tab>
+              <Tab tabSlug="2" tabName="Таб 2-2" tabDefault>content 2-2</Tab>
+              <Tab tabSlug="3" tabName="Таб 2-3">content 2-3</Tab>
             </Tabs>
           </Tab>
           <Tab tabSlug="3" tabName="Таб 3" tabDefault>content 3</Tab>
