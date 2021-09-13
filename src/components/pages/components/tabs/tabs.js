@@ -10,13 +10,14 @@ const Tabs = ({
   externalClass,
   tabsId,
   children,
+  display,
   ...rest
 }) => {
   const tabGET = tabsId ? `tab-${tabsId}` : 'tab'
   const history = useHistory()
   const [tabSlugActive, setTabSlugActive] = useState(searchToObj(history.location.search)[tabGET])
   
-  const replace = tabSlug => {
+  const tabChange = tabSlug => {
     if (tabSlug === tabSlugActive) return
     const currentSearch = searchToObj(history.location.search)
     const search = objToSearch({...currentSearch, [tabGET]: tabSlug })
@@ -52,6 +53,7 @@ const Tabs = ({
       })}
       {...rest}
     >
+      {/* tab list */}
       <div className="Tabs__list">
         {availableTabs.map(({ key, props: { tabSlug, tabName } }) =>
           <div
@@ -59,14 +61,28 @@ const Tabs = ({
               'Tabs__item--active': tabSlug === tabSlugActive
             })}
             key={key}
-            onClick={() => replace(tabSlug)}
+            onClick={() => tabChange(tabSlug)}
           >
             { tabName || tabSlug }
           </div>
         )}
       </div>
+
+      {/* tab content */}
       <div className="Tabs__content">
-        { content }
+        {!display ? content : availableTabs.map(item => {
+          const { key, props: { tabSlug } } = item
+          return (
+            <div
+              className={classNames('Tabs__content-item', {
+                'Tabs__content-item--hide': tabSlug !== tabSlugActive
+              })}
+              key={key}
+            >
+              { item }
+            </div>
+          )
+        })}
       </div>
       <style jsx>{ staticStyles }</style>
     </div>

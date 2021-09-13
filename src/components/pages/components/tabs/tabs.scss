@@ -21,4 +21,10 @@
   }
 
   // &__content {}
+
+  &__content-item {
+    &--hide {
+      display: none;
+    }
+  }
 }

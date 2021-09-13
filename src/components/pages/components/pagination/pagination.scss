@@ -1,0 +1,67 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.Pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    margin: 0 10px 0 0;
+    height: 31px;
+    border: 1px solid grey;
+    width: 65px;
+    text-align: center;
+    font-size: 16px;
+
+    /* hide arrows chrome */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    /* hide arrows mozilla */
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__page-count {
+    text-align: center;
+    margin: 0 10px 0 0;
+  }
+
+  &__previous {
+    margin: 0 10px 0 0;
+  }
+
+  // &__next {}
+
+  // &__right {}
+
+  &__count-list {
+    display: flex;
+  }
+
+  &__count-item {
+    margin: 0 10px 0 0;
+    user-select: none;
+    cursor: pointer;
+
+    &:last-child {
+      margin: 0 0 0 0;
+    }
+
+    &--active {
+      color: red;
+    }
+  }
+}

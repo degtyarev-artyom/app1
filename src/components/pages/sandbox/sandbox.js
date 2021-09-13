@@ -7,7 +7,7 @@ import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './sandbox.scss'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { getTheme } from 'functions/staff-styling-func'
-import { Tab, Tabs } from 'components/pages/components/tabs/tabs'
+import { Pagination } from '../components/pagination/pagination'
 
 export const Sandbox = ({
   externalClass,
@@ -33,9 +33,16 @@ export const Sandbox = ({
         theme={theme}
       >
 
+        {/* Pagination */}
+        <Pagination
+          externalClass="Sandbox__pagination"
+          total={1375}
+          count={[5, 10, 25, 50, 100]}
+        />
+
         {/* Tabs */}
-        <a href="/sandbox">/sandbox</a>
-        <Tabs externalClass="Sandbox__tabs" tabsId="1">
+        {/* <a href="/sandbox">/sandbox</a>
+        <Tabs externalClass="Sandbox__tabs" tabsId="1" display>
           <Tab tabSlug="1" tabName="Таб 1">content 1</Tab>
           <Tab tabSlug="2" tabName="Таб 2">
             <Tabs externalClass="Sandbox__tabs" tabsId="2">
@@ -45,7 +52,7 @@ export const Sandbox = ({
             </Tabs>
           </Tab>
           <Tab tabSlug="3" tabName="Таб 3" tabDefault>content 3</Tab>
-        </Tabs>
+        </Tabs> */}
 
         {/* Hooks */}
         {/* <Button
