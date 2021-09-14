@@ -5,13 +5,14 @@ import { staticStyles } from './pagination-styles'
 import { Button, ButtonProps } from 'components/pages/components/button/button'
 import { objToSearch, searchToObj } from 'functions/staff-get-func'
 import { useHistory } from 'react-router-dom'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 const Pagination = ({
   externalClass,
   paginationId,
   total,
   count,
+  handlePage,
   ...rest
 }) => {
   const checkRange = (count, start, end) => {
@@ -20,16 +21,28 @@ const Pagination = ({
     return count
   }
 
+  const history = useHistory()
+  const inputRef = useRef()
   const pageNumberGET = paginationId ? `page-number-${paginationId}` : 'page-number'
   const pageCountGET = paginationId ? `page-count-${paginationId}` : 'page-count'
-  const history = useHistory()
+
+  const changeSearch = (page, count) => {
+    const currentSearch = searchToObj(history.location.search)
+    const search = objToSearch({
+      ...currentSearch,
+      [pageNumberGET]: page,
+      [pageCountGET]: count
+    })
+    history.replace({ ...history.location, search })
+  }
   
   /* page count active */
   const countSearch = searchToObj(history.location.search)[pageCountGET]
   const [pageCountActive, setPageCountActive] = useState(
-    count.includes(Number(countSearch)) ? countSearch : `${count[0]}`
+    count.includes(Number(countSearch)) ? Number(countSearch) : count[0]
   )
 
+  /* page count */
   const pageCount = useMemo(() => Math.ceil(total / pageCountActive), [total, pageCountActive])
 
   const validPage = value => {
@@ -43,46 +56,75 @@ const Pagination = ({
     validPage(searchToObj(history.location.search)[pageNumberGET] || '1')
   )
 
-  /* first submit */
+  /* first */
   const pageNumberRef = useRef(pageNumberActive)
   const pageCountRef = useRef(pageCountActive)
   useMemo(() => {
-    console.log('submit => page =', pageNumberRef.current, 'count =', pageCountRef.current)
+    handlePage(pageNumberRef.current, pageCountRef.current)
+  }, [handlePage])
+
+  /* first */
+  useEffect(() => {
+    inputRef.current.value = pageNumberRef.current
   }, [])
   
-  const pageNumberChange = pageNumber => {
-    if (pageNumber === pageNumberActive) return
-    const currentSearch = searchToObj(history.location.search)
-    const search = objToSearch({...currentSearch, [pageNumberGET]: pageNumber })
-    history.replace({ ...history.location, search })
-    setPageNumberActive(pageNumber)
-  }
+  /* page number */
+  const pageChange = (pageNumber, pageCount) => {
+    pageNumber = validPage(`${pageNumber}`)
+    inputRef.current.value = pageNumber
+    const pageIsChanged = pageNumber !== pageNumberActive
+    const countIsChanged = pageCount !== pageCountActive
+    if (!pageIsChanged && !countIsChanged) return
 
-  const pageCountChange = pageCount => {
-    if (pageCount === pageCountActive) return
-    const currentSearch = searchToObj(history.location.search)
-    const search = objToSearch({...currentSearch, [pageCountGET]: pageCount })
-    history.replace({ ...history.location, search })
-    setPageCountActive(pageCount)
-  }
+    changeSearch(pageNumber, pageCount)
 
+    if (pageIsChanged) setPageNumberActive(pageNumber)
+    if (countIsChanged) setPageCountActive(pageCount)
+    handlePage(pageNumber, pageCount)
+  }
+  
+  /* previous */
   const previous = () => {
     const page = checkRange(pageNumberActive - 1, 1, pageCount)
-    pageNumberChange(page)
-    console.log('submit => page =', page, 'count =', pageCountActive)
+    pageChange(page, pageCountActive)
   }
+  const previousDisabled = pageNumberActive <= 1 || !pageNumberActive
 
+  /* next */
   const next = () => {
     const page = checkRange(pageNumberActive + 1, 1, pageCount)
-    pageNumberChange(page)
-    console.log('submit => page =', page, 'count =', pageCountActive)
+    pageChange(page, pageCountActive)
+  }
+  const nextDisabled = pageNumberActive >= pageCount
+
+  /* input */
+  const onFocus = ({ target }) => target.select()
+  const onInput = e => {
+    const valid = e.target.value.split('')
+      .filter(item => item.search(/[0-9]/) !== -1).join('')
+    e.target.value = valid ? checkRange(valid, 1, pageCount) : valid
+  }
+  const onKeyDown = e => {
+    const { code, target: { value } } = e
+    if (code === 'ArrowUp') {
+      e.target.value = checkRange(Number(value) + 1, 1, pageCount)
+      return
+    }
+    if (code === 'ArrowDown') {
+      e.target.value = checkRange(Number(value) - 1, 1, pageCount)
+      return
+    }
+    if (code !== 'Enter') return
+    pageChange(value, pageCountActive)
+  }
+  const onBlur = ({ target: { value } }) => {
+    pageChange(value, pageCountActive)
   }
 
+  /* count */
   const onCount = num => () => {
-    if (num === Number(pageCountActive)) return
-    pageNumberChange(1)
-    pageCountChange(num)
-    console.log('submit => page =', 1, 'count =', num)
+    if (num === pageCountActive) return
+    pageChange(1, num)
   }
 
   return (
@@ -96,22 +138,13 @@ const Pagination = ({
 
         {/* input */}
         <input
+          ref={inputRef}
           className="Pagination__input"
-          type="number"
-          value={pageNumberActive}
-          onFocus={({ target }) => target.select()}
-          onInput={({ target: { value }}) => {
-            pageNumberChange(value)}
-          }
-          onKeyDown={({ code, target: { value } }) => {
-            if (code !== 'Enter') return
-            pageNumberChange(validPage(value))
-            console.log('submit => page =', validPage(value), 'count =', pageCountActive)
-          }}
-          onBlur={({ target: { value }}) => {
-            pageNumberChange(validPage(value))
-            console.log('submit => page =', validPage(value), 'count =', pageCountActive)
-          }}
+          type="text"
+          onFocus={onFocus}
+          onInput={onInput}
+          onKeyDown={onKeyDown}
+          onBlur={onBlur}
         />
         <div className="Pagination__page-count">
           из { pageCount }
@@ -124,7 +157,8 @@ const Pagination = ({
           type="normal"
           active
           onClick={previous}
-          disabled={pageNumberActive === 1 || !pageNumberActive}
+          disabled={previousDisabled}
+          focus
         >
           Previous
         </Button>
@@ -136,7 +170,8 @@ const Pagination = ({
           type="normal"
           active
           onClick={next}
-          disabled={pageNumberActive === pageCount}
+          disabled={nextDisabled}
+          focus
         >
           Next
         </Button>
