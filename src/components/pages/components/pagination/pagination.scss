@@ -54,14 +54,13 @@
   &__count-item {
     margin: 0 10px 0 0;
     user-select: none;
-    cursor: pointer;
 
     &:last-child {
       margin: 0 0 0 0;
     }
 
     &--active {
-      color: red;
+      cursor: default;
     }
   }
 }

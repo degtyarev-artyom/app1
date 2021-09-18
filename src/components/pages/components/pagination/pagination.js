@@ -9,6 +9,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 
 const Pagination = ({
   externalClass,
+  theme,
   paginationId,
   total,
   count,
@@ -131,6 +132,7 @@ const Pagination = ({
     <div
       className={classNames('Pagination', {
         [externalClass]: externalClass,
+        [`Pagination__theme-${theme}`]: theme
       })}
       {...rest}
     >
@@ -153,7 +155,7 @@ const Pagination = ({
         {/* previous */}
         <Button
           externalClass="Pagination__previous"
-          theme={ButtonProps.theme.purple}
+          theme={theme}
           type="normal"
           active
           onClick={previous}
@@ -166,7 +168,7 @@ const Pagination = ({
         {/* next */}
         <Button
           externalClass="Pagination__next"
-          theme={ButtonProps.theme.purple}
+          theme={theme}
           type="normal"
           active
           onClick={next}
@@ -181,15 +183,17 @@ const Pagination = ({
         {/* count */}
         <div className="Pagination__count-list">
           {count.map((num, i) => (
-            <button
-              className={classNames('Pagination__count-item', {
+            <Button
+              externalClass={classNames('Pagination__count-item', {
                 'Pagination__count-item--active': num === Number(pageCountActive)
               })}
+              theme={theme}
+              size={ButtonProps.size.m}
               key={i}
               onClick={onCount(num)}
             >
               { num }
-            </button>
+            </Button>
           ))}
         </div>
         

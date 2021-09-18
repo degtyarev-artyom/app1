@@ -9,6 +9,7 @@ import { staffSelectors } from 'redux/staff/staff-selectors'
 import { getTheme } from 'functions/staff-styling-func'
 import { Pagination } from '../components/pagination/pagination'
 import { useCallback } from 'react'
+import { Tab, Tabs } from '../components/tabs/tabs'
 
 export const Sandbox = ({
   externalClass,
@@ -37,28 +38,41 @@ export const Sandbox = ({
         externalClass="Sandbox__content"
         theme={theme}
       >
-
+        
         {/* Pagination */}
-        <Pagination
-          externalClass="Sandbox__pagination"
-          total={1375}
-          count={[5, 10, 25, 50, 100]}
-          handlePage={handlePage}
-        />
+        
 
         {/* Tabs */}
-        {/* <a href="/sandbox">/sandbox</a>
-        <Tabs externalClass="Sandbox__tabs" tabsId="1" display>
-          <Tab tabSlug="1" tabName="Таб 1">content 1</Tab>
-          <Tab tabSlug="2" tabName="Таб 2">
-            <Tabs externalClass="Sandbox__tabs" tabsId="2">
-              <Tab tabSlug="1" tabName="Таб 2-1">content 2-1</Tab>
-              <Tab tabSlug="2" tabName="Таб 2-2" tabDefault>content 2-2</Tab>
-              <Tab tabSlug="3" tabName="Таб 2-3">content 2-3</Tab>
-            </Tabs>
+        <a href="/sandbox">/sandbox</a>
+        <Tabs externalClass="Sandbox__tabs" display>
+          <Tab tabSlug="1" tabName="Таб 1">
+            <Pagination
+              externalClass="Sandbox__pagination"
+              paginationId="tab1"
+              total={1375}
+              count={[5, 10, 25, 50, 100]}
+              handlePage={handlePage}
+            />
           </Tab>
-          <Tab tabSlug="3" tabName="Таб 3" tabDefault>content 3</Tab>
-        </Tabs> */}
+          <Tab tabSlug="2" tabName="Таб 2">
+            <Pagination
+              externalClass="Sandbox__pagination"
+              paginationId="tab2"
+              total={1375}
+              count={[5, 10, 25, 50, 100]}
+              handlePage={handlePage}
+            />
+          </Tab>
+          <Tab tabSlug="3" tabName="Таб 3">
+            <Pagination
+              externalClass="Sandbox__pagination"
+              paginationId="tab3"
+              total={1375}
+              count={[5, 10, 25, 50, 100]}
+              handlePage={handlePage}
+            />
+          </Tab>
+        </Tabs>
 
         {/* Hooks */}
         {/* <Button
