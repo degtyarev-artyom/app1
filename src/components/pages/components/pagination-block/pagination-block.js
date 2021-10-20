@@ -15,10 +15,10 @@ export const PaginationBlock = ({
       <div className="PaginationBlock__title">Pagination</div>
       <div className="PaginationBlock__content">
         <div className="PaginationBlock__left">
-          left
+          pagination-left
         </div>
         <div className="PaginationBlock__right">
-          right
+          pagination-right
         </div>
       </div>
     </div>
