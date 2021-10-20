@@ -1,6 +1,6 @@
 @import 'src/styling/scss/styling-mixins.scss';
 
-.ButtonBlock {
+.PaginationBlock {
   &__title {
     font-size: 22px;
     text-align: center;
@@ -30,13 +30,6 @@
     }
   }
 
-  &__left-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
   &__right {
     width: calc(100% * 2 / 3);
     display: flex;
@@ -46,26 +39,4 @@
       width: 100%;
     }
   }
-
-  &__right-children,
-  &__right-prop-external-class,
-  &__right-prop-theme,
-  &__right-prop-size,
-  &__right-prop-bold,
-  &__right-prop-focus,
-  &__right-prop-active,
-  &__right-prop-disabled,
-  &__right-prop-block,
-  &__right-prop-pending,
-  &__right-code-show-hide {
-    margin: 0 0 20px 0;
-  }
-
-  &__right-code-show-hide {
-    &--hide {
-      margin: 0 0 0 0;
-    }
-  }
-
-  // &__right-code {}
 }

@@ -7,7 +7,7 @@ import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './sandbox.scss'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { getTheme } from 'functions/staff-styling-func'
-import { Pagination } from '../components/pagination/pagination'
+import { Pagination } from '../components/pagination-block/pagination/pagination'
 import { useCallback } from 'react'
 import { Tab, Tabs } from '../components/tabs/tabs'
 
@@ -39,12 +39,9 @@ export const Sandbox = ({
         theme={theme}
       >
         
-        {/* Pagination */}
-        
-
         {/* Tabs */}
         <a href="/sandbox">/sandbox</a>
-        <Tabs externalClass="Sandbox__tabs" display>
+        <Tabs externalClass="Sandbox__tabs">
           <Tab tabSlug="1" tabName="Таб 1">
             <Pagination
               externalClass="Sandbox__pagination"

@@ -1,4 +1,4 @@
-import { ButtonProps } from "components/pages/components/button/button"
+import { ButtonProps } from "components/pages/components/button-block/button/button"
 import { componentsActionTypes } from "./components-actions"
 
 const initialState = {

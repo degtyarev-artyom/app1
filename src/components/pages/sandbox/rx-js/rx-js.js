@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { Button, ButtonProps } from 'components/pages/components/button/button'
+import { Button, ButtonProps } from 'components/pages/components/button-block/button/button'
 // import { useEffect, useRef, useState } from 'react'
 import {
   // interval,

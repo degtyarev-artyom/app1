@@ -8,6 +8,7 @@ import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './components.scss'
 import { ButtonBlock } from './button-block/button-block'
 import { getTheme } from 'functions/staff-styling-func'
+import { PaginationBlock } from './pagination-block/pagination-block'
 
 export const Components = ({
   externalClass,
@@ -30,7 +31,8 @@ export const Components = ({
         externalClass="Components__content"
         theme={theme}
       >
-        <ButtonBlock externalClass="Components__button" />
+        <ButtonBlock externalClass="Components__button-block" />
+        <PaginationBlock externalClass="Components__pagination-block" />
       </StaffContent>
     </div>
   )
