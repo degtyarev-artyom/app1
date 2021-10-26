@@ -7,21 +7,12 @@ import { staffThemes } from 'styling/staff/staff-styling-themes'
 import './sandbox.scss'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import { getTheme } from 'functions/staff-styling-func'
-import { Pagination } from '../components/pagination-block/pagination/pagination'
-import { useCallback } from 'react'
-import { Tab, Tabs } from '../components/tabs/tabs'
 
 export const Sandbox = ({
   externalClass,
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = getTheme(currentTheme, staffThemes.orange)
-
-  // const [show, setShow] = useState(true)
-
-  const handlePage = useCallback((page, count) => {
-    console.log('submit => page =', page, 'count =', count)
-  }, [])
 
   return (
     <div className={classNames('Sandbox', {
@@ -38,9 +29,14 @@ export const Sandbox = ({
         externalClass="Sandbox__content"
         theme={theme}
       >
+
+        Sandbox Text
+
+        {/* TypeScript */}
+        {/* <Ts /> */}
         
         {/* Tabs */}
-        <a href="/sandbox">/sandbox</a>
+        {/* <a href="/sandbox">/sandbox</a>
         <Tabs externalClass="Sandbox__tabs">
           <Tab tabSlug="1" tabName="Таб 1">
             <Pagination
@@ -69,7 +65,7 @@ export const Sandbox = ({
               handlePage={handlePage}
             />
           </Tab>
-        </Tabs>
+        </Tabs> */}
 
         {/* Hooks */}
         {/* <Button

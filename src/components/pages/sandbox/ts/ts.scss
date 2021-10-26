@@ -1,0 +1,11 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.Ts {
+  user-select: none;
+
+  // &__card {}
+
+  &__card-button {
+    margin: 0 0 0 10px;
+  }
+}

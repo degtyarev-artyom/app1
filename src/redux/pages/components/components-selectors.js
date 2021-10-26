@@ -10,4 +10,6 @@ export const componentsSelectors = {
   buttonBlock: state => state.components.buttonBlock,
   buttonPending: state => state.components.buttonPending,
   buttonShowHideCode: state => state.components.buttonShowHideCode,
+  paginationExternalClass: state => state.components.paginationExternalClass,
+  paginationShowHideCode: state => state.components.paginationShowHideCode,
 }

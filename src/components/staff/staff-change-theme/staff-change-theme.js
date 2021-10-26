@@ -20,7 +20,9 @@ export const StaffChangeTheme = ({
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--default', {
           'StaffChangeTheme__item--active': currentTheme === 'default', 
         })}
-        onClick={() => dispatch(staffActions.setTheme(staffThemes.default))}
+        onClick={() => {
+          dispatch(staffActions.setTheme(staffThemes.default))
+        }}
       >
         <div className="StaffChangeTheme__item--default--green"/>
         <div className="StaffChangeTheme__item--default--purple"/>

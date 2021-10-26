@@ -36,10 +36,12 @@ export const StaffColorText = ({
 
 export const staffColorTextProps = {
   bracket: 'bracket',
+  fbracket: 'fbracket',
   component: 'component',
   prop: 'prop',
   equal: 'equal',
   string: 'string',
+  number: 'number',
   text: 'text',
   background: 'background'
 }

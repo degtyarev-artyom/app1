@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { staffActions } from 'redux/staff/staff-actions'
+import { staffActions } from 'redux/staff/staff-actions.ts'
 import { staffSelectors } from 'redux/staff/staff-selectors'
 import './staff-change-theme-code.scss'
 import { useDispatch, useSelector } from 'react-redux'
