@@ -1,35 +1,9 @@
 @import 'src/styling/scss/styling-mixins.scss';
 
 .Components {
-  &__title {
-    margin: 0 0 15px 0;
-
-    @include max-width(768) {
-      @include flex-prop('margin-bottom', 768, 15, 425, 10);
-    }
-
-    @include max-width(425) {
-      margin: 0 0 15px 0;
-    }
-  }
-
-  &__navbar {
-    margin: 0 0 15px 0;
-
-    @include max-width(768) {
-      @include flex-prop('margin-bottom', 768, 15, 425, 10);
-    }
-
-    @include max-width(425) {
-      margin: 0 0 15px 0;
-    }
-  }
-
-  // &__content {}
-  
-  &__button-block {
+  &__page-button-block {
     margin: 0 0 20px 0;
   }
-  
-  // &__pagination-block {}
+
+  // &__page-pagination-block {}
 }

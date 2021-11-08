@@ -1,6 +1,10 @@
 @import 'src/styling/scss/styling-mixins.scss';
 
-.Sandbox {
+.StaffPage {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+
   &__title {
     margin: 0 0 15px 0;
 
@@ -15,7 +19,6 @@
 
   &__navbar {
     margin: 0 0 15px 0;
-    // color: #da9b48;
 
     @include max-width(768) {
       @include flex-prop('margin-bottom', 768, 15, 425, 10);
@@ -27,6 +30,7 @@
   }
 
   &__content {
+    flex: 1 0 auto;
     position: relative;
   }
 }

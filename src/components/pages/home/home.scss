@@ -1,37 +1,16 @@
 @import 'src/styling/scss/styling-mixins.scss';
 
+.App__home-page .StaffPage__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Home {
-  &__title {
-    margin: 0 0 15px 0;
-
-    @include max-width(768) {
-      @include flex-prop('margin-bottom', 768, 15, 425, 10);
-    }
-
-    @include max-width(425) {
-      margin: 0 0 15px 0;
-    }
-  }
-
-  &__navbar {
-    margin: 0 0 15px 0;
-
-    @include max-width(768) {
-      @include flex-prop('margin-bottom', 768, 15, 425, 10);
-    }
-
-    @include max-width(425) {
-      margin: 0 0 15px 0;
-    }
-  }
-
   &__content {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  &__content-home {
     font-size: 120px;
     filter: grayscale(100%);
     opacity: 0.5;

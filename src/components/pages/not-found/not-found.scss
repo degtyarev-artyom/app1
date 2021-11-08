@@ -1,5 +1,15 @@
 @import 'src/styling/scss/styling-mixins.scss';
 
+.App__not-found-page .StaffPage__content {
+  display: flex;
+}
+
+.App__not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .NotFound {
   &__title {
     margin: 0 0 15px 0;

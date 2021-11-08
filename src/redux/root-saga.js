@@ -10,6 +10,7 @@ function* helloSaga() {
 
 /* delay-function */
 export const delay = ms => new Promise(res => setTimeout(res, ms))
+export const delayData = (data, ms = 0) => new Promise(res => setTimeout(() => res(data), ms))
 
 /* increment-async */
 // export function* incrementAsync() {
