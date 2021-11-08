@@ -48,17 +48,6 @@ export const AppPages = () => {
             <Sandbox externalClass="App__sandbox" />
           </StaffPage>
         </Route>
-
-        {/* Sandbox */}
-        <Route path="/sandbox">
-          <StaffPage
-            externalClass="App__sandbox-page"
-            theme={getTheme(currentTheme, staffThemes.orange)}
-            title="Sandbox"
-          >
-            <Sandbox externalClass="App__sandbox" />
-          </StaffPage>
-        </Route>
         
         {/* Not found */}
         <Route>
