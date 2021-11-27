@@ -11,6 +11,10 @@ import { useSelector } from 'react-redux'
 
 export const AppPages = () => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
+  const themeHome = getTheme(currentTheme, staffThemes.green)
+  const themeComponents = getTheme(currentTheme, staffThemes.purple)
+  const themeSandbox = getTheme(currentTheme, staffThemes.orange)
+  const themeNotFound = getTheme(currentTheme, staffThemes.red)
 
   return (
     <Router>
@@ -20,7 +24,7 @@ export const AppPages = () => {
         <Route exact path="/">
           <StaffPage
             externalClass="App__home-page"
-            theme={getTheme(currentTheme, staffThemes.green)}
+            theme={themeHome}
             title="Home"
           >
             <Home externalClass="App__home" />
@@ -31,7 +35,7 @@ export const AppPages = () => {
         <Route path="/components">
           <StaffPage
             externalClass="App__components-page"
-            theme={getTheme(currentTheme, staffThemes.purple)}
+            theme={themeComponents}
             title="Components"
           >
             <Components externalClass="App__components" />
@@ -42,7 +46,7 @@ export const AppPages = () => {
         <Route path="/sandbox">
           <StaffPage
             externalClass="App__sandbox-page"
-            theme={getTheme(currentTheme, staffThemes.orange)}
+            theme={themeSandbox}
             title="Sandbox"
           >
             <Sandbox externalClass="App__sandbox" />
@@ -53,7 +57,7 @@ export const AppPages = () => {
         <Route>
           <StaffPage
             externalClass="App__not-found-page"
-            theme={getTheme(currentTheme, staffThemes.red)}
+            theme={themeNotFound}
             title="Page not found"
           >
             <NotFound externalClass="App__not-found" />
