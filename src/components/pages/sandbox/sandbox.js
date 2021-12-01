@@ -8,7 +8,7 @@ export const Sandbox = ({
     <div className={classNames('Sandbox', {
       [externalClass]: externalClass
     })}>
-      Sandbox
+      Sandbox SBR
     </div>
   )
 }
