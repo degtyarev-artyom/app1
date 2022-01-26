@@ -23,44 +23,44 @@ export const AppPages = () => {
         {/* Home */}
         <Route exact path="/">
           <StaffPage
-            externalClass="App__home-page"
+            className="App__home-page"
             theme={themeHome}
             title="Home"
           >
-            <Home externalClass="App__home" />
+            <Home className="App__home" />
           </StaffPage>
         </Route>
 
         {/* Components */}
         <Route path="/components">
           <StaffPage
-            externalClass="App__components-page"
+            className="App__components-page"
             theme={themeComponents}
             title="Components"
           >
-            <Components externalClass="App__components" />
+            <Components className="App__components" />
           </StaffPage>
         </Route>
 
         {/* Sandbox */}
         <Route path="/sandbox">
           <StaffPage
-            externalClass="App__sandbox-page"
+            className="App__sandbox-page"
             theme={themeSandbox}
             title="Sandbox"
           >
-            <Sandbox externalClass="App__sandbox" />
+            <Sandbox className="App__sandbox" />
           </StaffPage>
         </Route>
         
         {/* Not found */}
         <Route>
           <StaffPage
-            externalClass="App__not-found-page"
+            className="App__not-found-page"
             theme={themeNotFound}
             title="Page not found"
           >
-            <NotFound externalClass="App__not-found" />
+            <NotFound className="App__not-found" />
           </StaffPage>
         </Route>
 

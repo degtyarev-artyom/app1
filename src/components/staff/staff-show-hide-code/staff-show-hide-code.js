@@ -3,7 +3,7 @@ import './staff-show-hide-code.scss'
 import { staticStyles } from './staff-show-hide-code-styles'
 
 export const StaffShowHideCode = ({
-  externalClass,
+  className,
   showHideCode,
   code,
   ...rest
@@ -12,7 +12,7 @@ export const StaffShowHideCode = ({
     {showHideCode === 'show' && (
       <div  
         className={classNames('StaffShowHideCode', {
-          [externalClass]: externalClass
+          [className]: className
         })}
         {...rest}
       >

@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import './hooks.scss'
 
 const Hooks = ({
-  externalClass,
+  className,
 }) => {
   const [nums, setNums] = useState([7, 6, 5, 4, 3, 2, 1])
   const addNumber = () => setNums(prev => [prev.length + 1, ...prev])
@@ -67,7 +67,7 @@ const Hooks = ({
 
   return (
     <div className={classNames('Hooks', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
       <div className="Hooks__wrap">
         <div className="Hooks__block">
@@ -77,7 +77,7 @@ const Hooks = ({
 
             {/* button => Новое число */}
             <Button
-              externalClass="Hooks__button"
+              className="Hooks__button"
               onClick={addNumber}
               theme={ButtonProps.theme.blue}
               active
@@ -87,7 +87,7 @@ const Hooks = ({
 
             {/* button => Добавить скролл */}
             <Button
-              externalClass="Hooks__button"
+              className="Hooks__button"
               theme={ButtonProps.theme.green}
               onClick={addScroll}
               disabled={activeScroll}
@@ -97,7 +97,7 @@ const Hooks = ({
 
             {/* button => Убрать скролл */}
             <Button
-              externalClass="Hooks__button"
+              className="Hooks__button"
               theme={ButtonProps.theme.red}
               onClick={removeScroll}
               disabled={!activeScroll}
@@ -107,7 +107,7 @@ const Hooks = ({
 
             {/* button => start */}
             <Button
-              externalClass="Hooks__button"
+              className="Hooks__button"
               theme={ButtonProps.theme.purple}
               onClick={start}
               disabled={timerActive}
@@ -117,7 +117,7 @@ const Hooks = ({
 
             {/* button => stop */}
             <Button
-              externalClass="Hooks__button"
+              className="Hooks__button"
               theme={ButtonProps.theme.orange}
               onClick={stop}
               disabled={!timerActive}
@@ -127,7 +127,7 @@ const Hooks = ({
 
             {/* button => countBigCalc */}
             {/* <Button
-              externalClass="Hooks__button"
+              className="Hooks__button"
               theme={ButtonProps.theme.greyRed}
               onClick={changeCountBigCalc}
             >

@@ -6,7 +6,7 @@ import { StaffContent } from '../staff-content/staff-content'
 import { StaffNavbar } from '../staff-navbar/staff-navbar'
 
 export const StaffPage = ({
-  externalClass,
+  className,
   theme,
   children,
   title,
@@ -15,20 +15,20 @@ export const StaffPage = ({
   return (
     <div
       className={classNames('StaffPage', {
-        [externalClass]: externalClass,
+        [className]: className,
         [`StaffPage--theme-${theme}`]: theme
       })}
       {...rest}
     >
       <StaffTitle
-        externalClass="StaffPage__title"
+        className="StaffPage__title"
         theme={theme}
       >
         { title }
       </StaffTitle>
-      <StaffNavbar externalClass="StaffPage__navbar" />
+      <StaffNavbar className="StaffPage__navbar" />
       <StaffContent
-        externalClass="StaffPage__content"
+        className="StaffPage__content"
         theme={theme}
       >
         { children }

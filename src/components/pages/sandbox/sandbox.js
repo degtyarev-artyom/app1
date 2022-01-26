@@ -2,13 +2,13 @@ import classNames from 'classnames'
 import './sandbox.scss'
 
 export const Sandbox = ({
-  externalClass,
+  className,
 }) => {
   return (
     <div className={classNames('Sandbox', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
-      Sandbox SBR
+      Sandbox
     </div>
   )
 }

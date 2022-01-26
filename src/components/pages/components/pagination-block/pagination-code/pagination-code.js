@@ -5,13 +5,13 @@ import { getPaginationCode } from './pagination-code-string'
 import { StaffColorText, staffColorTextProps } from 'components/staff/staff-styled-components/staff-color-text/staff-color-text'
 
 export const PaginationCode = ({
-  externalClass,
+  className,
   showHideCode,
   codeData,
   ...rest
 }) => {
   const {
-    paginationExternalClass,
+    paginationClassName,
     paginationTotal,
   } = codeData
  
@@ -19,12 +19,12 @@ export const PaginationCode = ({
     {showHideCode === 'show' && (
       <div
         className={classNames('ButtonCode', {
-          [externalClass]: externalClass
+          [className]: className
         })}
         {...rest}
       >
         <StaffCodeWrap
-          externalClass="PaginationCode__code-wrap"
+          className="PaginationCode__code-wrap"
           codeData={codeData}
           getCode={getPaginationCode}
           delayCopied={1000}
@@ -33,12 +33,12 @@ export const PaginationCode = ({
           <StaffColorText code={`<`} typeCode={staffColorTextProps.bracket} />
           <StaffColorText code={`Pagination`} typeCode={staffColorTextProps.component} br />
           
-          {/* externalClass */}
-          <StaffColorText code={`  externalClass`} typeCode={staffColorTextProps.prop} />
+          {/* className */}
+          <StaffColorText code={`  className`} typeCode={staffColorTextProps.prop} />
           <StaffColorText code={`=`} typeCode={staffColorTextProps.equal} />
-          <StaffColorText code={`"${paginationExternalClass}"`} typeCode={staffColorTextProps.string} br />
+          <StaffColorText code={`"${paginationClassName}"`} typeCode={staffColorTextProps.string} br />
           
-          {/* externalClass */}
+          {/* className */}
           <StaffColorText code={`  total`} typeCode={staffColorTextProps.prop} />
           <StaffColorText code={`=`} typeCode={staffColorTextProps.equal} />
 

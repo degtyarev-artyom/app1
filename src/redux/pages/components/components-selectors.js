@@ -1,6 +1,6 @@
 export const componentsSelectors = {
   buttonChildren: state => state.components.buttonChildren,
-  buttonExternalClass: state => state.components.buttonExternalClass,
+  buttonClassName: state => state.components.buttonClassName,
   buttonTheme: state => state.components.buttonTheme,
   buttonSize: state => state.components.buttonSize,
   buttonType: state => state.components.buttonType,
@@ -10,6 +10,6 @@ export const componentsSelectors = {
   buttonBlock: state => state.components.buttonBlock,
   buttonPending: state => state.components.buttonPending,
   buttonShowHideCode: state => state.components.buttonShowHideCode,
-  paginationExternalClass: state => state.components.paginationExternalClass,
+  paginationClassName: state => state.components.paginationClassName,
   paginationShowHideCode: state => state.components.paginationShowHideCode,
 }

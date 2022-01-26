@@ -1,0 +1,146 @@
+@import 'src/styling/scss/styling-mixins.scss';
+
+.IPK {
+  font-size: 15px;
+
+  &__title {
+    font-size: 20px;
+    text-align: center;
+    margin: 12px 0 12px 0;
+    padding: 5px 0px 5px 0px;
+    transition: background 0.3s ease;
+    
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  input {
+    font-size: 15px;
+  }
+
+  table {
+    width: 100%;
+
+    td {
+      padding: 5px 0 5px 0;
+    }
+  }
+
+  .range-flex {
+    input {
+      margin: 0 5px 0 0;
+    }
+
+    span {
+      transform: translateY(-3px);
+      display: inline-block;
+    }
+  }
+
+  .tr-br {
+    td {
+      padding: 20px 0 0 0;
+    }
+  }
+
+  input.plus-number {
+    width: 100px;
+    display: inline-block;
+    transform: translateY(-3px);
+    margin: 0 0 0 5px;
+  }
+
+  input.plus-checkbox {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 15px;
+
+    &.false {
+      opacity: 0.2;
+    }
+  }
+
+  td {
+    span.red {
+      background: #ff9c9c;
+      padding: 2px 5px 2px 5px;
+    }
+
+    span.green {
+      background: #95ff95;
+      padding: 2px 5px 2px 5px;
+    }
+
+    span.yellow {
+      background: #fafa3c;
+      padding: 2px 5px 2px 5px;
+    }
+
+    span.grey {
+      background: #dfdfdf;
+      padding: 2px 5px 2px 5px;
+    }
+
+    span.blue {
+      background: #b7d0ff;
+      padding: 2px 5px 2px 5px;
+    }
+
+    span.orange {
+      background: #ffb672;
+      padding: 2px 5px 2px 5px;
+    }
+
+    span.purple {
+      background: #d5b0ff;
+      padding: 2px 5px 2px 5px;
+    }
+  }
+
+  /* old */
+
+  td.green {
+    padding: 2px 8px 2px 8px;
+    background: #95ff95;
+  }
+
+  td.red {
+    padding: 2px 8px 2px 8px;
+    background: #ff9c9c;
+  }
+
+  td.yellow {
+    padding: 2px 8px 2px 8px;
+    background: #fafa3c;
+  }
+
+  td.orange {
+    padding: 2px 8px 2px 8px;
+    background: #fa983c;
+  }
+
+  td.grey {
+    padding: 2px 8px 2px 8px;
+    background: #dfdfdf;
+  }
+
+  td.blue {
+    padding: 2px 8px 2px 8px;
+    background: #b7d0ff;
+  }
+
+  td.white {
+    padding: 2px 8px 2px 8px;
+    background: #ffffff;
+  }
+
+  .td-a {
+    input {
+      width: 50px;
+      text-align: center;
+    }
+  }
+}

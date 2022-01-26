@@ -3,7 +3,7 @@ import './staff-text-prop-block.scss'
 import { useDispatch } from 'react-redux'
 
 export const StaffTextPropBlock = ({
-  externalClass,
+  className,
   title,
   type,
   action,
@@ -15,7 +15,7 @@ export const StaffTextPropBlock = ({
   return (
     <div
       className={classNames('StaffTextPropBlock', {
-        [externalClass]: externalClass
+        [className]: className
       })}
       {...rest}
     >

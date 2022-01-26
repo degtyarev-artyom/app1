@@ -7,14 +7,14 @@ import { getTheme } from 'functions/staff-styling-func'
 import { staticStyles } from './not-found-styles'
 
 export const NotFound = ({
-  externalClass,
+  className,
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = getTheme(currentTheme, staffThemes.red)
   
   return (
     <div className={classNames('NotFound', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
       <div className={`NotFound__content-404 NotFound__content-404--theme-${theme}`}>
         404

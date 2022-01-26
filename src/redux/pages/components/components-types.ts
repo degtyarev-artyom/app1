@@ -104,7 +104,7 @@ export type TComponentsActions =
 
 export interface IComponentsActions {
   buttonChildren: (payload: string) => TComponentsActions
-  buttonExternalClass: (payload: string) => TComponentsActions
+  buttonClassName: (payload: string) => TComponentsActions
   buttonTheme: (payload: string) => TComponentsActions
   buttonSize: (payload: string) => TComponentsActions
   buttonType: (payload: string) => TComponentsActions
@@ -114,6 +114,6 @@ export interface IComponentsActions {
   buttonBlock: (payload: string | boolean) => TComponentsActions
   buttonPending: (payload: string | boolean) => TComponentsActions
   buttonShowHideCode: (payload: string) => TComponentsActions
-  paginationExternalClass: (payload: string) => TComponentsActions
+  paginationClassName: (payload: string) => TComponentsActions
   paginationShowHideCode: (payload: string) => TComponentsActions
 }

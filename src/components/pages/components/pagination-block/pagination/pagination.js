@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
 const Pagination = ({
-  externalClass,
+  className,
   theme,
   paginationId,
   total,
@@ -131,7 +131,7 @@ const Pagination = ({
   return (
     <div
       className={classNames('Pagination', {
-        [externalClass]: externalClass,
+        [className]: className,
         [`Pagination__theme-${theme}`]: theme
       })}
       {...rest}
@@ -154,7 +154,7 @@ const Pagination = ({
 
         {/* previous */}
         <Button
-          externalClass="Pagination__previous"
+          className="Pagination__previous"
           theme={theme}
           type="normal"
           active
@@ -167,7 +167,7 @@ const Pagination = ({
 
         {/* next */}
         <Button
-          externalClass="Pagination__next"
+          className="Pagination__next"
           theme={theme}
           type="normal"
           active
@@ -184,7 +184,7 @@ const Pagination = ({
         <div className="Pagination__count-list">
           {count.map((num, i) => (
             <Button
-              externalClass={classNames('Pagination__count-item', {
+              className={classNames('Pagination__count-item', {
                 'Pagination__count-item--active': num === Number(pageCountActive)
               })}
               theme={theme}

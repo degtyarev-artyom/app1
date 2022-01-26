@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 import { searchToObj, objToSearch } from 'functions/staff-get-func'
 
 const Tabs = ({
-  externalClass,
+  className,
   tabsId,
   children,
   display,
@@ -49,7 +49,7 @@ const Tabs = ({
   return (
     <div
       className={classNames('Tabs', {
-        [externalClass]: externalClass,
+        [className]: className,
       })}
       {...rest}
     >

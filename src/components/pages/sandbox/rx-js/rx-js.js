@@ -22,18 +22,15 @@ import {
 import './rx-js.scss'
 
 export const RxJS = ({
-  externalClass,
+  className,
 }) => {
-  
-  
-
   return (
     <div className={classNames('RxJS', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
       <div className="RxJS__buttons-wrap">
         <Button
-          externalClass="RxJS__button-interval"
+          className="RxJS__button-interval"
           theme={ButtonProps.theme.blue}
           active
           focus
@@ -41,7 +38,7 @@ export const RxJS = ({
           Subscribe
         </Button>
         <Button
-          externalClass="RxJS__button-interval"
+          className="RxJS__button-interval"
           theme={ButtonProps.theme.orange}
           active
           focus

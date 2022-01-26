@@ -4,7 +4,7 @@ import './staff-button.scss'
 import { staticStyles } from './staff-button-styles'
 
 export const StaffButton = ({
-  externalClass,
+  className,
   theme,
   size,
   children,
@@ -13,7 +13,7 @@ export const StaffButton = ({
   return (
     <button
       className={classNames('StaffButton', {
-        [externalClass]: externalClass,
+        [className]: className,
         [`StaffButton--theme-${theme}`]: theme,
         [`StaffButton--size-${size}`]: size
       })}

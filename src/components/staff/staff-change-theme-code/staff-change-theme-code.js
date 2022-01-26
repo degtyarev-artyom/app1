@@ -7,14 +7,14 @@ import { staffThemesCode } from 'styling/staff/staff-styling-themes'
 import { staticStyles } from './staff-change-theme-code-styles'
 
 export const StaffChangeThemeCode = ({
-  externalClass,
+  className,
 }) => {
   const dispatch = useDispatch()
   const themeCode = useSelector(staffSelectors.currentThemeCode)
 
   return (
     <div className={classNames('StaffChangeThemeCode', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
 
       {/* darcula */}

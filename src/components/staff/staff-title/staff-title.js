@@ -4,7 +4,7 @@ import { staffThemes } from 'styling/staff/staff-styling-themes'
 import { staticStyles } from './staff-title-styles'
 
 export const StaffTitle = ({
-  externalClass,
+  className,
   theme,
   children,
   ...rest
@@ -12,7 +12,7 @@ export const StaffTitle = ({
   return (
     <div
       className={classNames('StaffTitle', {
-        [externalClass]: externalClass,
+        [className]: className,
         [`StaffTitle--theme-${theme}`]: theme,
       })}
       {...rest}

@@ -5,7 +5,7 @@ import { StaffButton } from '../staff-button/staff-button'
 import './staff-button-copy.scss'
 
 export const StaffButtonCopy = ({
-  externalClass,
+  className,
   theme,
   delayCopied,
   code,
@@ -14,8 +14,8 @@ export const StaffButtonCopy = ({
 
   return (
     <StaffButton
-      externalClass={classNames('StaffButtonCopy', {
-        [externalClass]: externalClass
+      className={classNames('StaffButtonCopy', {
+        [className]: className
       })}
       theme={theme}
       onClick={() => {

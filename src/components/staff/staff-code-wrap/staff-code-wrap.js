@@ -9,7 +9,7 @@ import { StaffChangeThemeCode } from '../staff-change-theme-code/staff-change-th
 import { staticStyles } from './staff-code-wrap-styles'
 
 export const StaffCodeWrap = ({
-  externalClass,
+  className,
   codeData,
   getCode,
   delayCopied = 1000,
@@ -23,12 +23,12 @@ export const StaffCodeWrap = ({
   return (
     <div
       className={classNames('StaffCodeWrap', {
-        [externalClass]: externalClass
+        [className]: className
       })}
       {...rest}
     >
       <StaffButtonCopy
-        externalClass="StaffCodeWrap__button-copy"
+        className="StaffCodeWrap__button-copy"
         theme={theme}
         delayCopied={delayCopied}
         code={getCode(codeData)}
@@ -40,7 +40,7 @@ export const StaffCodeWrap = ({
       })}>
         { children }
       </pre>
-      <StaffChangeThemeCode externalClass="StaffCodeWrap__change-theme-code"/>
+      <StaffChangeThemeCode className="StaffCodeWrap__change-theme-code"/>
       <style jsx>{ staticStyles }</style>
     </div>
   )

@@ -4,7 +4,7 @@ import './staff-value-prop.scss'
 import { staticStyles } from './staff-value-prop-styles'
 
 export const StaffValueProp = ({
-  externalClass,
+  className,
   theme,
   propName,
   propActive,
@@ -14,7 +14,7 @@ export const StaffValueProp = ({
   return (
     <button
       className={classNames('StaffValueProp', {
-        [externalClass]: externalClass,
+        [className]: className,
         [`StaffValueProp--${theme}`]: theme,
         'StaffValueProp--active': propActive === propName
       })}

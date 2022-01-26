@@ -7,14 +7,14 @@ import { staffThemes } from 'styling/staff/staff-styling-themes'
 import { staticStyles } from './staff-change-theme-styles'
 
 export const StaffChangeTheme = ({
-  externalClass,
+  className,
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const dispatch = useDispatch()
 
   return (
     <div className={classNames('StaffChangeTheme', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
       <div
         className={classNames('StaffChangeTheme__item StaffChangeTheme__item--default', {

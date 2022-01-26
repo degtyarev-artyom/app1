@@ -5,7 +5,7 @@ import { staticStyles } from './button-styles'
 import { forwardRef } from 'react'
 
 const Button = ({
-  externalClass,
+  className,
   theme,
   size,
   type,
@@ -20,7 +20,7 @@ const Button = ({
   return (
     <button
       className={classNames('Button', {
-        [externalClass]: externalClass,
+        [className]: className,
         [`Button--theme-${theme}`]: theme,
         [`Button--size-${size}`]: size,
         [`Button--type-${type}`]: type,

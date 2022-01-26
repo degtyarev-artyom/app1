@@ -5,14 +5,14 @@ import { getButtonCode } from './button-code-string'
 import { StaffColorText, staffColorTextProps } from 'components/staff/staff-styled-components/staff-color-text/staff-color-text'
 
 export const ButtonCode = ({
-  externalClass,
+  className,
   showHideCode,
   buttonCodeData,
   ...rest
 }) => {
   const {
     buttonChildren,
-    buttonExternalClass,
+    buttonClassName,
     buttonTheme,
     buttonSize,
     buttonType,
@@ -27,12 +27,12 @@ export const ButtonCode = ({
     {showHideCode === 'show' && (
       <div
         className={classNames('ButtonCode', {
-          [externalClass]: externalClass
+          [className]: className
         })}
         {...rest}
       >
         <StaffCodeWrap
-          externalClass="ButtonCode__code-wrap"
+          className="ButtonCode__code-wrap"
           codeData={buttonCodeData}
           getCode={getButtonCode}
           delayCopied={1000}
@@ -41,10 +41,10 @@ export const ButtonCode = ({
           <StaffColorText code={`<`} typeCode={staffColorTextProps.bracket} />
           <StaffColorText code={`Button`} typeCode={staffColorTextProps.component} br />
           
-          {/* externalClass */}
-          <StaffColorText code={`  externalClass`} typeCode={staffColorTextProps.prop} />
+          {/* className */}
+          <StaffColorText code={`  className`} typeCode={staffColorTextProps.prop} />
           <StaffColorText code={`=`} typeCode={staffColorTextProps.equal} />
-          <StaffColorText code={`"${buttonExternalClass}"`} typeCode={staffColorTextProps.string} br />
+          <StaffColorText code={`"${buttonClassName}"`} typeCode={staffColorTextProps.string} br />
           
           {/* theme */}
           <StaffColorText code={`  theme`} typeCode={staffColorTextProps.prop} />

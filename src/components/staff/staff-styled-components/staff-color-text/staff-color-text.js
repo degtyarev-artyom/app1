@@ -5,7 +5,7 @@ import { staffColorsCode } from 'styling/staff/staff-styling-themes'
 import { StaffColorTextSub } from './staff-color-text-sub'
 
 export const StaffColorText = ({
-  externalClass,
+  className,
   code,
   typeCode,
   visible = true,
@@ -19,7 +19,7 @@ export const StaffColorText = ({
     {!!visible && (<>
       <StaffColorTextSub
         className={classNames('StaffColorText', {
-          [externalClass]: externalClass
+          [className]: className
         })}
         themeCode={themeCode}
         color={staffColorsCode[themeCode][typeCode]}

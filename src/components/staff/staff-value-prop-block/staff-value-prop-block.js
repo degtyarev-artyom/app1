@@ -7,7 +7,7 @@ import { staffSelectors } from 'redux/staff/staff-selectors'
 import { getTheme } from 'functions/staff-styling-func'
 
 export const StaffValuePropBlock = ({
-  externalClass,
+  className,
   title,
   type,
   properties,
@@ -22,7 +22,7 @@ export const StaffValuePropBlock = ({
   return (
     <div
       className={classNames('StaffValuePropBlock', {
-        [externalClass]: externalClass
+        [className]: className
       })}
       {...rest}
     >
@@ -34,7 +34,7 @@ export const StaffValuePropBlock = ({
         {properties.map((prop, i) => (
           <StaffValueProp
             key={i}
-            externalClass="StaffValuePropBlock__item"
+            className="StaffValuePropBlock__item"
             theme={theme}
             propName={prop}
             propActive={propActive}

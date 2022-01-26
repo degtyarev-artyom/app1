@@ -1,6 +1,6 @@
 export const getButtonCode = ({
   buttonChildren,
-  buttonExternalClass,
+  buttonClassName,
   buttonTheme,
   buttonSize,
   buttonType,
@@ -10,7 +10,7 @@ export const getButtonCode = ({
   buttonBlock,
   buttonPending
 }) => `<Button
-  externalClass="${buttonExternalClass}"
+  className="${buttonClassName}"
   theme="${buttonTheme}"
   size="${buttonSize}"
   type="${buttonType}"${

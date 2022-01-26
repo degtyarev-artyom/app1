@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <StaffChangeTheme externalClass="App__staff-change-theme" />
+      <StaffChangeTheme className="App__staff-change-theme" />
       <AppPages />
     </div>
   )

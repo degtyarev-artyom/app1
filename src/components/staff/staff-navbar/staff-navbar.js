@@ -9,7 +9,7 @@ import { staticStyles } from './staff-navbar-styles'
 
 
 export const StaffNavbar = ({
-  externalClass
+  className,
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const themeHome = getTheme(currentTheme, staffThemes.green)
@@ -18,7 +18,7 @@ export const StaffNavbar = ({
   
   return (
     <div className={classNames('StaffNavbar', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
 
       {/* home */}

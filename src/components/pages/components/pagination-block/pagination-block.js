@@ -9,20 +9,20 @@ import { PaginationCode } from './pagination-code/pagination-code'
 import { Pagination } from './pagination/pagination'
 
 export const PaginationBlock = ({
-  externalClass,
+  className,
   ...rest
 }) => {
   const handlePage = (page, count) => {
     console.log('page =>', page, 'count =>', count)
   }
 
-  const paginationExternalClass = useSelector(componentsSelectors.paginationExternalClass)
+  const paginationClassName = useSelector(componentsSelectors.paginationClassName)
   const paginationShowHideCode = useSelector(componentsSelectors.paginationShowHideCode)
 
   return (
     <div
       className={classNames('PaginationBlock', { 
-        [externalClass]: externalClass
+        [className]: className
       })}
       {...rest}
     >
@@ -30,7 +30,7 @@ export const PaginationBlock = ({
       <div className="PaginationBlock__content">
         <div className="PaginationBlock__left">
           <Pagination
-            externalClass="Sandbox__pagination"
+            className="Sandbox__pagination"
             total={1375}
             count={[5, 10, 25, 50, 100]}
             handlePage={handlePage}
@@ -38,18 +38,18 @@ export const PaginationBlock = ({
         </div>
         <div className="PaginationBlock__right">
           
-          {/* externalClass */}
+          {/* className */}
           <StaffTextPropBlock
-            externalClass="PaginationBlock__right-prop-external-class"
-            title="externalClass"
+            className="PaginationBlock__right-prop-external-class"
+            title="className"
             type={StaffTextPropBlockType.string}
-            action={componentsActions.paginationExternalClass}
-            text={paginationExternalClass}
+            action={componentsActions.paginationClassName}
+            text={paginationClassName}
           />
 
           {/* code */}
           <StaffValuePropBlock
-            externalClass={classNames('PaginationBlock__right-code-show-hide', {
+            className={classNames('PaginationBlock__right-code-show-hide', {
               'PaginationBlock__right-code-show-hide--hide': paginationShowHideCode === 'hide'
             })}
             title="code"
@@ -59,10 +59,10 @@ export const PaginationBlock = ({
             action={componentsActions.paginationShowHideCode}
           />
           <PaginationCode
-            externalClass="PaginationBlock__right-code"
+            className="PaginationBlock__right-code"
             showHideCode={paginationShowHideCode}
             codeData={{
-              paginationExternalClass,
+              paginationClassName: paginationClassName,
               paginationTotal: 1375,
             }}
           />

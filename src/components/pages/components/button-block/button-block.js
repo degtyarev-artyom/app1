@@ -9,11 +9,11 @@ import { StaffValuePropBlock, StaffValuePropBlockTypes } from 'components/staff/
 import { ButtonCode } from './button-code/button-code'
 
 export const ButtonBlock = ({
-  externalClass,
+  className,
   ...rest
 }) => {
   const buttonChildren = useSelector(componentsSelectors.buttonChildren)
-  const buttonExternalClass = useSelector(componentsSelectors.buttonExternalClass)
+  const buttonClassName = useSelector(componentsSelectors.buttonClassName)
   const buttonTheme = useSelector(componentsSelectors.buttonTheme)
   const buttonSize = useSelector(componentsSelectors.buttonSize)
   const buttonType = useSelector(componentsSelectors.buttonType)
@@ -27,7 +27,7 @@ export const ButtonBlock = ({
   return (
     <div
       className={classNames('ButtonBlock', { 
-        [externalClass]: externalClass
+        [className]: className
       })}
       {...rest}
     >
@@ -35,7 +35,7 @@ export const ButtonBlock = ({
       <div className="ButtonBlock__content">
         <div className="ButtonBlock__left">
           <Button
-            externalClass="ButtonBlock__left-button"
+            className="ButtonBlock__left-button"
             theme={buttonTheme}
             size={buttonSize}
             type={buttonType}
@@ -52,25 +52,25 @@ export const ButtonBlock = ({
 
           {/* children */}
           <StaffTextPropBlock
-            externalClass="ButtonBlock__right-children"
+            className="ButtonBlock__right-children"
             title="children"
             type={StaffTextPropBlockType.jsx}
             action={componentsActions.buttonChildren}
             text={buttonChildren}
           />
           
-          {/* externalClass */}
+          {/* className */}
           <StaffTextPropBlock
-            externalClass="ButtonBlock__right-prop-external-class"
-            title="externalClass"
+            className="ButtonBlock__right-prop-external-class"
+            title="className"
             type={StaffTextPropBlockType.string}
-            action={componentsActions.buttonExternalClass}
-            text={buttonExternalClass}
+            action={componentsActions.buttonClassName}
+            text={buttonClassName}
           />
           
           {/* theme */}
           <StaffValuePropBlock
-            externalClass="ButtonBlock__right-prop-theme"
+            className="ButtonBlock__right-prop-theme"
             title="theme"
             type={StaffValuePropBlockTypes.string}
             properties={Object.values(ButtonProps.theme)}
@@ -80,7 +80,7 @@ export const ButtonBlock = ({
           
           {/* size */}
           <StaffValuePropBlock
-            externalClass="ButtonBlock__right-prop-size"
+            className="ButtonBlock__right-prop-size"
             title="size"
             type={StaffValuePropBlockTypes.string}
             properties={Object.values(ButtonProps.size)}
@@ -90,7 +90,7 @@ export const ButtonBlock = ({
           
           {/* bold */}
           <StaffValuePropBlock
-            externalClass="ButtonBlock__right-prop-bold"
+            className="ButtonBlock__right-prop-bold"
             title="type"
             type={StaffValuePropBlockTypes.string}
             properties={Object.values(ButtonProps.type)}
@@ -100,7 +100,7 @@ export const ButtonBlock = ({
           
           {/* focus */}
           <StaffValuePropBlock
-            externalClass="ButtonBlock__right-prop-focus"
+            className="ButtonBlock__right-prop-focus"
             title="focus"
             type={StaffValuePropBlockTypes.boolean}
             properties={['true', 'false']}
@@ -110,7 +110,7 @@ export const ButtonBlock = ({
 
           {/* active */}
           <StaffValuePropBlock
-            externalClass="ButtonBlock__right-prop-active"
+            className="ButtonBlock__right-prop-active"
             title="active"
             type={StaffValuePropBlockTypes.boolean}
             properties={['true', 'false']}
@@ -120,7 +120,7 @@ export const ButtonBlock = ({
 
           {/* disabled */}
           <StaffValuePropBlock
-            externalClass="ButtonBlock__right-prop-disabled"
+            className="ButtonBlock__right-prop-disabled"
             title="disabled"
             type={StaffValuePropBlockTypes.boolean}
             properties={['true', 'false']}
@@ -130,7 +130,7 @@ export const ButtonBlock = ({
 
           {/* block */}
           <StaffValuePropBlock
-            externalClass="ButtonBlock__right-prop-block"
+            className="ButtonBlock__right-prop-block"
             title="block"
             type={StaffValuePropBlockTypes.boolean}
             properties={['true', 'false']}
@@ -140,7 +140,7 @@ export const ButtonBlock = ({
 
           {/* pending */}
           <StaffValuePropBlock
-            externalClass="ButtonBlock__right-prop-pending"
+            className="ButtonBlock__right-prop-pending"
             title="pending"
             type={StaffValuePropBlockTypes.boolean}
             properties={['true', 'false']}
@@ -150,7 +150,7 @@ export const ButtonBlock = ({
 
           {/* code */}
           <StaffValuePropBlock
-            externalClass={classNames('ButtonBlock__right-code-show-hide', {
+            className={classNames('ButtonBlock__right-code-show-hide', {
               'ButtonBlock__right-code-show-hide--hide': buttonShowHideCode === 'hide'
             })}
             title="code"
@@ -160,11 +160,11 @@ export const ButtonBlock = ({
             action={componentsActions.buttonShowHideCode}
           />
           <ButtonCode
-            externalClass="ButtonBlock__right-code"
+            className="ButtonBlock__right-code"
             showHideCode={buttonShowHideCode}
             buttonCodeData={{
               buttonChildren,
-              buttonExternalClass,
+              buttonClassName: buttonClassName,
               buttonSize,
               buttonTheme,
               buttonType,

@@ -8,7 +8,7 @@ import { StaffButton, StaffButtonProps } from 'components/staff/staff-button/sta
 import { getTheme } from 'functions/staff-styling-func'
 
 export const Counter = ({
-  externalClass,
+  className,
 }) => {
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const counterValue = useSelector(sandboxSelectors.counterValue)
@@ -16,12 +16,12 @@ export const Counter = ({
 
   return (
     <div className={classNames('Counter', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
       <div className="Counter__button-list">
         {/* Increment after second */}
         <StaffButton
-          externalClass="Counter__button"
+          className="Counter__button"
           onClick={() => dispatch(sandboxActions.counterIncrementAsync())}
           theme={getTheme(currentTheme, StaffButtonProps.theme.green)}
         >
@@ -30,7 +30,7 @@ export const Counter = ({
 
         {/* Increment */}
         <StaffButton
-          externalClass="Counter__button"
+          className="Counter__button"
           onClick={() => dispatch(sandboxActions.counterIncrement())}
           theme={getTheme(currentTheme, StaffButtonProps.theme.blue)}
         >
@@ -39,7 +39,7 @@ export const Counter = ({
 
         {/* Decrement */}
         <StaffButton
-          externalClass="Counter__button"
+          className="Counter__button"
           onClick={() => dispatch(sandboxActions.counterDecrement())}
           theme={getTheme(currentTheme, StaffButtonProps.theme.red)}
         >
@@ -54,7 +54,7 @@ export const Counter = ({
 
       {/* clear-button */}
       <StaffButton
-        externalClass="Counter__button-clear"
+        className="Counter__button-clear"
         onClick={() => dispatch(sandboxActions.counterClear())}
         theme={getTheme(currentTheme, StaffButtonProps.theme.orange)}
       >

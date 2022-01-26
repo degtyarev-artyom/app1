@@ -4,14 +4,14 @@ import { ButtonBlock } from './button-block/button-block'
 import { PaginationBlock } from './pagination-block/pagination-block'
 
 export const Components = ({
-  externalClass,
+  className,
 }) => {
   return (
     <div className={classNames('Components', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
-      <ButtonBlock externalClass="Components__page-button-block" />
-      <PaginationBlock externalClass="Components__page-pagination-block" />
+      <ButtonBlock className="Components__page-button-block" />
+      <PaginationBlock className="Components__page-pagination-block" />
     </div>
   )
 }
