@@ -1,0 +1,28 @@
+.L {
+  margin: 8px 0 0 0;
+  max-height: 150px;
+  overflow: auto;
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__buttons-add-scroll {
+    margin: 0 5px 0 0;
+  }
+
+  &__buttons-count-scroll {
+    transition: color 0.2s ease;
+    margin: 0 5px 0 0;
+
+    &--green {
+      color: green;
+    }
+
+    &--red {
+      color: red;
+    }
+  }
+}

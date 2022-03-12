@@ -20,36 +20,36 @@ export const IPK = ({
     <td></td>
   </tr>
 
-  const максимальнаяСтоимостьЖилья = 20000000
-  const шагСтоимостиЖилья = 100000
-  const шагПервоначальногоВзноса = 100000
-  const шагСрокИпотекиЛет = 1
-  const шагПроцентнаяСтавкаГодовых = 0.1
+  const стоимостьЖильяМакс = 20000000
+  const стоимостьЖильяШаг = 100000
+  const первоначальныйВзносШаг = 100000
+  const срокИпотекиЛетШаг = 1
+  const процентнаяСтавкаГодовыхШаг = 0.1
+
+  const defaultData1 = {
+    стоимостьЖилья: 10000000,
+    первоначальныйВзнос: 3000000,
+    срокИпотекиЛет: 20,
+    процентнаяСтавкаГодовых: 9.3,
+    квМ: 70
+  }
+
+  const defaultData2 = {
+    стоимостьЖилья: 10000000,
+    первоначальныйВзнос: 3000000,
+    срокИпотекиЛет: 20,
+    процентнаяСтавкаГодовых: 22.7,
+    квМ: 70,
+  }
 
   const [data1, setData1] = useState(() => {
     const dataLS1 = localStorage.getItem('data1')
-    return dataLS1
-      ? JSON.parse(dataLS1)
-      : {
-        стоимостьЖилья: 10000000,
-        первоначальныйВзнос: 3000000,
-        срокИпотекиЛет: 20,
-        процентнаяСтавкаГодовых: 9.3,
-        квМ: 70
-      } 
+    return dataLS1 ? JSON.parse(dataLS1) : defaultData1 
   })
 
   const [data2, setData2] = useState(() => {
     const dataLS2 = localStorage.getItem('data2')
-    return dataLS2
-      ? JSON.parse(dataLS2)
-      : {
-        стоимостьЖилья: 10000000,
-        первоначальныйВзнос: 3000000,
-        срокИпотекиЛет: 20,
-        процентнаяСтавкаГодовых: 9.3,
-        квМ: 70,
-      }
+    return dataLS2 ? JSON.parse(dataLS2) : defaultData2
   })
 
   const calc = ({
@@ -98,26 +98,6 @@ export const IPK = ({
   }, [])
   /* eslint-enable */
 
-  const ежемесячныйПлатежРазницаЧисло1 = data2?.ежемесячныйПлатеж - data1?.ежемесячныйПлатеж
-  const ежемесячныйПлатежРазница1 = ежемесячныйПлатежРазницаЧисло1 > 0
-    ? `+${ipkPrettyNumber(ежемесячныйПлатежРазницаЧисло1)}`
-    : ipkPrettyNumber(ежемесячныйПлатежРазницаЧисло1)
-
-  const ежемесячныйПлатежРазницаЧисло2 = data1?.ежемесячныйПлатеж - data2?.ежемесячныйПлатеж
-  const ежемесячныйПлатежРазница2 = ежемесячныйПлатежРазницаЧисло2 > 0
-    ? `+${ipkPrettyNumber(ежемесячныйПлатежРазницаЧисло2)}`
-    : ipkPrettyNumber(ежемесячныйПлатежРазницаЧисло2)
-
-  const переплатаРазницаЧисло1 = data2?.переплата - data1?.переплата
-  const переплатаРазница1 = переплатаРазницаЧисло1 > 0
-    ? `+${ipkPrettyNumber(переплатаРазницаЧисло1)}`
-    : ipkPrettyNumber(переплатаРазницаЧисло1)
-  
-  const переплатаРазницаЧисло2 = data1?.переплата - data2?.переплата
-  const переплатаРазница2 = переплатаРазницаЧисло2 > 0
-    ? `+${ipkPrettyNumber(переплатаРазницаЧисло2)}`
-    : ipkPrettyNumber(переплатаРазницаЧисло2)
-
   /* платежи */
 
   const [visiblePlus1, setVisiblePlus1] = useState(false)
@@ -134,8 +114,197 @@ export const IPK = ({
   const currentTheme = useSelector(staffSelectors.currentTheme)
   const theme = getTheme(currentTheme, staffThemes.orange)
 
-  const шагКвМ = 0.1
-  const максКвМ = 150
+  const квМШаг = 0.1
+  const квММакс = 200
+
+  /* aннуитентные платежи => click */
+
+  const clickTitleA = () => {
+    calc(defaultData1, data1, setData1, 'data1')
+    calc(defaultData2, data2, setData2, 'data2')
+    setI1(0)
+    setI2(0)
+    setVisiblePlus1(false)
+    setVisiblePlus2(false)
+    setPlus1(0)
+    setPlus2(0)
+  }
+
+  /* стоимость жилья */
+
+  const стоимостьЖильяМин1 = +data1?.первоначальныйВзнос + стоимостьЖильяШаг
+  const стоимостьЖильяМин2 = +data2?.первоначальныйВзнос + стоимостьЖильяШаг
+  const стоимостьЖильяЗначение1 = data1?.стоимостьЖилья
+  const стоимостьЖильяЗначение2 = data2?.стоимостьЖилья
+  const стоимостьЖильяДействие = e => {
+    calc({ стоимостьЖилья: +e.target.value }, data1, setData1, 'data1')
+    calc({ стоимостьЖилья: +e.target.value }, data2, setData2, 'data2')
+  }
+
+  /* первоначальный взнос */
+
+  const первоначальныйВзносМакс1 = +data1?.стоимостьЖилья - первоначальныйВзносШаг
+  const первоначальныйВзносМакс2 = +data2?.стоимостьЖилья - первоначальныйВзносШаг
+  const первоначальныйВзносЗначение1 = data1?.первоначальныйВзнос
+  const первоначальныйВзносЗначение2 = data2?.первоначальныйВзнос
+  const первоначальныйВзносДействие = e => {
+    calc({ первоначальныйВзнос: +e.target.value }, data1, setData1, 'data1')
+    calc({ первоначальныйВзнос: +e.target.value }, data2, setData2, 'data2')
+  }
+  const первоначальныйВзносПВ1 = ipkPrettyNumber(первоначальныйВзносЗначение1, true)
+  const первоначальныйВзносПВ2 = ipkPrettyNumber(первоначальныйВзносЗначение2, true)
+  const первоначальныйВзносСуммаКредита1 = ipkPrettyNumber(data1?.суммаКредита, true)
+  const первоначальныйВзносСуммаКредита2 = ipkPrettyNumber(data2?.суммаКредита, true)
+
+  /* кв. м. */
+
+  const квММин = 1
+  const квМЗначение1 = data1?.квМ
+  const квМЗначение2 = data2?.квМ
+  const квМДействие = e => {
+    calc({ квМ: +e.target.value }, data1, setData1, 'data1')
+    calc({ квМ: +e.target.value }, data2, setData2, 'data2')
+  }
+  const квМСтоимостьКМ1 = ipkPrettyNumber(data1?.стоимостьЖилья / data1?.квМ)
+  const квМСтоимостьКМ2 = ipkPrettyNumber(data2?.стоимостьЖилья / data2?.квМ)
+
+  /* срок ипотеки ( лет | месяцев ) */
+
+  const срокИпотекиЛетМакс = 30
+  const срокИпотекиЛетЗначение1 = data1?.срокИпотекиЛет
+  const срокИпотекиЛетЗначение2 = data2?.срокИпотекиЛет
+  const срокИпотекиЛетДействие1 = e => {
+    calc({ срокИпотекиЛет: +e.target.value }, data1, setData1, 'data1')
+    setI1(0)
+  }
+  const срокИпотекиЛетДействие2 = e => {
+    calc({ срокИпотекиЛет: +e.target.value }, data2, setData2, 'data2')
+    setI2(0)
+  }
+  const срокИпотекиМесяцев1 = data1?.срокИпотекиМесяцев
+  const срокИпотекиМесяцев2 = data2?.срокИпотекиМесяцев
+
+  /* процентная ставка годовых */
+
+  const процентнаяСтавкаГодовыхМакс = 30
+  const процентнаяСтавкаГодовыхЗначение1 = data1?.процентнаяСтавкаГодовых
+  const процентнаяСтавкаГодовыхЗначение2 = data2?.процентнаяСтавкаГодовых
+  const процентнаяСтавкаГодовыхДействие1 = e => {
+    calc({ процентнаяСтавкаГодовых: +e.target.value }, data1, setData1, 'data1')
+    setI1(0)
+  }
+  const процентнаяСтавкаГодовыхДействие2 = e => {
+    calc({ процентнаяСтавкаГодовых: +e.target.value }, data2, setData2, 'data2')
+    setI2(0)
+  }
+
+  /* оплачено */
+
+  const оплаченоВыплаченоПроцентнаяЧасть1 = ipkPrettyNumber((ipkData1[i1]?.выплаченоПроцентнаяЧасть))
+  const оплаченоВыплаченоПроцентнаяЧасть2 = ipkPrettyNumber(ipkData2[i2]?.выплаченоПроцентнаяЧасть)
+  const оплаченоПроцентнаяЧасть1 = ipkPrettyNumber(+ipkData1[i1]?.процентнаяЧасть)
+  const оплаченоПроцентнаяЧасть2 = ipkPrettyNumber(+ipkData2[i2]?.процентнаяЧасть)
+  const оплаченоВыплаченоОсновнаяЧасть1 = ipkPrettyNumber(ipkData1[i1]?.выплаченоОсновнаяЧасть)
+  const оплаченоВыплаченоОсновнаяЧасть2 = ipkPrettyNumber(ipkData2[i2]?.выплаченоОсновнаяЧасть)
+  const оплаченоОстаточнаяЧасть1 = ipkPrettyNumber(+ipkData1[i1]?.остаточнаяЧасть)
+  const оплаченоОстаточнаяЧасть2 = ipkPrettyNumber(+ipkData2[i2]?.остаточнаяЧасть)
+  const оплаченоВыплаченоПроцентнаяЧастьПроценты1 = ipkPrettyNumber(
+    ipkData1[i1]?.выплаченоПроцентнаяЧасть * 100
+    / (ipkData1[i1]?.выплаченоПроцентнаяЧасть + ipkData1[i1]?.выплаченоОсновнаяЧасть)
+  )
+  const оплаченоВыплаченоПроцентнаяЧастьПроценты2 = ipkPrettyNumber(
+    ipkData2[i2]?.выплаченоПроцентнаяЧасть * 100
+    / (ipkData2[i2]?.выплаченоПроцентнаяЧасть + ipkData2[i2]?.выплаченоОсновнаяЧасть)
+  )
+  const оплаченоВыплаченоОсновнаяЧастьПроценты1 = ipkPrettyNumber(
+    ipkData1[i1]?.выплаченоОсновнаяЧасть * 100
+    / (ipkData1[i1]?.выплаченоПроцентнаяЧасть + ipkData1[i1]?.выплаченоОсновнаяЧасть)
+  )
+  const оплаченоВыплаченоОсновнаяЧастьПроценты2 = ipkPrettyNumber(
+    ipkData2[i2]?.выплаченоОсновнаяЧасть * 100
+    / (ipkData2[i2]?.выплаченоПроцентнаяЧасть + ipkData2[i2]?.выплаченоОсновнаяЧасть)
+  )
+
+  /* номер платежа */
+
+  const номерПлатежаШаг = 1
+  const номерПлатежаМин = 0
+  const номерПлатежаМакс1 = ipkData1.length - 1
+  const номерПлатежаМакс2 = ipkData2.length - 1
+  const номерПлатежаДействие1 = e => setI1(+e.target.value)
+  const номерПлатежаДействие2 = e => setI2(+e.target.value)
+  const номерПлатежаПлюсЧекДействие1 = () => {
+    setVisiblePlus1(!visiblePlus1)
+    setPlus1(0)
+    setI1(0)
+  }
+  const номерПлатежаПлюсЧекДействие2 = () => {
+    setVisiblePlus2(!visiblePlus2)
+    setPlus2(0)
+    setI2(0)
+  }
+  const номерПлатежаПлюсМин = 0
+  const номерПлатежаПлюсШаг = 1000
+  const номерПлатежаПлюсДействие1 = e => {
+    setPlus1(+e.target.value)
+    setI1(0)
+  }
+  const номерПлатежаПлюсДействие2 = e => {
+    setPlus2(+e.target.value)
+    setI2(0)
+  }
+  const номерПлатежаПроцент1 = (i1 * 100 / (ipkData1.length - 1)).toFixed(2)
+  const номерПлатежаПроцент2 = (i2 * 100 / (ipkData2.length - 1)).toFixed(2)
+  const номерПлатежаЛет1 = (i1 / 12).toFixed(2)
+  const номерПлатежаЛет2 = (i2 / 12).toFixed(2)
+
+  /* след. платеж */
+
+  const следПлатежПроцентнаяЧастьПроценты1 = ipkData1[i1]?.процентнаяЧастьПроценты
+  const следПлатежПроцентнаяЧастьПроценты2 = ipkData2[i2]?.процентнаяЧастьПроценты
+  const следПлатежОсновнаяЧастьПроценты1 = ipkData1[i1]?.основнаяЧастьПроценты
+  const следПлатежОсновнаяЧастьПроценты2 = ipkData2[i2]?.основнаяЧастьПроценты
+  const следПлатежПроцентнаяЧасть1 = ipkPrettyNumber(ipkData1[i1]?.процентнаяЧасть)
+  const следПлатежПроцентнаяЧасть2 = ipkPrettyNumber(ipkData2[i2]?.процентнаяЧасть)
+  const следПлатежОсновнаяЧасть1 = ipkPrettyNumber(ipkData1[i1]?.основнаяЧасть)
+  const следПлатежОсновнаяЧасть2 = ipkPrettyNumber(ipkData2[i2]?.основнаяЧасть)
+
+  /* ежемесячный платеж */
+
+  const ежемесячныйПлатежРазницаЧисло1 = data2?.ежемесячныйПлатеж - data1?.ежемесячныйПлатеж
+  const ежемесячныйПлатежРазница1 = ежемесячныйПлатежРазницаЧисло1 > 0
+    ? `+${ipkPrettyNumber(ежемесячныйПлатежРазницаЧисло1)}`
+    : ipkPrettyNumber(ежемесячныйПлатежРазницаЧисло1)
+  const ежемесячныйПлатежРазницаЧисло2 = data1?.ежемесячныйПлатеж - data2?.ежемесячныйПлатеж
+  const ежемесячныйПлатежРазница2 = ежемесячныйПлатежРазницаЧисло2 > 0
+    ? `+${ipkPrettyNumber(ежемесячныйПлатежРазницаЧисло2)}`
+    : ipkPrettyNumber(ежемесячныйПлатежРазницаЧисло2)
+
+  /* переплата */
+  
+  const переплатаРазницаЧисло1 = data2?.переплата - data1?.переплата
+  const переплатаРазница1 = переплатаРазницаЧисло1 > 0
+    ? `+${ipkPrettyNumber(переплатаРазницаЧисло1)}`
+    : ipkPrettyNumber(переплатаРазницаЧисло1)
+  const переплатаРазницаЧисло2 = data1?.переплата - data2?.переплата
+  const переплатаРазница2 = переплатаРазницаЧисло2 > 0
+    ? `+${ipkPrettyNumber(переплатаРазницаЧисло2)}`
+    : ipkPrettyNumber(переплатаРазницаЧисло2)
+
+  /* всего */
+
+  const всегоОбщаяСуммаВыплаты1 = ipkPrettyNumber((+data1?.стоимостьЖилья + +data1?.переплата))
+  const всегоОбщаяСуммаВыплаты2 = ipkPrettyNumber((+data2?.стоимостьЖилья + +data2?.переплата))
+  const всегоОбщаяСуммаВыплатыБезПВ1 = ipkPrettyNumber((+data1?.стоимостьЖилья + +data1?.переплата - +data1?.первоначальныйВзнос))
+  const всегоОбщаяСуммаВыплатыБезПВ2 = ipkPrettyNumber((+data2?.стоимостьЖилья + +data2?.переплата - +data2?.первоначальныйВзнос))
+
+  /* ежемесячная ставка */
+  const ежемесячнаяСтавка1 = data1?.ежемесячнаяСтавка
+  const ежемесячнаяСтавка2 = data2?.ежемесячнаяСтавка
+
+  /* общая ставка */
+  const общаяСтавка1 = data1?.общаяСтавка
+  const общаяСтавка2 = data2?.общаяСтавка
 
   return (
     <div
@@ -147,22 +316,7 @@ export const IPK = ({
     >
       <div
         className="IPK__title"
-        onClick={() => {
-          calc({
-            стоимостьЖилья: 10000000,
-            первоначальныйВзнос: 3000000,
-            срокИпотекиЛет: 20,
-            процентнаяСтавкаГодовых: 9.3,
-            квМ: 70,
-          }, data1, setData1, 'data1')
-          calc({
-            стоимостьЖилья: 10000000,
-            первоначальныйВзнос: 3000000,
-            срокИпотекиЛет: 20,
-            процентнаяСтавкаГодовых: 9.3,
-            квМ: 70,
-          }, data2, setData2, 'data2')
-        }}
+        onClick={clickTitleA}
       >
         Аннуитетные платежи
       </div>
@@ -175,28 +329,22 @@ export const IPK = ({
           <td className="range-flex">
             <input
               type="range"
-              step={шагСтоимостиЖилья}
-              min={+data1?.первоначальныйВзнос + шагСтоимостиЖилья}
-              max={максимальнаяСтоимостьЖилья}
-              value={data1?.стоимостьЖилья}
-              onInput={e => {
-                calc({ стоимостьЖилья: +e.target.value }, data1, setData1, 'data1')
-                calc({ стоимостьЖилья: +e.target.value }, data2, setData2, 'data2')
-              }}
+              step={стоимостьЖильяШаг}
+              min={стоимостьЖильяМин1}
+              max={стоимостьЖильяМакс}
+              value={стоимостьЖильяЗначение1}
+              onInput={стоимостьЖильяДействие}
             />
             <span className="purple">{ ipkPrettyNumber(data1?.стоимостьЖилья, true) }</span>
           </td>
           <td className="range-flex">
             <input
               type="range"
-              step={шагСтоимостиЖилья}
-              min={+data2?.первоначальныйВзнос + шагСтоимостиЖилья}
-              max={максимальнаяСтоимостьЖилья}
-              value={data2?.стоимостьЖилья}
-              onInput={e => {
-                calc({ стоимостьЖилья: +e.target.value }, data2, setData2, 'data2')
-                calc({ стоимостьЖилья: +e.target.value }, data1, setData1, 'data1')
-              }}
+              step={стоимостьЖильяШаг}
+              min={стоимостьЖильяМин2}
+              max={стоимостьЖильяМакс}
+              value={стоимостьЖильяЗначение2}
+              onInput={стоимостьЖильяДействие}
             />
             <span className="purple">{ ipkPrettyNumber(data2?.стоимостьЖилья, true) }</span>
           </td>
@@ -208,45 +356,37 @@ export const IPK = ({
           <td className="range-flex">
             <input
               type="range"
-              step={шагПервоначальногоВзноса}
-              min={шагПервоначальногоВзноса}
-              max={+data1?.стоимостьЖилья - шагПервоначальногоВзноса}
-              value={data1?.первоначальныйВзнос}
-              onInput={e => {
-                calc({ первоначальныйВзнос: +e.target.value }, data1, setData1, 'data1')
-                calc({ первоначальныйВзнос: +e.target.value }, data2, setData2, 'data2')
-              }}
+              step={первоначальныйВзносШаг}
+              min={первоначальныйВзносШаг}
+              max={первоначальныйВзносМакс1}
+              value={первоначальныйВзносЗначение1}
+              onInput={первоначальныйВзносДействие}
             />
             <span className="purple">
-              { ipkPrettyNumber(data1?.первоначальныйВзнос, true) }
+              { первоначальныйВзносПВ1 }
             </span>
-            <span>
-              <S />
-            </span>
+            <span><S /></span>
             <span className="yellow">
-              { ipkPrettyNumber(data1?.суммаКредита, true) }
+              { первоначальныйВзносСуммаКредита1 }
             </span>
           </td>
           <td className="range-flex">
             <input
               type="range"
-              step={шагПервоначальногоВзноса}
-              min={шагПервоначальногоВзноса}
-              max={+data2?.стоимостьЖилья - шагПервоначальногоВзноса}
-              value={data2?.первоначальныйВзнос}
-              onInput={e => {
-                calc({ первоначальныйВзнос: +e.target.value }, data2, setData2, 'data2')
-                calc({ первоначальныйВзнос: +e.target.value }, data1, setData1, 'data1')
-              }}
+              step={первоначальныйВзносШаг}
+              min={первоначальныйВзносШаг}
+              max={первоначальныйВзносМакс2}
+              value={первоначальныйВзносЗначение2}
+              onInput={первоначальныйВзносДействие}
             />
             <span className="purple">
-              { ipkPrettyNumber(data2?.первоначальныйВзнос, true) }
+              { первоначальныйВзносПВ2 }
             </span>
             <span>
               <S />
             </span>
             <span className="yellow">
-              { ipkPrettyNumber(data2?.суммаКредита, true) }
+              { первоначальныйВзносСуммаКредита2 }
             </span>
           </td>
         </tr>
@@ -257,34 +397,36 @@ export const IPK = ({
           <td className="range-flex">
             <input
               type="range"
-              step={шагКвМ}
-              min={1}
-              max={максКвМ}
-              value={data1?.квМ}
-              onInput={e => {
-                calc({ квМ: +e.target.value }, data1, setData1, 'data1')
-                calc({ квМ: +e.target.value }, data2, setData2, 'data2')
-              }}
+              step={квМШаг}
+              min={квММин}
+              max={квММакс}
+              value={квМЗначение1}
+              onInput={квМДействие}
             />
-            <span className="orange">{ data1?.квМ }</span>
+            <span className="orange">
+              { квМЗначение1 }
+            </span>
             <span><S /></span>
-            <span className="grey">{ ipkPrettyNumber(data1?.стоимостьЖилья / data1?.квМ) }</span>
+            <span className="grey">
+              { квМСтоимостьКМ1 }
+            </span>
           </td>
           <td className="range-flex">
             <input
               type="range"
-              step={шагКвМ}
-              min={1}
-              max={максКвМ}
-              value={data2?.квМ}
-              onInput={e => {
-                calc({ квМ: +e.target.value }, data1, setData1, 'data1')
-                calc({ квМ: +e.target.value }, data2, setData2, 'data2')
-              }}
+              step={квМШаг}
+              min={квММин}
+              max={квММакс}
+              value={квМЗначение2}
+              onInput={квМДействие}
             />
-            <span className="orange">{ data2?.квМ }</span>
+            <span className="orange">
+              { квМЗначение2 }
+            </span>
             <span><S /></span>
-            <span className="grey">{ ipkPrettyNumber(data2?.стоимостьЖилья / data2?.квМ) }</span>
+            <span className="grey">
+              { квМСтоимостьКМ2 }
+            </span>
           </td>
         </tr>
 
@@ -294,37 +436,31 @@ export const IPK = ({
           <td className="range-flex">
             <input
               type="range"
-              step={шагСрокИпотекиЛет}
-              min={шагСрокИпотекиЛет}
-              max={30}
-              value={data1?.срокИпотекиЛет}
-              onInput={e => {
-                calc({ срокИпотекиЛет: +e.target.value }, data1, setData1, 'data1')
-                setI1(0)
-              }}
+              step={срокИпотекиЛетШаг}
+              min={срокИпотекиЛетШаг}
+              max={срокИпотекиЛетМакс}
+              value={срокИпотекиЛетЗначение1}
+              onInput={срокИпотекиЛетДействие1}
             />
             <span>
-              { data1?.срокИпотекиЛет }
+              { срокИпотекиЛетЗначение1 }
               <S />
-              { data1?.срокИпотекиМесяцев }
+              { срокИпотекиМесяцев1 }
             </span>
           </td>
           <td className="range-flex">
             <input
               type="range"
-              step={шагСрокИпотекиЛет}
-              min={шагСрокИпотекиЛет}
-              max={30}
-              value={data2?.срокИпотекиЛет}
-              onInput={e => {
-                calc({ срокИпотекиЛет: +e.target.value }, data2, setData2, 'data2')
-                setI2(0)
-              }}
+              step={срокИпотекиЛетШаг}
+              min={срокИпотекиЛетШаг}
+              max={срокИпотекиЛетМакс}
+              value={срокИпотекиЛетЗначение2}
+              onInput={срокИпотекиЛетДействие2}
             />
             <span>
-              { data2?.срокИпотекиЛет }
+              { срокИпотекиЛетЗначение2 }
               <S />
-              { data2?.срокИпотекиМесяцев }
+              { срокИпотекиМесяцев2 }
             </span>
           </td>
         </tr>
@@ -335,33 +471,27 @@ export const IPK = ({
           <td className="range-flex">
             <input
               type="range"
-              step={шагПроцентнаяСтавкаГодовых}
-              min={шагПроцентнаяСтавкаГодовых}
-              max={15}
-              value={data1?.процентнаяСтавкаГодовых}
-              onInput={e => {
-                calc({ процентнаяСтавкаГодовых: +e.target.value }, data1, setData1, 'data1')
-                setI1(0)
-              }}
+              step={процентнаяСтавкаГодовыхШаг}
+              min={процентнаяСтавкаГодовыхШаг}
+              max={процентнаяСтавкаГодовыхМакс}
+              value={процентнаяСтавкаГодовыхЗначение1}
+              onInput={процентнаяСтавкаГодовыхДействие1}
             />
             <span>
-              { data1?.процентнаяСтавкаГодовых }
+              { процентнаяСтавкаГодовыхЗначение1 }
             </span>
           </td>
           <td className="range-flex">
             <input
               type="range"
-              step={шагПроцентнаяСтавкаГодовых}
-              min={шагПроцентнаяСтавкаГодовых}
-              max={15}
-              value={data2?.процентнаяСтавкаГодовых}
-              onInput={e => {
-                calc({ процентнаяСтавкаГодовых: +e.target.value }, data2, setData2, 'data2')
-                setI1(0)
-              }}
+              step={процентнаяСтавкаГодовыхШаг}
+              min={процентнаяСтавкаГодовыхШаг}
+              max={процентнаяСтавкаГодовыхМакс}
+              value={процентнаяСтавкаГодовыхЗначение2}
+              onInput={процентнаяСтавкаГодовыхДействие2}
             />
             <span>
-              { data2?.процентнаяСтавкаГодовых }
+              { процентнаяСтавкаГодовыхЗначение2 }
             </span>
           </td>
         </tr>
@@ -369,44 +499,45 @@ export const IPK = ({
         {/* br */}
         <B />
 
+        {/* Оплачено */}
         <tr>
           <td>Оплачено</td>
           <td>
-            { ipkPrettyNumber((ipkData1[i1]?.выплаченоПроцентнаяЧасть)) }
-            { +i1 === (ipkData1.length - 1) && ipkPrettyNumber(+ipkData1[i1]?.процентнаяЧасть) !== '0.00' && (<>
-              &nbsp;( { ipkPrettyNumber(+ipkData1[i1]?.процентнаяЧасть) } )
+            { оплаченоВыплаченоПроцентнаяЧасть1 }
+            { +i1 === (ipkData1.length - 1) && оплаченоПроцентнаяЧасть1 !== '0.00' && (<>
+              &nbsp;( { оплаченоПроцентнаяЧасть1 } )
             </>)}
             <S />
-            { ipkPrettyNumber((ipkData1[i1]?.выплаченоОсновнаяЧасть)) }
-            { +i1 === (ipkData1.length - 1) && ipkPrettyNumber(+ipkData1[i1]?.остаточнаяЧасть) !== '0.00' && (<>
-              &nbsp;( { ipkPrettyNumber(+ipkData1[i1]?.остаточнаяЧасть) } )
+            { оплаченоВыплаченоОсновнаяЧасть1 }
+            { +i1 === (ipkData1.length - 1) && оплаченоОстаточнаяЧасть1 !== '0.00' && (<>
+              &nbsp;( { оплаченоОстаточнаяЧасть1 } )
             </>)}
             <hr />
             <span className="red">
-              { i1 > 0 ? ipkPrettyNumber((ipkData1[i1]?.выплаченоПроцентнаяЧасть * 100 / (ipkData1[i1]?.выплаченоПроцентнаяЧасть + ipkData1[i1]?.выплаченоОсновнаяЧасть))) : '0.00' }%
+              { i1 > 0 ? оплаченоВыплаченоПроцентнаяЧастьПроценты1 : '0.00' }%
             </span>
             <S />
             <span className="green">
-              { i1 > 0 ? ipkPrettyNumber((ipkData1[i1]?.выплаченоОсновнаяЧасть * 100 / (ipkData1[i1]?.выплаченоПроцентнаяЧасть + ipkData1[i1]?.выплаченоОсновнаяЧасть))) : '0.00' }%
+              { i1 > 0 ? оплаченоВыплаченоОсновнаяЧастьПроценты1 : '0.00' }%
             </span>
           </td>
           <td>
-            { ipkPrettyNumber(ipkData2[i2]?.выплаченоПроцентнаяЧасть) }
-            { +i2 === (ipkData2.length - 1) && ipkPrettyNumber(+ipkData2[i2]?.процентнаяЧасть) !== '0.00' && (<>
-              &nbsp;( { ipkPrettyNumber(+ipkData2[i2]?.процентнаяЧасть) } )
+            { оплаченоВыплаченоПроцентнаяЧасть2 }
+            { +i2 === (ipkData2.length - 1) && оплаченоПроцентнаяЧасть2 !== '0.00' && (<>
+              &nbsp;( { оплаченоПроцентнаяЧасть2 } )
             </>)}
             <S />
-            { ipkPrettyNumber(ipkData2[i2]?.выплаченоОсновнаяЧасть) }
-            { +i2 === (ipkData2.length - 1) && ipkPrettyNumber(+ipkData2[i2]?.остаточнаяЧасть) !== '0.00' && (<>
-              &nbsp;( { ipkPrettyNumber(+ipkData2[i2]?.остаточнаяЧасть) } )
+            { оплаченоВыплаченоОсновнаяЧасть2 }
+            { +i2 === (ipkData2.length - 1) && оплаченоОстаточнаяЧасть2 !== '0.00' && (<>
+              &nbsp;( { оплаченоОстаточнаяЧасть2 } )
             </>)}
             <hr />
             <span className="red">
-              { i2 > 0 ? ipkPrettyNumber((ipkData2[i2]?.выплаченоПроцентнаяЧасть * 100 / (ipkData2[i2]?.выплаченоПроцентнаяЧасть + ipkData2[i2]?.выплаченоОсновнаяЧасть))) : '0.00' }%
+              { i2 > 0 ? оплаченоВыплаченоПроцентнаяЧастьПроценты2 : '0.00' }%
             </span>
             <S />
             <span className="green">
-              { i2 > 0 ? ipkPrettyNumber((ipkData2[i2]?.выплаченоОсновнаяЧасть * 100 / (ipkData2[i2]?.выплаченоПроцентнаяЧасть + ipkData2[i2]?.выплаченоОсновнаяЧасть))) : '0.00' }%
+              { i2 > 0 ? оплаченоВыплаченоОсновнаяЧастьПроценты2 : '0.00' }%
             </span>
           </td>
         </tr>
@@ -420,11 +551,11 @@ export const IPK = ({
           <td className="range-flex">
             <input
               type="range"
-              step="1"
+              step={номерПлатежаШаг}
               value={i1}
-              min={0}
-              max={ipkData1.length - 1}
-              onInput={e => setI1(e.target.value)}
+              min={номерПлатежаМин}
+              max={номерПлатежаМакс1}
+              onInput={номерПлатежаДействие1}
             />
             <span>{ i1 }</span>
             
@@ -435,37 +566,30 @@ export const IPK = ({
               })}
               type="checkbox"
               checked={visiblePlus1}
-              onChange={() => {
-                setVisiblePlus1(!visiblePlus1)
-                setPlus1(0)
-                setI1(0)
-              }}
+              onChange={номерПлатежаПлюсЧекДействие1}
             />
             {visiblePlus1 && <input
               className="plus-number"
               type="number"
-              min={0}
+              min={номерПлатежаПлюсМин}
               value={plus1}
-              step={1000}
-              onInput={e => {
-                setPlus1(+e.target.value)
-                setI1(0)
-              }}
+              step={номерПлатежаПлюсШаг}
+              onInput={номерПлатежаПлюсДействие1}
             />}
 
             <br />
-            { (i1 * 100 / (ipkData1.length - 1)).toFixed(2) }%
+            { номерПлатежаПроцент1 }%
             <S />
-            {(i1 / 12).toFixed(2)} лет
+            { номерПлатежаЛет1 } лет
           </td>
           <td className="range-flex">
             <input
               type="range"
-              step="1"
+              step={номерПлатежаШаг}
               value={i2}
-              min={0}
-              max={ipkData2.length - 1}
-              onInput={e => setI2(+e.target.value)}
+              min={номерПлатежаМин}
+              max={номерПлатежаМакс2}
+              onInput={номерПлатежаДействие2}
             />
             <span>{ i2 }</span>
 
@@ -476,28 +600,21 @@ export const IPK = ({
               })}
               type="checkbox"
               checked={visiblePlus2}
-              onChange={() => {
-                setVisiblePlus2(!visiblePlus2)
-                setPlus2(0)
-                setI2(0)
-              }}
+              onChange={номерПлатежаПлюсЧекДействие2}
             />
             {visiblePlus2 && <input
               className="plus-number"
               type="number"
-              min={0}
+              min={номерПлатежаПлюсМин}
               value={plus2}
-              step={1000}
-              onInput={e => {
-                setPlus2(+e.target.value)
-                setI2(0)
-              }}
+              step={номерПлатежаПлюсШаг}
+              onInput={номерПлатежаПлюсДействие2}
             />}
 
             <br />
-            { (i2 * 100 / (ipkData2.length - 1)).toFixed(2) }%
+            { номерПлатежаПроцент2 }%
             <S />
-            {(i2 / 12).toFixed(2)} лет
+            { номерПлатежаЛет2 } лет
           </td>
         </tr>
 
@@ -508,25 +625,33 @@ export const IPK = ({
         <tr>
           <td>След. платеж</td>
           <td>
-            <span className="red">{ ipkData1[i1]?.процентнаяЧастьПроценты }%</span>
+            <span className="red">
+              { следПлатежПроцентнаяЧастьПроценты1 }%
+            </span>
             <S />
-            <span className="green">{ ipkData1[i1]?.основнаяЧастьПроценты }%</span>
+            <span className="green">
+              { следПлатежОсновнаяЧастьПроценты1 }%
+            </span>
             <hr />
             <div>
-              { ipkPrettyNumber(ipkData1[i1]?.процентнаяЧасть) }
+              { следПлатежПроцентнаяЧасть1 }
               <S />
-              { ipkPrettyNumber(ipkData1[i1]?.основнаяЧасть) }
+              { следПлатежОсновнаяЧасть1 }
             </div>
           </td>
           <td>
-            <span className="red">{ ipkData2[i2]?.процентнаяЧастьПроценты }%</span>
+            <span className="red">
+              { следПлатежПроцентнаяЧастьПроценты2 }%
+            </span>
             <S />
-            <span className="green">{ ipkData2[i2]?.основнаяЧастьПроценты }%</span>
+            <span className="green">
+              { следПлатежОсновнаяЧастьПроценты2 }%
+            </span>
             <hr />
             <div>
-              { ipkPrettyNumber(ipkData2[i2]?.процентнаяЧасть) }
+              { следПлатежПроцентнаяЧасть2 }
               <S />
-              { ipkPrettyNumber(ipkData2[i2]?.основнаяЧасть) }
+              { следПлатежОсновнаяЧасть2 }
             </div>
           </td>
         </tr>
@@ -599,25 +724,29 @@ export const IPK = ({
         <tr>
           <td>Всего</td>
           <td>
-            { ipkPrettyNumber((+data1?.стоимостьЖилья + +data1?.переплата)) }
+            { всегоОбщаяСуммаВыплаты1 }
+            <S />
+            ( { первоначальныйВзносСуммаКредита1 } &nbsp;|&nbsp; { всегоОбщаяСуммаВыплатыБезПВ1 } )
           </td>
           <td>
-            { ipkPrettyNumber((+data2?.стоимостьЖилья + +data2?.переплата)) }
+            { всегоОбщаяСуммаВыплаты2 }
+            <S />
+            ( { первоначальныйВзносСуммаКредита2 } &nbsp;|&nbsp; { всегоОбщаяСуммаВыплатыБезПВ2 } )
           </td>
         </tr>
 
         {/* Ежемесячная ставка */}
         <tr>
           <td>Ежемесячная ставка</td>
-          <td>{ data1?.ежемесячнаяСтавка }</td>
-          <td>{ data2?.ежемесячнаяСтавка }</td>
+          <td>{ ежемесячнаяСтавка1 }</td>
+          <td>{ ежемесячнаяСтавка2 }</td>
         </tr>
 
         {/* Общая ставка */}
         <tr>
           <td>Общая ставка</td>
-          <td>{ data1?.общаяСтавка }</td>
-          <td>{ data2?.общаяСтавка }</td>
+          <td>{ общаяСтавка1 }</td>
+          <td>{ общаяСтавка2 }</td>
         </tr>
 
       </tbody>

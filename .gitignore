@@ -26,3 +26,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /.vscode/settings.json
+
+/src/components/pages/sandbox/ts/2022
