@@ -40,7 +40,7 @@ export const PaginationBlock = ({
           
           {/* className */}
           <StaffTextPropBlock
-            className="PaginationBlock__right-prop-external-class"
+            className="PaginationBlock__right-prop-class-name"
             title="className"
             type={StaffTextPropBlockType.string}
             action={componentsActions.paginationClassName}

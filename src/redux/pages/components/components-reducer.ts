@@ -3,7 +3,7 @@ import { IComponentsState, EComponentsActionTypes, TComponentsActions } from "./
 
 const initialState: IComponentsState = {
   buttonChildren: 'Button',
-  buttonExternalClass: 'external-class-name',
+  buttonClassName: 'class-name',
   buttonTheme: ButtonProps.theme.green,
   buttonSize: ButtonProps.size.xl,
   buttonType: ButtonProps.type.normal,
@@ -13,7 +13,7 @@ const initialState: IComponentsState = {
   buttonBlock: 'false',
   buttonPending: 'false',
   buttonShowHideCode: 'show',
-  paginationExternalClass: 'external-class-name',
+  paginationClassName: 'class-name',
   paginationShowHideCode: 'show',
 }
 
@@ -24,10 +24,10 @@ export const componentsReducer = (state = initialState, action: TComponentsActio
         ...state,
         buttonChildren: action.payload
       }
-    case EComponentsActionTypes.BUTTON_EXTERNAL_CLASS:
+    case EComponentsActionTypes.BUTTON_CLASS_NAME:
       return {
         ...state,
-        buttonExternalClass: action.payload
+        buttonClassName: action.payload
       }
     case EComponentsActionTypes.BUTTON_THEME:
       return {
@@ -74,10 +74,10 @@ export const componentsReducer = (state = initialState, action: TComponentsActio
         ...state,
         buttonShowHideCode: action.payload
       }
-    case EComponentsActionTypes.PAGINATION_EXTERNAL_CLASS:
+    case EComponentsActionTypes.PAGINATION_CLASS_NAME:
       return {
         ...state,
-        paginationExternalClass: action.payload
+        paginationClassName: action.payload
       }
     case EComponentsActionTypes.PAGINATION_SHOW_HIDE_CODE:
       return {

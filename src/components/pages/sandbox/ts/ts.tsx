@@ -10,11 +10,11 @@ import { ITodo, IUser } from './types'
 import { UserList } from './users-list'
 
 interface TsProps {
-  externalClass?: string
+  className?: string
 }
 
 export const Ts: FC<TsProps> = ({
-  externalClass = ''
+  className = ''
 }) => {
 
   const [users, setUsers] = useState<IUser[]>([])
@@ -45,17 +45,17 @@ export const Ts: FC<TsProps> = ({
 
   return (
     <div className={classNames('Ts', {
-      [externalClass]: externalClass
+      [className]: className
     })}>
       <Card
-        externalClass="Ts__card"
+        className="Ts__card"
         width={1920}  
         height={1080}
         variant={CardVariant.two}
         squared={num => console.log(num, 'x', num, '=', num * num)}
       >
         <Button
-          externalClass="Ts__card-button"
+          className="Ts__card-button"
           active
         >
           Button

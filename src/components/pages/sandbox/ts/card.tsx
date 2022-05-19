@@ -8,7 +8,7 @@ export enum CardVariant {
 }
 
 interface CardProps {
-  externalClass?: string
+  className?: string
   width?: number
   height?: number
   variant?: CardVariant
@@ -16,7 +16,7 @@ interface CardProps {
 }
 
 export const Card: FC<CardProps> = ({
-  externalClass = '',
+  className = '',
   width,
   height,
   variant,
@@ -30,7 +30,7 @@ export const Card: FC<CardProps> = ({
   return (
     <div
       className={classNames('Card', {
-        [externalClass]: externalClass
+        [className]: className
       })}
       onClick={() => {
         squared(a)

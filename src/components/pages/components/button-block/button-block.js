@@ -61,7 +61,7 @@ export const ButtonBlock = ({
           
           {/* className */}
           <StaffTextPropBlock
-            className="ButtonBlock__right-prop-external-class"
+            className="ButtonBlock__right-prop-class-name"
             title="className"
             type={StaffTextPropBlockType.string}
             action={componentsActions.buttonClassName}

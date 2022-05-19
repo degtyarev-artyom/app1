@@ -1,6 +1,6 @@
 export interface IComponentsState {
   buttonChildren: string
-  buttonExternalClass: string
+  buttonClassName: string
   buttonTheme: string
   buttonSize: string
   buttonType: string
@@ -10,13 +10,13 @@ export interface IComponentsState {
   buttonBlock: string | boolean
   buttonPending: string | boolean
   buttonShowHideCode: string
-  paginationExternalClass: string
+  paginationClassName: string
   paginationShowHideCode: string
 }
 
 export enum EComponentsActionTypes {
   BUTTON_CHILDREN = 'BUTTON_CHILDREN',
-  BUTTON_EXTERNAL_CLASS = 'BUTTON_EXTERNAL_CLASS',
+  BUTTON_CLASS_NAME = 'BUTTON_CLASS_NAME',
   BUTTON_THEME = 'BUTTON_THEME',
   BUTTON_SIZE = 'BUTTON_SIZE',
   BUTTON_TYPE = 'BUTTON_TYPE',
@@ -26,7 +26,7 @@ export enum EComponentsActionTypes {
   BUTTON_BLOCK = 'BUTTON_BLOCK',
   BUTTON_PENDING = 'BUTTON_PENDING',
   BUTTON_SHOW_HIDE_CODE = 'BUTTON_SHOW_HIDE_CODE',
-  PAGINATION_EXTERNAL_CLASS = 'PAGINATION_EXTERNAL_CLASS',
+  PAGINATION_CLASS_NAME = 'PAGINATION_CLASS_NAME',
   PAGINATION_SHOW_HIDE_CODE = 'PAGINATION_SHOW_HIDE_CODE'
 }
 
@@ -35,8 +35,8 @@ interface IButtonChildren {
   payload: string
 }
 
-interface IButtonExternalClass {
-  type: EComponentsActionTypes.BUTTON_EXTERNAL_CLASS
+interface IButtonClassName {
+  type: EComponentsActionTypes.BUTTON_CLASS_NAME
   payload: string
 }
 
@@ -85,8 +85,8 @@ interface IButtonShowHideCode {
   payload: string
 }
 
-interface IPaginationExternalClass {
-  type: EComponentsActionTypes.PAGINATION_EXTERNAL_CLASS
+interface IPaginationClassName {
+  type: EComponentsActionTypes.PAGINATION_CLASS_NAME
   payload: string
 }
 
@@ -96,10 +96,10 @@ interface IPaginationShowHideCode {
 }
 
 export type TComponentsActions =
-  IButtonChildren | IButtonExternalClass | IButtonTheme |
+  IButtonChildren | IButtonClassName | IButtonTheme |
   IButtonSize | IButtonType | IButtonFocus |
   IButtonActive | IButtonDisabled | IButtonBlock |
-  IButtonPending | IButtonShowHideCode | IPaginationExternalClass |
+  IButtonPending | IButtonShowHideCode | IPaginationClassName |
   IPaginationShowHideCode
 
 export interface IComponentsActions {
