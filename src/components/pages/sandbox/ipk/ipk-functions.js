@@ -79,6 +79,3 @@ export const ipkGetData = (data, plus = 0) => {
     return obj
   })
 }
-
-
-
