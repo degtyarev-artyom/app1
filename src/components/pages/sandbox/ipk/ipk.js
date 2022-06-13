@@ -286,7 +286,7 @@ export const IPK = ({
   const номерПлатежаПлюсМин = 0
   const номерПлатежаПлюсШаг = 1000
   const остатокЕжемесячныйПлатеж = (value, ежемесячныйПлатеж) => {
-    if (value === 0) {
+    if (value < 0) {
       return 0
     }
     const целаяЧасть = Math.floor(ежемесячныйПлатеж % 1000)
@@ -296,7 +296,9 @@ export const IPK = ({
   const номерПлатежаПлюсДействие1 = e => {
     let value = +e.target.value;
     if (value - plus1 < 0) {
-      value = value - 1000 < 0 ? 0 : value - 1000
+      value -= 1000
+    } else {
+      value = (value === 1000 && plus1 === 0) ? 0 : value
     }
     setPlus1(остатокЕжемесячныйПлатеж(value, +data1.ежемесячныйПлатеж))
     setI1(0)
@@ -304,7 +306,9 @@ export const IPK = ({
   const номерПлатежаПлюсДействие2 = e => {
     let value = +e.target.value;
     if (value - plus2 < 0) {
-      value = value - 1000 < 0 ? 0 : value - 1000
+      value -= 1000
+    } else {
+      value = (value === 1000 && plus2 === 0) ? 0 : value
     }
     setPlus2(остатокЕжемесячныйПлатеж(value, +data2.ежемесячныйПлатеж))
     setI2(0)
@@ -831,21 +835,6 @@ export const IPK = ({
           </td>
         </tr>
         {/* eslint-enable */}
-
-        {/* Всего */}
-        <tr>
-          <td>Всего</td>
-          <td>
-            { всегоОбщаяСуммаВыплаты1 }
-            <S />
-            ( { первоначальныйВзносСуммаКредита1 } &nbsp;|&nbsp; { всегоОбщаяСуммаВыплатыБезПВ1 } )
-          </td>
-          <td>
-            { всегоОбщаяСуммаВыплаты2 }
-            <S />
-            ( { первоначальныйВзносСуммаКредита2 } &nbsp;|&nbsp; { всегоОбщаяСуммаВыплатыБезПВ2 } )
-          </td>
-        </tr>
 
         {/* Ежемесячная ставка */}
         <tr>
