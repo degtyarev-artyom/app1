@@ -601,7 +601,7 @@ export const IPK = ({
             {+i1 === (ipkData1.length - 1) && разницаДопСумма1 !== '0.00' ? (<>
               <S />
               <span className="blue">
-                { разницаДопСумма1 }
+                +{ разницаДопСумма1 }
               </span>
             </>) : (
               <span className="white"></span>
@@ -633,7 +633,7 @@ export const IPK = ({
             {+i2 === (ipkData2.length - 1) && разницаДопСумма2 !== '0.00' ? (<>
               <S />
               <span className="blue">
-                { разницаДопСумма2 }
+                +{ разницаДопСумма2 }
               </span>
             </>) : (
               <span className="white"></span>
