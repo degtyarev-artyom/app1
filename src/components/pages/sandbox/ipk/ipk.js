@@ -816,7 +816,6 @@ export const IPK = ({
             })}>
               { переплатаРазница1 }
             </span>
-            {/* </span> */}
           </td>
           <td>
             <span className="red">
