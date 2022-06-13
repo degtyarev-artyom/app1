@@ -15,11 +15,6 @@ export const IPK = ({
 }) => {
 
   const S = () => <>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</>
-  const B = () => <tr className="tr-br">
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
 
   const стоимостьЖильяМакс = 20000000
   const стоимостьЖильяШаг = 100000
@@ -397,9 +392,9 @@ export const IPK = ({
           </td>
         </tr>
 
-        {/* Мин. процент первоначального взноса */}
+        {/* Мин. проц. перв. взноса */}
         <tr>
-          <td>Мин. процент первоначального взноса</td>
+          <td>Мин. проц. перв. взноса</td>
           <td className="range-flex">
             <input
               type="range"
@@ -510,7 +505,7 @@ export const IPK = ({
 
         {/* Срок ипотеки ( лет | месяцев ) */}
         <tr>
-          <td>Срок ипотеки ( лет | месяцев )</td>
+          <td>Срок ипотеки</td>
           <td className="range-flex">
             <input
               type="range"
@@ -545,7 +540,7 @@ export const IPK = ({
 
         {/* Процентная ставка годовых */}
         <tr>
-          <td>Процентная ставка годовых</td>
+          <td>Проц. ставка годовых</td>
           <td className="range-flex">
             <input
               type="range"
