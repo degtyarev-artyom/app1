@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { getTheme } from 'functions/staff-styling-func'
+import { hsla } from 'functions/staff-styling-hsla-func'
 import { useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { staffSelectors } from 'redux/staff/staff-selectors'
@@ -573,70 +574,76 @@ export const IPK = ({
           </td>
         </tr>
 
-        {/* br */}
-        <B />
-
         {/* Оплачено */}
         <tr>
           <td>Оплачено</td>
           <td>
-            {+i1 === (ipkData1.length - 1) && разницаДопСумма1 !== '0.00' ? (<>
-              <span className="blue">
-                { разницаДопСумма1 }
-              </span>
-            </>) : (
-              <span className="white"></span>
-            )}
-            <hr />
-            { оплаченоВыплаченоПроцентнаяЧасть1 }
-            { +i1 === (ipkData1.length - 1) && оплаченоПроцентнаяЧасть1 !== '0.00' && (<>
-              &nbsp;( { оплаченоПроцентнаяЧасть1 } )
-            </>)}
+            { visiblePlus1 && (
+              <div style={{ margin: '0 0 10px 0' }}>
+                {+i1 === (ipkData1.length - 1) && разницаДопСумма1 !== '0.00' ? (<>
+                  <span className="blue">
+                    { разницаДопСумма1 }
+                  </span>
+                </>) : (
+                  <span className="white"></span>
+                )}
+              </div>
+            ) }
+            <span className={visiblePlus1 ? 'yellow' : ''}>
+              { оплаченоВыплаченоПроцентнаяЧасть1 }
+              { +i1 === (ipkData1.length - 1) && оплаченоПроцентнаяЧасть1 !== '0.00' && (<>
+                &nbsp;( { оплаченоПроцентнаяЧасть1 } )
+              </>)}
+            </span>
             <S />
             { оплаченоВыплаченоОсновнаяЧасть1 }
             { +i1 === (ipkData1.length - 1) && оплаченоОстаточнаяЧасть1 !== '0.00' && (<>
               &nbsp;( { оплаченоОстаточнаяЧасть1 } )
             </>)}
-            <hr />
-            <span className="red">
-              { i1 > 0 ? оплаченоВыплаченоПроцентнаяЧастьПроценты1 : '0.00' }%
-            </span>
-            <S />
-            <span className="green">
-              { i1 > 0 ? оплаченоВыплаченоОсновнаяЧастьПроценты1 : '0.00' }%
-            </span>
+            <div style={{ margin: '10px 0 0 0' }}>
+              <span className="red">
+                { i1 > 0 ? оплаченоВыплаченоПроцентнаяЧастьПроценты1 : '0.00' }%
+              </span>
+              <S />
+              <span className="green">
+                { i1 > 0 ? оплаченоВыплаченоОсновнаяЧастьПроценты1 : '0.00' }%
+              </span>
+            </div>
           </td>
           <td>
-            {+i2 === (ipkData2.length - 1) && разницаДопСумма2 !== '0.00' ? (<>
-              <span className="blue">
-                { разницаДопСумма2 }
-              </span>
-            </>) : (
-              <span className="white"></span>
-            )}
-            <hr />
-            { оплаченоВыплаченоПроцентнаяЧасть2 }
-            { +i2 === (ipkData2.length - 1) && оплаченоПроцентнаяЧасть2 !== '0.00' && (<>
-              &nbsp;( { оплаченоПроцентнаяЧасть2 } )
-            </>)}
+            { visiblePlus2 && (
+              <div style={{ margin: '0 0 10px 0' }}>
+                {+i2 === (ipkData2.length - 1) && разницаДопСумма2 !== '0.00' ? (
+                  <span className="blue">
+                    { разницаДопСумма2 }
+                  </span>
+                ) : (
+                  <span className="white"></span>
+                )}
+              </div>
+            ) }
+            <span className={visiblePlus2 ? 'yellow' : ''}>
+              { оплаченоВыплаченоПроцентнаяЧасть2 }
+              { +i2 === (ipkData2.length - 1) && оплаченоПроцентнаяЧасть2 !== '0.00' && (<>
+                &nbsp;( { оплаченоПроцентнаяЧасть2 } )
+              </>)}
+            </span>
             <S />
             { оплаченоВыплаченоОсновнаяЧасть2 }
             { +i2 === (ipkData2.length - 1) && оплаченоОстаточнаяЧасть2 !== '0.00' && (<>
               &nbsp;( { оплаченоОстаточнаяЧасть2 } )
             </>)}
-            <hr />
-            <span className="red">
-              { i2 > 0 ? оплаченоВыплаченоПроцентнаяЧастьПроценты2 : '0.00' }%
-            </span>
-            <S />
-            <span className="green">
-              { i2 > 0 ? оплаченоВыплаченоОсновнаяЧастьПроценты2 : '0.00' }%
-            </span>
+            <div style={{ margin: '10px 0 0 0' }}>
+              <span className="red">
+                { i2 > 0 ? оплаченоВыплаченоПроцентнаяЧастьПроценты2 : '0.00' }%
+              </span>
+              <S />
+              <span className="green">
+                { i2 > 0 ? оплаченоВыплаченоОсновнаяЧастьПроценты2 : '0.00' }%
+              </span>
+            </div>
           </td>
         </tr>
-
-        {/* br */}
-        <B />
 
         {/* Номер платежа */}
         <tr>
@@ -725,9 +732,6 @@ export const IPK = ({
           </td>
         </tr>
 
-        {/* br */}
-        <B />
-        
         {/* След. платеж */}
         <tr>
           <td>След. платеж</td>
@@ -763,9 +767,6 @@ export const IPK = ({
           </td>
         </tr>
 
-        {/* br */}
-        <B />
-
         {/* eslint-disable */}
         {/* Ежемесячный платеж */}
         <tr>
@@ -790,11 +791,8 @@ export const IPK = ({
           </td>
         </tr>
 
-        {/* br */}
-        <B />
-
         {/* Переплата */}
-        <tr>
+        <tr style={{ backgroundColor: hsla('yellow', 20, 10, 30) }}>
           <td>Переплата</td>
           <td>
             <span className="red">
@@ -823,9 +821,6 @@ export const IPK = ({
           </td>
         </tr>
         {/* eslint-enable */}
-
-        {/* br */}
-        <B />
 
         {/* Всего */}
         <tr>

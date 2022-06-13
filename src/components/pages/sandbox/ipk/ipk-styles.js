@@ -5,6 +5,20 @@ export const staticStyles = css`
   @import 'src/styling/scss/styling-mixins.scss';
 
   .IPK {
+    table {
+      tr {
+
+        td {
+          border-bottom: 1px dashed grey;
+          padding: 10px 0 10px 0;
+
+          &:first-child {
+            width: 200px;
+            padding: 10px 20px 10px 0;
+          }
+        }
+      }
+    }
     &__title {
       background: ${staffColors.orange};
 
