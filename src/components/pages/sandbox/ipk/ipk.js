@@ -285,12 +285,28 @@ export const IPK = ({
   }
   const номерПлатежаПлюсМин = 0
   const номерПлатежаПлюсШаг = 1000
+  const остатокЕжемесячныйПлатеж = (value, ежемесячныйПлатеж) => {
+    if (value === 0) {
+      return 0
+    }
+    const целаяЧасть = Math.floor(ежемесячныйПлатеж % 1000)
+    const дробнаяЧасть = Math.round((ежемесячныйПлатеж % 1) * 100) / 100
+    return value + (1000 - (целаяЧасть + дробнаяЧасть))
+  }
   const номерПлатежаПлюсДействие1 = e => {
-    setPlus1(+e.target.value)
+    let value = +e.target.value;
+    if (value - plus1 < 0) {
+      value = value - 1000 < 0 ? 0 : value - 1000
+    }
+    setPlus1(остатокЕжемесячныйПлатеж(value, +data1.ежемесячныйПлатеж))
     setI1(0)
   }
   const номерПлатежаПлюсДействие2 = e => {
-    setPlus2(+e.target.value)
+    let value = +e.target.value;
+    if (value - plus2 < 0) {
+      value = value - 1000 < 0 ? 0 : value - 1000
+    }
+    setPlus2(остатокЕжемесячныйПлатеж(value, +data2.ежемесячныйПлатеж))
     setI2(0)
   }
   const номерПлатежаПроцент1 = (i1 * 100 / (ipkData1.length - 1)).toFixed(2)
