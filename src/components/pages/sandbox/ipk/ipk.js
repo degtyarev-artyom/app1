@@ -586,17 +586,6 @@ export const IPK = ({
         <tr>
           <td>Оплачено</td>
           <td>
-            { visiblePlus1 && (
-              <div style={{ margin: '0 0 10px 0' }}>
-                {+i1 === (ipkData1.length - 1) && разницаДопСумма1 !== '0.00' ? (<>
-                  <span className="blue">
-                    { разницаДопСумма1 }
-                  </span>
-                </>) : (
-                  <span className="white"></span>
-                )}
-              </div>
-            ) }
             <span className={visiblePlus1 ? 'yellow' : ''}>
               { оплаченоВыплаченоПроцентнаяЧасть1 }
               { +i1 === (ipkData1.length - 1) && оплаченоПроцентнаяЧасть1 !== '0.00' && (<>
@@ -608,6 +597,16 @@ export const IPK = ({
             { +i1 === (ipkData1.length - 1) && оплаченоОстаточнаяЧасть1 !== '0.00' && (<>
               &nbsp;( { оплаченоОстаточнаяЧасть1 } )
             </>)}
+
+            {+i1 === (ipkData1.length - 1) && разницаДопСумма1 !== '0.00' ? (<>
+              <S />
+              <span className="blue">
+                { разницаДопСумма1 }
+              </span>
+            </>) : (
+              <span className="white"></span>
+            )}
+
             <div style={{ margin: '10px 0 0 0' }}>
               <span className="red">
                 { i1 > 0 ? оплаченоВыплаченоПроцентнаяЧастьПроценты1 : '0.00' }%
@@ -619,17 +618,6 @@ export const IPK = ({
             </div>
           </td>
           <td>
-            { visiblePlus2 && (
-              <div style={{ margin: '0 0 10px 0' }}>
-                {+i2 === (ipkData2.length - 1) && разницаДопСумма2 !== '0.00' ? (
-                  <span className="blue">
-                    { разницаДопСумма2 }
-                  </span>
-                ) : (
-                  <span className="white"></span>
-                )}
-              </div>
-            ) }
             <span className={visiblePlus2 ? 'yellow' : ''}>
               { оплаченоВыплаченоПроцентнаяЧасть2 }
               { +i2 === (ipkData2.length - 1) && оплаченоПроцентнаяЧасть2 !== '0.00' && (<>
@@ -641,6 +629,16 @@ export const IPK = ({
             { +i2 === (ipkData2.length - 1) && оплаченоОстаточнаяЧасть2 !== '0.00' && (<>
               &nbsp;( { оплаченоОстаточнаяЧасть2 } )
             </>)}
+
+            {+i2 === (ipkData2.length - 1) && разницаДопСумма2 !== '0.00' ? (<>
+              <S />
+              <span className="blue">
+                { разницаДопСумма2 }
+              </span>
+            </>) : (
+              <span className="white"></span>
+            )}
+
             <div style={{ margin: '10px 0 0 0' }}>
               <span className="red">
                 { i2 > 0 ? оплаченоВыплаченоПроцентнаяЧастьПроценты2 : '0.00' }%
