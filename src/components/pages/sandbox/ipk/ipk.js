@@ -773,7 +773,7 @@ export const IPK = ({
 
         {/* eslint-disable */}
         {/* Ежемесячный платеж */}
-        <tr>
+        <tr style={{ backgroundColor: hsla('green', 20, 10, 15) }}>
           <td>Ежемесячный платеж</td>
           <td>
             <span className={classNames('grey', {
