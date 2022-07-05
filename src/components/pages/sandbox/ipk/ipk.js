@@ -586,7 +586,7 @@ export const IPK = ({
         <tr>
           <td>Оплачено</td>
           <td>
-            <span className={visiblePlus1 ? 'yellow' : ''}>
+            <span className={visiblePlus1 ? 'red' : ''}>
               { оплаченоВыплаченоПроцентнаяЧасть1 }
               { +i1 === (ipkData1.length - 1) && оплаченоПроцентнаяЧасть1 !== '0.00' && (<>
                 &nbsp;( { оплаченоПроцентнаяЧасть1 } )
@@ -618,7 +618,7 @@ export const IPK = ({
             </div>
           </td>
           <td>
-            <span className={visiblePlus2 ? 'yellow' : ''}>
+            <span className={visiblePlus2 ? 'red' : ''}>
               { оплаченоВыплаченоПроцентнаяЧасть2 }
               { +i2 === (ipkData2.length - 1) && оплаченоПроцентнаяЧасть2 !== '0.00' && (<>
                 &nbsp;( { оплаченоПроцентнаяЧасть2 } )
