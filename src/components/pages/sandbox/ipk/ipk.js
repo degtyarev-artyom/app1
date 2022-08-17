@@ -204,7 +204,10 @@ export const IPK = ({
         />
 
         {/* Ежемесячный платеж */}
-        <MonthlyPayment />
+        <MonthlyPayment
+          data1={data1}
+          data2={data2}
+        />
 
         {/* Переплата */}
         <Overpayment

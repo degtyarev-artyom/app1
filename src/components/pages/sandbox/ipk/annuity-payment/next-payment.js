@@ -1,3 +1,4 @@
+import { ipkPrettyNumber } from "../helpers"
 import { S } from "./spacer"
 
 export const NextPayment = ({

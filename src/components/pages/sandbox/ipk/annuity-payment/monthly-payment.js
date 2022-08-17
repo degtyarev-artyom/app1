@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import { hsla } from "functions/staff-styling-hsla-func"
+import { ipkPrettyNumber } from "../helpers"
 
 export const MonthlyPayment = ({
   data1,

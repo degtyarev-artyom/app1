@@ -1,4 +1,4 @@
-import { calc } from "../helpers"
+import { calc, ipkPrettyNumber } from "../helpers"
 
 export const CostHouse = ({
   data1,

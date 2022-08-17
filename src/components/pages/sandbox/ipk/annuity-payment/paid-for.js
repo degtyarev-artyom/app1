@@ -1,3 +1,4 @@
+import { ipkGetData, ipkPrettyNumber } from "../helpers"
 import { S } from "./spacer"
 
 export const PaidFor = ({

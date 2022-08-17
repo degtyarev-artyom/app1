@@ -1,4 +1,4 @@
-import { calc } from "../helpers"
+import { calc, ipkPrettyNumber } from "../helpers"
 import { S } from "./spacer"
 
 export const InitialPayment = ({
